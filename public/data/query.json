@@ -1,0 +1,649 @@
+{
+	"data": [{
+			"id": "sensor-ch4-00001",
+			"type": "传感器-甲烷",
+			"geometry": {
+				"y": 35.6735954,
+				"x": 112.7299103,
+				"z": 716.2,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "传感器-甲烷1",
+				"state": false,
+				"val":0.71
+			}
+		},
+		{
+			"id": "sensor-ch4-00002",
+			"type": "传感器-甲烷",
+			"geometry": {
+				"y": 35.6738000,
+				"x": 112.7298000,
+				"z": 716.98,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "传感器-甲烷2",
+				"state": false,
+				"val":0.76
+			}
+		},
+		{
+			"id": "sensor-ch4-00003",
+			"type": "传感器-甲烷",
+			"geometry": {
+				"y": 35.6745000,
+				"x": 112.7294000,
+				"z": 717.99,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "传感器-甲烷3",
+				"state": false,
+				"val":0.78
+			}
+		},
+		{
+			"id": "sensor-ch4-00004",
+			"type": "传感器-甲烷",
+			"geometry": {
+				"y": 35.6766000,
+				"x": 112.7282000,
+				"z": 713.57,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "甲烷4",
+				"state": false,
+				"val":0.73
+			}
+		},
+		{
+			"id": "sensor-ch4-00005",
+			"type": "传感器-甲烷",
+			"geometry": {
+				"y": 35.6789000,
+				"x": 112.7269000,
+				"z": 714.39,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "甲烷5",
+				"state": false,
+				"val":0.65
+			}
+		},
+		{
+			"id": "sensor-ch4-00006",
+			"type": "传感器-甲烷",
+			"geometry": {
+				"y": 35.6852,
+				"x": 112.7233000,
+				"z": 713.93,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "甲烷6",
+				"state": false,
+				"val":0.78
+			}
+		},
+		{
+			"id": "sensor-ch4-00007",
+			"type": "传感器-甲烷",
+			"geometry": {
+				"y": 35.6771000,
+				"x": 112.7248000,
+				"z": 710.09,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "甲烷7",
+				"state": false,
+				"val":0.46
+			}
+		},
+		{
+			"id": "sensor-ch4-00008",
+			"type": "传感器-甲烷",
+			"geometry": {
+				"y": 35.6743000,
+				"x": 112.7264000,
+				"z": 714.15,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "甲烷8",
+				"state": false,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-ch4-00009",
+			"type": "传感器-甲烷",
+			"geometry": {
+				"y": 35.6651000,
+				"x": 112.7331000,
+				"z": 705.85,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "甲烷9",
+				"state": false,
+				"val":0.44
+			}
+		},
+		{
+			"id": "sensor-ch4-00010",
+			"type": "传感器-甲烷",
+			"geometry": {
+				"y": 35.6607000,
+				"x": 112.7336000,
+				"z": 706.96,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "甲烷10",
+				"state": false,
+				"val":0.58
+			}
+		},
+		{
+			"id": "sensor-ch4-00011",
+			"type": "传感器-甲烷",
+			"geometry": {
+				"y": 35.6741000,
+				"x": 112.7233000,
+				"z": 710.45,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "甲烷11",
+				"state": false,
+				"val":0.69
+			}
+		},
+		{
+			"id": "sensor-ch4-00012",
+			"type": "传感器-甲烷",
+			"geometry": {
+				"y": 35.6864000,
+				"x": 112.7163000,
+				"z": 707.49,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "甲烷12",
+				"state": false,
+				"val":0.772
+			}
+		},
+		{
+			"id": "sensor-ch4-00013",
+			"type": "传感器-甲烷",
+			"geometry": {
+				"y": 35.6703000,
+				"x": 112.7221000,
+				"z": 703.23,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "甲烷13",
+				"state": false,
+				"val":0.60
+			}
+		},
+		{
+			"id": "sensor-ch4-00014",
+			"type": "传感器-甲烷",
+			"geometry": {
+				"y": 35.6640223,
+				"x": 112.7213435,
+				"z": 699.55799,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "甲烷14",
+				"state": false,
+				"val":0.58
+			}
+		},
+		{
+			"id": "sensor-ch4-00015",
+			"type": "传感器-甲烷",
+			"geometry": {
+				"y": 35.6639334,
+				"x": 112.7182900,
+				"z": 697.6466,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "甲烷15",
+				"state": false,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-ch4-00016",
+			"type": "传感器-甲烷",
+			"geometry": {
+				"y": 35.6621796,
+				"x": 112.7192879,
+				"z": 699.0295,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "甲烷16",
+				"state": false,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-ch4-00017",
+			"type": "传感器-甲烷",
+			"geometry": {
+				"y": 35.6579626,
+				"x": 112.7216749,
+				"z": 699.5573,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "甲烷17",
+				"state": false,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-ch4-00018",
+			"type": "传感器-甲烷",
+			"geometry": {
+				"y": 35.6642115,
+				"x": 112.7212318,
+				"z": 820.9268,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "甲烷18",
+				"state": false,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-ch4-00019",
+			"type": "传感器-甲烷",
+			"geometry": {
+				"y": 35.6579093,
+				"x": 112.7248073,
+				"z": 694.2473,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "甲烷19",
+				"state": false,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-ch4-00020",
+			"type": "传感器-甲烷",
+			"geometry": {
+				"y": 35.6528488,
+				"x": 112.7276820,
+				"z": 699.6207,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "甲烷20",
+				"state": false,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-co-00001",
+			"type": "一氧化碳",
+			"geometry": {
+				"y": 35.6603983,
+				"x": 112.7236443,
+				"z": 704.1746,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "一氧化碳1",
+				"state": false,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-co-00002",
+			"type": "一氧化碳",
+			"geometry": {
+				"y": 35.6660224,
+				"x": 112.7226370,
+				"z": 701.8463,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "一氧化碳2",
+				"state": true,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-co-00003",
+			"type": "一氧化碳",
+			"geometry": {
+				"y": 35.6628868,
+				"x": 112.7279254,
+				"z": 701.0919,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "一氧化碳3",
+				"state": false,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-co-00004",
+			"type": "一氧化碳",
+			"geometry": {
+				"y": 35.6612243,
+				"x": 112.7288673,
+				"z": 700.6423,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "一氧化碳4",
+				"state": true,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-co-00005",
+			"type": "一氧化碳",
+			"geometry": {
+				"y": 35.6531212,
+				"x": 112.7334601,
+				"z": 705.8375,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "一氧化碳5",
+				"state": false,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-co-00006",
+			"type": "一氧化碳",
+			"geometry": {
+				"y": 35.6655437,
+				"x": 112.7301587,
+				"z": 701.1878,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "一氧化碳6",
+				"state": true,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-co-00007",
+			"type": "一氧化碳",
+			"geometry": {
+				"y": 35.6624796,
+				"x": 112.7321746,
+				"z": 703.4553,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "一氧化碳7",
+				"state": true,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-co-00008",
+			"type": "一氧化碳",
+			"geometry": {
+				"y": 35.6643195,
+				"x": 112.7140399,
+				"z": 696.9056,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "一氧化碳8",
+				"state": true,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-co-00009",
+			"type": "一氧化碳",
+			"geometry": {
+				"y": 35.6656034,
+				"x": 112.7133090,
+				"z": 698.3969,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "一氧化碳9",
+				"state": false,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-co-00010",
+			"type": "一氧化碳",
+			"geometry": {
+				"y": 35.6638200,
+				"x": 112.7367000,
+				"z": 710.79,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "一氧化碳10",
+				"state": false,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-co-00011",
+			"type": "一氧化碳",
+			"geometry": {
+				"y": 35.6770687,
+				"x": 112.7068015,
+				"z": 694.6655,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "一氧化碳11",
+				"state": false,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-co-00012",
+			"type": "一氧化碳",
+			"geometry": {
+				"y": 35.6807145,
+				"x": 112.7047361,
+				"z": 694.2179,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "一氧化碳12",
+				"state": false,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-co-00013",
+			"type": "一氧化碳",
+			"geometry": {
+				"y": 35.6803732,
+				"x": 112.7076645,
+				"z": 698.8048,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "一氧化碳13",
+				"state": true,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-co-00014",
+			"type": "一氧化碳",
+			"geometry": {
+				"y": 35.6727616,
+				"x": 112.7119883,
+				"z": 698.3706,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "一氧化碳14",
+				"state": true,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-co-00015",
+			"type": "一氧化碳",
+			"geometry": {
+				"y": 35.6832459,
+				"x": 112.7123039,
+				"z": 704.1904,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "一氧化碳15",
+				"state": true,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-co-00016",
+			"type": "一氧化碳",
+			"geometry": {
+				"y": 35.6816074,
+				"x": 112.7156743,
+				"z": 706.0747,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "一氧化碳16",
+				"state": true,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-co-00017",
+			"type": "一氧化碳",
+			"geometry": {
+				"y": 35.6786711,
+				"x": 112.7173328,
+				"z": 705.0465,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "一氧化碳17",
+				"state": true,
+				"val":0.79
+			}
+		},
+		{
+			"id": "sensor-co-00018",
+			"type": "一氧化碳",
+			"geometry": {
+				"y": 35.6729096,
+				"x": 112.7178056,
+				"z": 700.5808,
+				"heading": -120,
+				"pitch": 0,
+				"roll": 0
+			},
+			"property": {
+				"name": "一氧化碳",
+				"state": true,
+				"val":0.79
+			}
+		}
+	]
+}

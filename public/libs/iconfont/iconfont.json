@@ -1,0 +1,163 @@
+{
+  "id": "2430153",
+  "name": "cesium-vue",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8191044",
+      "name": "鹰眼图",
+      "font_class": "yingyantu",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "10036862",
+      "name": "通讯录",
+      "font_class": "tongxunlu",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "18672421",
+      "name": "消 息",
+      "font_class": "xiaoxi",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "19815683",
+      "name": "指北针",
+      "font_class": "zhibeizhen",
+      "unicode": "e667",
+      "unicode_decimal": 58983
+    },
+    {
+      "icon_id": "23454632",
+      "name": "图例",
+      "font_class": "tuli",
+      "unicode": "e679",
+      "unicode_decimal": 59001
+    },
+    {
+      "icon_id": "15270164",
+      "name": "关 闭",
+      "font_class": "guanbi1",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "13776043",
+      "name": "搜索",
+      "font_class": "tubiao-",
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    },
+    {
+      "icon_id": "9960706",
+      "name": "iconfont图标_日照",
+      "font_class": "iconfonttubiao_rizhao",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "9960699",
+      "name": "iconfont图标_通视分析",
+      "font_class": "iconfonttubiao_tongshifenxi",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "1344193",
+      "name": "飞行漫游",
+      "font_class": "icon-feixingmanyou",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "7580288",
+      "name": "漫游",
+      "font_class": "manyou",
+      "unicode": "e7e0",
+      "unicode_decimal": 59360
+    },
+    {
+      "icon_id": "13614083",
+      "name": "状态",
+      "font_class": "zhuangtai",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "19689760",
+      "name": "定 位",
+      "font_class": "dingwei_huaban1",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "6204091",
+      "name": "关  闭",
+      "font_class": "guanbi",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "4988154",
+      "name": "图层",
+      "font_class": "tuceng",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "7466503",
+      "name": "全景拍照，相机，拍照",
+      "font_class": "huabanfuben",
+      "unicode": "e693",
+      "unicode_decimal": 59027
+    },
+    {
+      "icon_id": "8288876",
+      "name": "视频",
+      "font_class": "shipin",
+      "unicode": "e853",
+      "unicode_decimal": 59475
+    },
+    {
+      "icon_id": "7208717",
+      "name": "书签",
+      "font_class": "shuqian",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "13765019",
+      "name": "标注",
+      "font_class": "biaozhu1",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "429669",
+      "name": "点查询",
+      "font_class": "dianchaxun",
+      "unicode": "e896",
+      "unicode_decimal": 59542
+    },
+    {
+      "icon_id": "10140634",
+      "name": "图层列表",
+      "font_class": "tucengliebiao",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "13227145",
+      "name": "量测",
+      "font_class": "liangce",
+      "unicode": "e887",
+      "unicode_decimal": 59527
+    }
+  ]
+}
