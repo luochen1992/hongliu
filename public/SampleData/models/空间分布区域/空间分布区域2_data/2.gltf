@@ -1,0 +1,115 @@
+{
+  "accessors": [
+    {
+      "name": "Group__Geometry_0-Mesh_positions",
+      "componentType": 5126,
+      "count": 84,
+      "min": [
+        331.5780029296875,
+        -1367.280029296875,
+        -55
+      ],
+      "max": [
+        507.739013671875,
+        -1107.1600341796875,
+        -50
+      ],
+      "type": "VEC3",
+      "bufferView": 0,
+      "byteOffset": 0
+    },
+    {
+      "name": "Group__Geometry_0-Mesh_0_indices",
+      "componentType": 5123,
+      "count": 84,
+      "min": [
+        0
+      ],
+      "max": [
+        83
+      ],
+      "type": "SCALAR",
+      "bufferView": 1,
+      "byteOffset": 0
+    }
+  ],
+  "asset": {
+    "generator": "obj2gltf",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "name": "2",
+      "byteLength": 1176,
+      "uri": "data:application/octet-stream;base64,/MmlQzOzjsQAAEjCnDTKQ5rxm8QAAEjCnDTKQ5rxm8QAAFzC/MmlQzOzjsQAAEjCnDTKQ5rxm8QAAFzC/MmlQzOzjsQAAFzCnDTKQ5rxm8QAAEjCHXrqQ9fDpcQAAEjCHXrqQ9fDpcQAAFzCnDTKQ5rxm8QAAEjCHXrqQ9fDpcQAAFzCnDTKQ5rxm8QAAFzCHXrqQ9fDpcQAAEjCRrb8Q/boqsQAAEjCRrb8Q/boqsQAAFzCHXrqQ9fDpcQAAEjCRrb8Q/boqsQAAFzCHXrqQ9fDpcQAAFzCRrb8Q/boqsQAAEjCmN79Qz3amsQAAEjCmN79Qz3amsQAAFzCRrb8Q/boqsQAAEjCmN79Qz3amsQAAFzCRrb8Q/boqsQAAFzCmN79Qz3amsQAAEjC12PRQx9lisQAAEjC12PRQx9lisQAAFzCmN79Qz3amsQAAEjC12PRQx9lisQAAFzCmN79Qz3amsQAAFzC12PRQx9lisQAAEjCVg7YQymcl8QAAEjCVg7YQymcl8QAAFzC12PRQx9lisQAAEjCVg7YQymcl8QAAFzC12PRQx9lisQAAFzCVg7YQymcl8QAAEjC23ncQ+EyncQAAEjC23ncQ+EyncQAAFzCVg7YQymcl8QAAEjC23ncQ+EyncQAAFzCVg7YQymcl8QAAFzC23ncQ+EyncQAAEjC/MmlQzOzjsQAAEjC/MmlQzOzjsQAAFzC23ncQ+EyncQAAEjC/MmlQzOzjsQAAFzC23ncQ+EyncQAAFzC23ncQ+EyncQAAEjC/MmlQzOzjsQAAEjCnDTKQ5rxm8QAAEjCVg7YQymcl8QAAEjCmN79Qz3amsQAAEjC12PRQx9lisQAAEjCHXrqQ9fDpcQAAEjCRrb8Q/boqsQAAEjCmN79Qz3amsQAAEjC23ncQ+EyncQAAEjCmN79Qz3amsQAAEjCVg7YQymcl8QAAEjCmN79Qz3amsQAAEjC23ncQ+EyncQAAEjCHXrqQ9fDpcQAAEjCHXrqQ9fDpcQAAEjC23ncQ+EyncQAAEjCnDTKQ5rxm8QAAEjC23ncQ+EyncQAAFzC/MmlQzOzjsQAAFzCnDTKQ5rxm8QAAFzCVg7YQymcl8QAAFzCmN79Qz3amsQAAFzC12PRQx9lisQAAFzCHXrqQ9fDpcQAAFzCRrb8Q/boqsQAAFzCmN79Qz3amsQAAFzC23ncQ+EyncQAAFzCmN79Qz3amsQAAFzCVg7YQymcl8QAAFzCmN79Qz3amsQAAFzC23ncQ+EyncQAAFzCHXrqQ9fDpcQAAFzCHXrqQ9fDpcQAAFzC23ncQ+EyncQAAFzCnDTKQ5rxm8QAAFzCAAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcAGAAZABoAGwAcAB0AHgAfACAAIQAiACMAJAAlACYAJwAoACkAKgArACwALQAuAC8AMAAxADIAMwA0ADUANgA3ADgAOQA6ADsAPAA9AD4APwBAAEEAQgBDAEQARQBGAEcASABJAEoASwBMAE0ATgBPAFAAUQBSAFMA"
+    }
+  ],
+  "bufferViews": [
+    {
+      "name": "bufferView_0",
+      "buffer": 0,
+      "byteLength": 1008,
+      "byteOffset": 0,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "name": "bufferView_1",
+      "buffer": 0,
+      "byteLength": 168,
+      "byteOffset": 1008,
+      "target": 34963
+    }
+  ],
+  "materials": [
+    {
+      "name": "material_1",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      },
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "doubleSided": false
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Group__Geometry_0-Mesh",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0
+          },
+          "indices": 1,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "name": "Group__Geometry_0",
+      "mesh": 0
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}

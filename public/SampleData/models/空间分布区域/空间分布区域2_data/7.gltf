@@ -1,0 +1,115 @@
+{
+  "accessors": [
+    {
+      "name": "Group__Geometry_0-Mesh_positions",
+      "componentType": 5126,
+      "count": 12,
+      "min": [
+        -2684.35009765625,
+        -954.8740234375,
+        -55
+      ],
+      "max": [
+        -1527.52001953125,
+        208.3699951171875,
+        -50
+      ],
+      "type": "VEC3",
+      "bufferView": 0,
+      "byteOffset": 0
+    },
+    {
+      "name": "Group__Geometry_0-Mesh_0_indices",
+      "componentType": 5123,
+      "count": 12,
+      "min": [
+        0
+      ],
+      "max": [
+        11
+      ],
+      "type": "SCALAR",
+      "bufferView": 1,
+      "byteOffset": 0
+    }
+  ],
+  "asset": {
+    "generator": "obj2gltf",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "name": "7",
+      "byteLength": 168,
+      "uri": "data:application/octet-stream;base64,pPC+xPC3bsQAAEjCmsUnxbheUEMAAEjCmsUnxbheUEMAAFzCpPC+xPC3bsQAAEjCmsUnxbheUEMAAFzCpPC+xPC3bsQAAFzCmsUnxbheUEMAAEjCpPC+xPC3bsQAAEjCpPC+xPC3bsQAAFzCmsUnxbheUEMAAEjCpPC+xPC3bsQAAFzCmsUnxbheUEMAAFzCAAABAAIAAwAEAAUABgAHAAgACQAKAAsA"
+    }
+  ],
+  "bufferViews": [
+    {
+      "name": "bufferView_0",
+      "buffer": 0,
+      "byteLength": 144,
+      "byteOffset": 0,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "name": "bufferView_1",
+      "buffer": 0,
+      "byteLength": 24,
+      "byteOffset": 144,
+      "target": 34963
+    }
+  ],
+  "materials": [
+    {
+      "name": "material_1",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      },
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "doubleSided": false
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Group__Geometry_0-Mesh",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0
+          },
+          "indices": 1,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "name": "Group__Geometry_0",
+      "mesh": 0
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}
