@@ -1659,7 +1659,7 @@ export default {
       setTimeout(() => {
         backgroundEntity.show = true
       }, 2000)
-      // 注释掉添加模型代码
+      //注释掉添加模型代码
       /*
       debugger
       const scene = window.viewer.scene
