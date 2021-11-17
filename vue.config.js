@@ -17,13 +17,13 @@ module.exports = {
                     '^/api': '/4v7q56U186a9d6737982ef8ff2aea16413f736d615fe47e/api'
                 }
             },
-            '/SampleData': {
-                target: 'http://10.10.22.22:8080/coal/',
-                changeOrigin: true,
-                pathRewrite: {
-                    '^/SampleData': '/SampleData'
-                }
-            }
+            // '/SampleData': {
+            //     target: 'http://10.10.22.22:8080/coal/',
+            //     changeOrigin: true,
+            //     pathRewrite: {
+            //         '^/SampleData': '/SampleData'
+            //     }
+            // }
         }
     },
     configureWebpack: (config) => {

@@ -5,7 +5,7 @@
         <div class="logobox">
           <div class="logo"></div>
         </div>
-        <div class="logotitle">三维一张图集中监测平台</div>
+        <div class="logotitle">灾害防治三维一张图平台</div>
       </div>
       <div class="header-right"></div>
       <div class="time">
@@ -877,21 +877,21 @@ export default {
       var camera = viewer.scene.camera
       // 煤矿处相机位置和飞行时间
       var mineBoundaryLocation = {
-        destination: new Cesium.Cartesian3.fromDegrees(112.67172171079548, 35.672663054173455, 18171),
+        destination: new Cesium.Cartesian3.fromDegrees(110.3483829, 38.9336651, 36073.2938),
         duration: 3
       }
       var wangpoLocation = {
-        destination: new Cesium.Cartesian3.fromDegrees(112.69448192809604, 35.61802095703527, 5005.299),
+        destination: new Cesium.Cartesian3.fromDegrees(110.3483829, 38.9336651, 11557.6067),
         orientation: {
-          heading: 6.223585370236905,
-          pitch: -0.6518620997804505,
-          roll: 6.28294670516717
+          //  heading: 6.232343055422288,
+          //  pitch: 0.9074077733454442,
+          //  roll: 0
         },
         duration: 3
       }
-      // 山西省处相机位置和飞行时间
+      // 陕西省处相机位置和飞行时间
       var shanxiLocation = {
-        destination: new Cesium.Cartesian3(-2511763.268368041, 5975905.814027544, 4902661.932720381),
+        destination: new Cesium.Cartesian3.fromDegrees(108.8230868, 34.4348415, 1934213.0584),
         duration: 2
       }
       // 添加中国边界
@@ -911,14 +911,14 @@ export default {
         //   roll: 0.0
         // }
       })
-      // 飞行至山西省
+      // 飞行至陕西省
       var animate1 = setTimeout(function() {
         camera.flyTo(shanxiLocation)
         clearTimeout(animate1) // 停止动画
-      }, 2000)
-      // 飞行至山西省处显示、 移除边界和山西字样，再飞行至煤矿
+      }, 5000)
+      // 飞行至陕西省处显示、 移除边界和陕西字样，再飞行至煤矿
       shanxiLocation.complete = function() {
-        // 添加山西省省界
+        // 添加陕西省省界
         var shanxiBoundaryJsonData = Cesium.GeoJsonDataSource.load('./SampleData/Boundary/shanxiBoundary.json', {
           stroke: Cesium.Color.MIDNIGHTBLUE,
           fill: Cesium.Color.NAVY.withAlpha(0.5),
@@ -926,11 +926,11 @@ export default {
           clampToGround: true
         })
         viewer.dataSources.add(shanxiBoundaryJsonData)
-        // 添加山西字样
+        // 添加陕西字样
         viewer.entities.add({
-          position: Cesium.Cartesian3.fromDegrees(112.3, 38.05, 5000),
+          position: Cesium.Cartesian3.fromDegrees(108.948024, 34.263161, 50000),
           label: {
-            text: '山西',
+            text: '陕西',
             font: '24px Helvetica',
             fillColor: Cesium.Color.WHITE,
             outlineColor: Cesium.Color.WHITE,
@@ -947,7 +947,7 @@ export default {
             chinaBoundaryJsonDataSource = res
           })
           viewer.dataSources.remove(chinaBoundaryJsonDataSource)
-          // 移除山西边界geojson数据
+          // 移除陕西边界geojson数据
           shanxiBoundaryJsonData.then(res => {
             shanxiBoundaryJsonDataSource = res
           })
@@ -972,7 +972,7 @@ export default {
         viewer.dataSources.add(mineBoundaryJsonData)
         // 添加地名字样
         viewer.entities.add({
-          position: new Cesium.Cartesian3.fromDegrees(112.67576971079548, 35.679663054173455, 7500),
+          position: new Cesium.Cartesian3.fromDegrees(110.3483829, 38.9336651, 10240.07),
           billboard: {
             show: true, // default
             image: 'img/wangpoLogo.png',
@@ -983,9 +983,9 @@ export default {
           }
         })
         viewer.entities.add({
-          position: new Cesium.Cartesian3.fromDegrees(112.67576971079548, 35.679663054173455, 7000),
+          position: new Cesium.Cartesian3.fromDegrees(110.3483829, 38.9336651, 10240.07),
           label: {
-            text: '天地王坡',
+            text: '陕煤红柳林',
             font: '35px Helvetica',
             scale: 1,
             fillColor: Cesium.Color.WHITE,
@@ -1253,7 +1253,7 @@ export default {
         //   pixelSize: 10 //像素点大小
         // },
         label: {
-          text: ' 王坡监控中心',
+          text: ' 工业广场',
           font: '14pt Source Han Sans CN', // 字体样式
           fillColor: Cesium.Color.BLACK, // 字体颜色
           backgroundColor: Cesium.Color.AQUA, // 背景颜色
@@ -1272,9 +1272,9 @@ export default {
       for (var i = 0; i < pnts.length; i += 3) {
         var placeName = ''
         if (i == 0) {
-          placeName = '塔里风井'
+          placeName = '风井'
         } else if (i == 3) {
-          placeName = '上寺头风井'
+          placeName = '风井'
         }
         var entity2 = viewer.entities.add({
           position: Cesium.Cartesian3.fromDegrees(pnts[i], pnts[i + 1], pnts[i + 2]),
