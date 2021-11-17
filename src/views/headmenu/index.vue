@@ -2,7 +2,7 @@
   <div class="headmenu">
     <div class="hmenu">
       <el-menu mode="horizontal" :show-timeout="30" :hide-timeout="30" background-color="transparent" text-color="#fff" active-text-color="#409eff" :default-active="activeIndex" style="overflow-x: auto" @select="handleSelect">
-        <NavMenu :navMenus="menus" style="width: 1080px; overflow-x: auto"></NavMenu>
+        <NavMenu :navMenus="menus" style="width: 1280px; overflow-x: auto"></NavMenu>
       </el-menu>
     </div>
     <rescueteam v-show="selmenu === 1" :rescueteamdata="rescueteamdata"></rescueteam>

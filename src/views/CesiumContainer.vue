@@ -142,7 +142,29 @@ export default {
         {
           name: '机电运输',
           id: 'fusionlinkage',
-          img: 'img/cicular/机电运输.png'
+          img: 'img/cicular/机电运输.png',
+           children: [
+            {
+              name: '电力系统',
+              id: 'electricalSystem',
+              img: 'img/cicular/电耗.png'
+            },
+            {
+              name: '排水系统',
+              id: 'drainageSystem',
+              img: 'img/cicular/排水系统.png'
+            },
+            {
+              name: '运输系统',
+              id: 'transportationSystem',
+              img: 'img/cicular/运输系统.png'
+            },
+            {
+              name: '通风系统',
+              id: 'ventilationSystem',
+              img: 'img/cicular/通风系统.png'
+            }
+          ]
         },
         {
           name: '一通三防',
@@ -168,6 +190,21 @@ export default {
               name: '瓦斯避灾路线',
               id: 'gasroute',
               img: 'img/cicular/瓦斯.png'
+            },
+            {
+              name: '硐室避灾路线',
+              id: 'chamberroute',
+              img: 'img/cicular/硐室.png'
+            },
+            {
+              name: '顶板避灾路线',
+              id: 'roofroute',
+              img: 'img/cicular/顶板.png'
+            },
+            {
+              name: '煤尘避灾路线',
+              id: 'coaldustroute',
+              img: 'img/cicular/煤尘.png'
             }
           ]
         },
@@ -185,6 +222,87 @@ export default {
               name: '安全监控一张图',
               id: 'jiankongsite',
               img: 'img/cicular/安全监控.png'
+            },
+            {
+              name: '工业视频一张图',
+              id: 'shipinsite',
+              img: 'img/cicular/工业视频.png'
+            },
+            {
+              name: '水文监测一张图',
+              id: 'shuiwensite',
+              img: 'img/cicular/水文监测.png'
+            },
+            {
+              name: '瓦斯巡检一张图',
+              id: 'wasisite',
+              img: 'img/cicular/瓦斯巡检.png'
+            },
+            {
+              name: '智能通风一张图',
+              id: 'tongfengsite',
+              img: 'img/cicular/智能通风.png'
+            },
+            {
+              name: '束管监测一张图',
+              id: 'shuguansite',
+              img: 'img/cicular/束管监测.png'
+            },
+            {
+              name: '光纤测温一张图',
+              id: 'guangxiansite',
+              img: 'img/cicular/光纤测温.png'
+            },
+            {
+              name: '顶板监测一张图',
+              id: 'dingbansite',
+              img: 'img/cicular/顶板监测.png'
+            },
+            {
+              name: '粉尘监测一张图',
+              id: 'fenchensite',
+              img: 'img/cicular/粉尘监测.png'
+            },
+            {
+              name: '应急广播一张图',
+              id: 'yingjisite',
+              img: 'img/cicular/应急广播.png'
+            },
+            {
+              name: '调度通讯一张图',
+              id: 'diaodusite',
+              img: 'img/cicular/调度通讯.png'
+            }
+          ]
+        }, {
+          name: '灾害专题',
+          id: 'mining',
+          img: 'img/cicular/灾害专题.png',
+          children: [
+            {
+              name: '水灾专题图',
+              id: 'watertheme',
+              img: 'img/cicular/水灾.png'
+            },
+            {
+              name: '火灾专题图',
+              id: 'firetheme',
+              img: 'img/cicular/火灾.png'
+            },
+            {
+              name: '瓦斯专题图',
+              id: 'gastheme',
+              img: 'img/cicular/瓦斯.png'
+            },
+            {
+              name: '顶板专题图',
+              id: 'rooftheme',
+              img: 'img/cicular/顶板.png'
+            },
+            {
+              name: '煤尘专题图',
+              id: 'coaldusttheme',
+              img: 'img/cicular/煤尘.png'
             }
           ]
         },
@@ -197,185 +315,70 @@ export default {
               name: '救援队伍',
               id: 'rescueteam',
               img: 'img/cicular/救援队伍.png' //,
-              // children: [
-              //   {
-              //     name: '全选',
-              //     id: 'rescueTeam1',
-              //     type: 't3',
-              //     img: 'img/cicular/1.png'
-              //   },
-              //   {
-              //     name: '应急救援指挥部',
-              //     id: 'emergencyRescueHeadquarters',
-              //     type: 't2',
-              //     img: 'img/cicular/1.png'
-              //   },
-              //   {
-              //     name: '抢险救援组',
-              //     id: 'rescueTeam2',
-              //     type: 't2',
-              //     img: 'img/cicular/1.png'
-              //   },
-              //   {
-              //     name: '专家技术组',
-              //     id: 'rescueTeam3',
-              //     type: 't2',
-              //     img: 'img/cicular/1.png'
-              //   },
-              //   {
-              //     name: '医疗救护组',
-              //     id: 'rescueTeam4',
-              //     type: 't2',
-              //     img: 'img/cicular/1.png'
-              //   },
-              //   {
-              //     name: '物资供应组',
-              //     id: 'rescueTeam5',
-              //     type: 't2',
-              //     img: 'img/cicular/1.png'
-              //   },
-              //   {
-              //     name: '安全保卫组',
-              //     id: 'rescueTeam6',
-              //     type: 't2',
-              //     img: 'img/cicular/1.png'
-              //   },
-              //   {
-              //     name: '后勤保障组',
-              //     id: 'rescueTeam7',
-              //     type: 't2',
-              //     img: 'img/cicular/1.png'
-              //   },
-              //   {
-              //     name: '安全监察组',
-              //     id: 'rescueTeam8',
-              //     type: 't2',
-              //     img: 'img/cicular/1.png'
-              //   },
-              //   {
-              //     name: '善后处理组',
-              //     id: 'rescueTeam9',
-              //     type: 't2',
-              //     img: 'img/cicular/1.png'
-              //   },
-              //   {
-              //     name: '信息发布组',
-              //     id: 'rescueTeam10',
-              //     type: 't2',
-              //     img: 'img/cicular/1.png'
-              //   }
-              // ]
             },
             {
               name: '救援物资',
               id: 'reliefGoods',
-              img: 'img/cicular/救援物资.png',
-              children: [
-                {
-                  name: '物资台账',
-                  id: 'materialParameter',
-                  type: 't1',
-                  img: 'img/cicular/物资台账.png'
-                },
-                {
-                  name: '物资分布',
-                  id: 'reliefGoods2',
-                  type: 't1',
-                  img: 'img/cicular/物资分布.png'
-                }
-              ]
+              img: 'img/cicular/救援物资.png'
             },
-            /* {
-              name: '避灾路线',
-              id: 'iiii',
-              img: 'img/cicular/1.png',
-              children: [
-                {
-                  name: '火灾避灾路线',
-                  id: 'fireroute',
-                  type: 't1',
-                  img: 'img/cicular/1.png'
-                },
-                {
-                  name: '水灾避灾路线',
-                  id: 'waterroute',
-                  type: 't1',
-                  img: 'img/cicular/1.png'
-                },
-                {
-                  name: '瓦斯避灾路线',
-                  id: 'gasroute',
-                  type: 't1',
-                  img: 'img/cicular/1.png'
-                }
-              ]
-            }, */
             {
-              name: '灾害模型仿真',
+              name: '预案演练',
               id: 'disasterSimulation',
-              img: 'img/cicular/应急路线.png',
+              img: 'img/cicular/预案演练.png',
               children: [
                 {
-                  name: '火灾模拟仿真',
-                  id: 'fireroute2',
+                  name: '火灾模拟演练',
+                  id: 'firesimulation',
                   type: 't1',
                   img: 'img/cicular/火灾模拟.png'
                 },
                 {
-                  name: '水灾模拟仿真',
-                  id: 'waterroute2',
+                  name: '水灾模拟演练',
+                  id: 'watersimulation',
                   type: 't1',
                   img: 'img/cicular/水灾模拟.png'
                 },
                 {
-                  name: '瓦斯模拟仿真',
-                  id: 'gasroute2',
+                  name: '瓦斯模拟演练',
+                  id: 'gassimulation',
                   type: 't1',
                   img: 'img/cicular/瓦斯模拟.png'
+                },
+                {
+                  name: '顶板模拟演练',
+                  id: 'roofsimulation',
+                  type: 't1',
+                  img: 'img/cicular/顶板模拟.png'
+                },
+                {
+                  name: '煤尘模拟演练',
+                  id: 'coaldustsimulation',
+                  type: 't1',
+                  img: 'img/cicular/煤尘模拟.png'
                 }
               ]
             }
           ]
         },
         {
-          name: '专题动画',
+          name: '单兵互联',
           id: 'technology',
-          img: 'img/cicular/专题动画.png',
+          img: 'img/cicular/单兵互联.png',
           children: [
             {
-              name: '洗煤厂工艺',
-              id: 'coalAnimation',
-              img: 'img/cicular/洗煤厂工艺.png'
+              name: '智能矿灯',
+              id: 'minelamp',
+              img: 'img/cicular/智能矿灯.png'
             },
             {
-              name: '运料',
-              id: 'materialsflow',
-              img: 'img/cicular/运料.png'
+              name: '井下手机',
+              id: 'mobilephone',
+              img: 'img/cicular/井下手机.png'
             },
             {
-              name: '车流',
-              id: 'carflow',
-              img: 'img/cicular/车流.png'
-            },
-            {
-              name: '电耗',
-              id: 'electricityflow',
-              img: 'img/cicular/电耗.png'
-            },
-            {
-              name: '矿压',
-              id: 'technology3',
-              img: 'img/cicular/矿压.png'
-            },
-            {
-              name: '瓦斯',
-              id: 'technology4',
-              img: 'img/cicular/瓦斯动画.png'
-            },
-            {
-              name: '煤流',
-              id: 'coalflow',
-              img: 'img/cicular/煤流.png'
+              name: '人员定位卡',
+              id: 'personcard',
+              img: 'img/cicular/人员定位卡.png'
             }
           ]
         }

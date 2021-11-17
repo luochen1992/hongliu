@@ -7,7 +7,7 @@
                     :data="navMenu"
                     :index="navMenu.id + '_' + key">
         <el-image v-if="navMenu.img"
-                  style="width:24px; height: 24px; margin: 0px 5px"
+                  style="width:20px; height: 20px; margin: 0px 5px"
                   :src="navMenu.img"
                   fit="fill"></el-image>
         <span slot="title">{{ navMenu.name }}</span>
@@ -20,7 +20,7 @@
                   :index="navMenu.id + '_' + key">
         <template slot="title">
           <el-image v-if="navMenu.img"
-                    style="width: 24px; height: 24px; margin: 0px 5px"
+                    style="width: 20px; height: 20px; margin: 0px 5px"
                     :src="navMenu.img"
                     fit="fill"></el-image>
           <span> {{ navMenu.name }}</span>
@@ -67,7 +67,7 @@ export default {
 }
 .subMenuClass {
   background: rgba(0, 64, 110, 0.65) !important;
-  width: 170px !important;
+  width: 150px !important;
 }
 .subMenuClass :hover {
   background-color: rgb(0, 64, 110, 0.25) !important;
