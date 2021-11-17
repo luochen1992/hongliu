@@ -473,7 +473,7 @@ export default {
       window.viewer.scene.globe.depthTestAgainstTerrain = true
       // viewer._cesiumWidget._creditContainer.style.display = 'none'
       // viewer.scene.globe.enableLighting = true // 启用以太阳为光源的地球
-      viewer.scene.backgroundColor = Cesium.Color.fromCssColorString('#263652')
+      //viewer.scene.backgroundColor = Cesium.Color.fromCssColorString('#263652')
     },
     addGrowLine(GrowLineMoudle) {
       var position = [
@@ -1682,8 +1682,8 @@ export default {
       // window.viewer.scene.fxaa = true;
       window.viewer.scene.undergroundMode = true // 重要，开启地下模式，设置基色透明，这样就看不见黑色地球了
       window.viewer.scene.globe.show = false // 不显示地球，这条和地球透明度选一个就可以
-      window.viewer.scene.globe.baseColor = new Cesium.Color(0, 0, 0, 0)
-      window.viewer.scene.backgroundcolor = new Cesium.Color(0, 0, 0, 0)
+      // window.viewer.scene.globe.baseColor = new Cesium.Color(0, 0, 0, 0)
+      window.viewer.scene.backgroundColor = new Cesium.Color.fromCssColorString('#000723')
       // window.viewer.scene.globe.depthTestAgainstTerrain = false;
       // window.viewer.scene.highDynamicRange = false;
       window.viewer.scene.screenSpaceCameraController.minimumZoomDistance = -600 // 相机的高度的最小值
