@@ -5,7 +5,7 @@
         <div class="logobox">
           <div class="logo"></div>
         </div>
-        <div class="logotitle">灾害防治三维一张图平台</div>
+        <div class="logotitle">红柳林灾害防治三维一张图平台</div>
       </div>
       <div class="header-right"></div>
       <div class="time">
@@ -978,10 +978,10 @@ export default {
           position: new Cesium.Cartesian3.fromDegrees(110.3483829, 38.9336651, 10240.07),
           billboard: {
             show: true, // default
-            image: 'img/wangpoLogo.png',
+            image: 'img/logo.png',
             pixelOffset: new Cesium.Cartesian2(-90, 5),
             scale: 1.0,
-            width: 43.2,
+            width: 32.6,
             height: 32.6
           }
         })
@@ -1836,13 +1836,13 @@ export default {
   flex: 1;
   display: flex;
   flex-direction: column;
-  width: 82px;
+  width: 62px;
   height: 100%;
   align-items: center;
   justify-content: center;
 }
 .logo {
-  width: 52px;
+  width: 39px;
   height: 39px;
   background: url('../assets/images/logo.png') no-repeat;
   background-size: 100% 100%;
@@ -1855,7 +1855,7 @@ export default {
 }
 .logotitle {
   display: flex;
-  flex: 3;
+  flex: 5;
   height: 100%;
   align-items: center;
   justify-content: left;
