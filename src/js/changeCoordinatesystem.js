@@ -65,7 +65,32 @@ function LocalToDegree(x, y, z) {
     var pos3 = new Cesium.Cartesian3(lng2, lat2, alt2)
     return pos3
 }
+
+/* 本地坐标2000坐标系至球面坐标WGS84
+* @param {Number} x 本地坐标x值
+* @param {Number} y 本地坐标y值
+* @param {Number} y 本地坐标y值
+* @return {Array} posArr WGS84坐标
+*/
+
+function convert2000ToWGS84(x, y, z) {
+   let tarobj = {
+       x: 0,
+       y: 0,
+       z:0
+   }
+   let projection4525 =
+       '+proj=tmerc +lat_0=0 +lon_0=111 +k=1 +x_0=37500000 +y_0=0 +ellps=GRS80 +units=m +no_defs'
+   let projection4326 = '+proj=longlat +datum=WGS84 +no_defs'
+   let posArr = [x, y, z];
+   let transformPoint = proj4(projection4525, projection4326, posArr)
+   tarobj.x = transformPoint[0];
+   tarobj.y = transformPoint[1];
+   tarobj.z = transformPoint[2];
+   return tarobj;
+}
 export {
     fromLocal,
-    LocalToDegree
+    LocalToDegree,
+    convert2000ToWGS84
 }

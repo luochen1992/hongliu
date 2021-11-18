@@ -57,7 +57,7 @@ import { createImageryProvider, createTerrainProvider } from '../js/loadmapProvi
 import rotateCamera from '../js/rotateCamera'
 import createLayer from '../js/createLayer'
 import pointstatis from '../js/cluster'
-import { fromLocal, LocalToDegree } from '../js/changeCoordinatesystem'
+import { fromLocal, LocalToDegree,convert2000ToWGS84 } from '../js/changeCoordinatesystem'
 import touchtool from '../components/bottomRightBar/touchTool/index.vue'
 import legendTool from '../components/bottomRightBar/legendTool/index.vue'
 import searchTool from '../components/bottomRightBar/searchTool/index.vue'
@@ -408,6 +408,8 @@ export default {
     window.createTerrainProvider = createTerrainProvider
     window.fromLocal = fromLocal
     window.LocalToDegree = LocalToDegree
+    window.convert2000ToWGS84 = convert2000ToWGS84
+
     window.centerAt = _this.centerAt
     window.centerAt2 = _this.centerAt2
     window.flyTo = _this.flyTo
