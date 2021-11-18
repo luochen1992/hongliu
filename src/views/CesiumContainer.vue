@@ -453,7 +453,9 @@ export default {
             var url1 = 'data/采空区.json'
             var url2 = 'data/新巷道图层.json'
             caikongMoudle.addCaiKong(url1, url2)
-
+            // 添加工业广场
+            // eslint-disable-next-line no-undef
+            _this.add_HLL_GYGC()
             _this.loadHangDao('data/巷道.json')
             var st = setTimeout(() => {
               _this.fullscreenLoading.close()
@@ -476,7 +478,22 @@ export default {
       window.viewer.scene.globe.depthTestAgainstTerrain = true
       // viewer._cesiumWidget._creditContainer.style.display = 'none'
       // viewer.scene.globe.enableLighting = true // 启用以太阳为光源的地球
-      //viewer.scene.backgroundColor = Cesium.Color.fromCssColorString('#263652')
+      // viewer.scene.backgroundColor = Cesium.Color.fromCssColorString('#263652')
+    },
+    // 工业广场
+    add_HLL_GYGC() {
+        // 中心偏移点
+        var longitude = 110.40177239999998
+	      var latitude = 38.933657900000004
+        var height = 1263
+        var tileseturl = './SampleData/HLL-gygc'
+        // eslint-disable-next-line no-undef
+        var HLLgygc = new CTMap.HLLgygc(viewer)
+        // 广场是否显示
+        HLLgygc.isshow()
+        $.get('./SampleData/HLL-gygc/modelArray.json', {}, function(res) {
+            HLLgygc.add(tileseturl, res, longitude, latitude, height)
+        })
     },
     addGrowLine(GrowLineMoudle) {
       var position = [

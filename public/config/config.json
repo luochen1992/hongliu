@@ -166,91 +166,38 @@
             "name": "矿山数据",
             "type": "group",
             "layers": [{
-                    "id": "002001",
-                    "type": "hangdao",
-                    "name": "巷道",
-                    "url": "./SampleData/hll_param-tileset/tileset.json",
-                    "longitude": 112.70578133058221,
-                    "latitude": 35.6716182,
-                    "height": 707.5,
-                    "center": {
-                        "y": 35.64256138177233,
-                        "x": 112.70578133058221,
-                        "z": 2316.31,
-                        "heading": 335,
-                        "pitch": -32,
-                        "roll": 0
-                    },
-                    "skipLevelOfDetail": true,
-                    "baseScreenSpaceError": 1024,
-                    "skipLevels": 1,
-                    "skipScreenSpaceErrorFactor": 16,
-                    "immediatelyLoadDesiredLevelOfDetail": false,
-                    "loadSiblings": false,
-                    "cullWithChildrenBounds": true,
-                    "prop": [
-                        "newname",
-                        {
-                            "batchIdnew": "ID",
-                            "newname": "名称"
-                        }
-                    ],
-                    "isZoomTo": false,
-                    "setopacity": true,
-                    "visible": true
-                },
-                {
-                    "id": "002002",
-                    "type": "3dtiles",
-                    "name": "工业广场",
-                    "url": "./SampleData/hll_gygc/",
-                    "longitude": 112.70578133058221,
-                    "latitude": 35.6716182,
-                    "height": 1170,
-                    "center": {
-                        "y": 35.6716182,
-                        "x": 112.70578133058221,
-                        "z": 2226.67,
-                        "heading": 303,
-                        "pitch": -20,
-                        "roll": 0
-                    },
-                    "skipLevelOfDetail": true,
-                    "baseScreenSpaceError": 1024,
-                    "skipLevels": 1,
-                    "skipScreenSpaceErrorFactor": 16,
-                    "immediatelyLoadDesiredLevelOfDetail": false,
-                    "loadSiblings": false,
-                    "cullWithChildrenBounds": true,
-                    "prop": [
-                        "name",
-                        {
-                            "name": "名称"
-                        }
-                    ],
-                    "isZoomTo": false,
-                    "setopacity": true,
-                    "visible": true
-                }
-            ]
-        }, {
-            "id": "005",
-            "name": "动画",
-            "type": "group",
-            "layers": [{
-                "id": "005001",
-                "type": "animatelayer",
-                "name": "飞线动画",
+                "id": "002001",
+                "type": "hangdao",
+                "name": "巷道",
+                "url": "./SampleData/hll_param-tileset/tileset.json",
+                "longitude": 110.3483829,
+                "latitude": 38.9336651,
+                "height": 0,
                 "center": {
-                    "y": 35.65963456726941,
-                    "x": 112.71085928561125,
-                    "z": 6000,
-                    "heading": 325.51,
-                    "pitch": -22.36,
+                    "y": 35.64256138177233,
+                    "x": 110.3483829,
+                    "z": 0,
+                    "heading": 335,
+                    "pitch": -32,
                     "roll": 0
                 },
+                "skipLevelOfDetail": true,
+                "baseScreenSpaceError": 1024,
+                "skipLevels": 1,
+                "skipScreenSpaceErrorFactor": 16,
+                "immediatelyLoadDesiredLevelOfDetail": false,
+                "loadSiblings": false,
+                "cullWithChildrenBounds": true,
+                "prop": [
+                    "newname",
+                    {
+                        "batchIdnew": "ID",
+                        "newname": "名称"
+                    }
+                ],
                 "isZoomTo": false,
-                "visible": false
+                "setopacity": true,
+                "visible": true
             }]
         }]
     }
