@@ -9,14 +9,14 @@
             <img src="../../../../public/img/snap/办公大楼.png" />
             <div><span>办公大楼</span></div>
         </li>
-          <li @click="flyToPosition((navIndex = 2))">
-            <img src="../../../../public/img/snap/餐饮楼.png" />
-            <div><span>餐饮楼</span></div>
-        </li>
-        <li @click="flyToPosition((navIndex = 3))"
+        <li @click="flyToPosition((navIndex = 2))"
             v-show="snapShow">
             <img src="../../../../public/img/snap/联建楼.png" />
             <div><span>联建楼</span></div>
+        </li>
+         <li @click="flyToPosition((navIndex = 3))">
+            <img src="../../../../public/img/snap/餐饮楼.png" />
+            <div><span>餐饮楼</span></div>
         </li>
         <li @click="flyToPosition((navIndex = 4))"
             v-show="snapShow">
@@ -79,24 +79,24 @@ export default {
             z: 1319.0677954670311
             },
             {
-            name: '餐饮楼',
-            id: 2,
-            heading: 358.7502099432243,
-            pitch: -17.706891153316782,
-            roll: 359.9956911912005,
-            x: 110.40705889044209,
-            y: 38.934386566817174,
-            z: 1307.2824099784236
-            },
-            {
             name: '联建楼',
-            id: 3,
+            id: 2,
             heading: 274.8345487970042,
             pitch: -12.645470335859912,
             roll: 359.80800634315193,
             x: 110.40640515426355,
             y: 38.934500596034646,
             z: 1297.6038027233426
+            },
+            {
+            name: '餐饮楼',
+            id: 3,
+            heading: 358.7502099432243,
+            pitch: -17.706891153316782,
+            roll: 359.9956911912005,
+            x: 110.40705889044209,
+            y: 38.934386566817174,
+            z: 1307.2824099784236
             },
             {
             name: '主斜井',
