@@ -57,7 +57,7 @@ import { createImageryProvider, createTerrainProvider } from '../js/loadmapProvi
 import rotateCamera from '../js/rotateCamera'
 import createLayer from '../js/createLayer'
 import pointstatis from '../js/cluster'
-import { fromLocal, LocalToDegree,convert2000ToWGS84 } from '../js/changeCoordinatesystem'
+import { fromLocal, LocalToDegree,convert2000ToWGS84,convertWGS84To2000 } from '../js/changeCoordinatesystem'
 import touchtool from '../components/bottomRightBar/touchTool/index.vue'
 import legendTool from '../components/bottomRightBar/legendTool/index.vue'
 import searchTool from '../components/bottomRightBar/searchTool/index.vue'
@@ -1641,23 +1641,23 @@ export default {
     // 开启地下模式
     openUndergroundMode() {
       window.isunderground = true
-      var backgroundEntity = viewer.entities.add({
-        id: 'emmm',
-        polygon: {
-          hierarchy: {
-            positions: [
-              Cesium.Cartesian3.fromDegrees(110.1713354, 38.9764920, 1000),
-              Cesium.Cartesian3.fromDegrees(110.1812292, 38.8517081, 1000),
-              Cesium.Cartesian3.fromDegrees(110.4199807, 38.9766524, 1000),
-              Cesium.Cartesian3.fromDegrees(110.4325386, 38.8738148, 1000)
-            ]
-          },
-          perPositionHeight: true,
-          outline: false,
-          material: new Cesium.Color.fromCssColorString('#000723')
-          // outlineColor: Cesium.Color.BLACK.withAlpha(0.05)
-        }
-      })
+      // var backgroundEntity = viewer.entities.add({
+      //   id: 'emmm',
+      //   polygon: {
+      //     hierarchy: {
+      //       positions: [
+      //         Cesium.Cartesian3.fromDegrees(110.1713354, 38.9764920, 1000),
+      //         Cesium.Cartesian3.fromDegrees(110.1812292, 38.8517081, 1000),
+      //         Cesium.Cartesian3.fromDegrees(110.4199807, 38.9766524, 1000),
+      //         Cesium.Cartesian3.fromDegrees(110.4325386, 38.8738148, 1000)
+      //       ]
+      //     },
+      //     perPositionHeight: true,
+      //     outline: false,
+      //     material: new Cesium.Color.fromCssColorString('#000723')
+      //     // outlineColor: Cesium.Color.BLACK.withAlpha(0.05)
+      //   }
+      // })
       // var backgroundEntity = viewer.entities.add({
       //   show: false,
       //   polygon: {

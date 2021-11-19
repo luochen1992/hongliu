@@ -4,8 +4,7 @@
             @mouseover="changeLength(true)"
             @mouseleave="changeLength(false)"
             :style="sliderStyle">
-        <li @click="flyToPosition((navIndex = 1))"
-            v-show="snapShow">
+        <li @click="flyToPosition((navIndex = 1))">
             <img src="../../../../public/img/snap/办公大楼.png" />
             <div><span>办公大楼</span></div>
         </li>
