@@ -57,7 +57,7 @@ import { createImageryProvider, createTerrainProvider } from '../js/loadmapProvi
 import rotateCamera from '../js/rotateCamera'
 import createLayer from '../js/createLayer'
 import pointstatis from '../js/cluster'
-import { fromLocal, LocalToDegree, convert2000ToWGS84, convertWGS84To2000 } from '../js/changeCoordinatesystem'
+import { fromLocal, LocalToDegree,convert2000ToWGS84 } from '../js/changeCoordinatesystem'
 import touchtool from '../components/bottomRightBar/touchTool/index.vue'
 import legendTool from '../components/bottomRightBar/legendTool/index.vue'
 import searchTool from '../components/bottomRightBar/searchTool/index.vue'
@@ -469,7 +469,7 @@ export default {
             helper.removeAll()
             pointstatis.add(window.viewer)
 
-            // _this.pointstatis()
+           // _this.pointstatis()
           }
           if (hi === 0) {
             _this.fullscreenLoading.text = '场景定位中'
@@ -914,7 +914,7 @@ export default {
       }
       // 陕西省处相机位置和飞行时间
       var shanxiLocation = {
-        destination: new Cesium.Cartesian3.fromDegrees(108.8230868, 34.4348415, 1934213.0584),
+        destination: new Cesium.Cartesian3.fromDegrees(108.8230868, 35.5948415, 1934213.0584),
         duration: 2
       }
       // 添加中国边界
@@ -951,7 +951,7 @@ export default {
         viewer.dataSources.add(shanxiBoundaryJsonData)
         // 添加陕西字样
         viewer.entities.add({
-          position: Cesium.Cartesian3.fromDegrees(108.948024, 34.263161, 50000),
+          position: Cesium.Cartesian3.fromDegrees(108.948024, 35.113161, 50000),
           label: {
             text: '陕西',
             font: '24px Helvetica',
@@ -1076,7 +1076,7 @@ export default {
         var height = viewer.camera.positionCartographic.height
         // 注册左键单击事件
         _this.clickEventer()
-        if (height < 9200 && height > 800) {
+        if (height < 22000 && height > 1000) {
           caikongMoudle.removeResource()
           GrowLineMoudle.removeResource()
 
@@ -1086,7 +1086,7 @@ export default {
           if (!_this.addCircleEffect) {
             _this.showCircleRipple()
           }
-        } else if (height < 800) {
+        } else if (height < 1000) {
           caikongMoudle.removeResource()
           GrowLineMoudle.removeResource()
 
@@ -1641,47 +1641,47 @@ export default {
     // 开启地下模式
     openUndergroundMode() {
       window.isunderground = true
-      /* var polygon = viewer.entities.add({
+      var backgroundEntity = viewer.entities.add({
         id: 'emmm',
         polygon: {
           hierarchy: {
             positions: [
-              Cesium.Cartesian3.fromDegrees(112.5, 35.5, -500),
-              Cesium.Cartesian3.fromDegrees(112.9, 35.5, -500),
-              Cesium.Cartesian3.fromDegrees(112.9, 35.8, -500),
-              Cesium.Cartesian3.fromDegrees(112.5, 35.8, -500)
+              Cesium.Cartesian3.fromDegrees(110.1713354, 38.9764920, 1000),
+              Cesium.Cartesian3.fromDegrees(110.1812292, 38.8517081, 1000),
+              Cesium.Cartesian3.fromDegrees(110.4199807, 38.9766524, 1000),
+              Cesium.Cartesian3.fromDegrees(110.4325386, 38.8738148, 1000)
             ]
           },
           perPositionHeight: true,
           outline: false,
-          material: new Cesium.Color(38 / 255.0, 54 / 255.0, 82 / 255.0)
+          material: new Cesium.Color.fromCssColorString('#000723')
           // outlineColor: Cesium.Color.BLACK.withAlpha(0.05)
         }
-      }) */
-      var backgroundEntity = viewer.entities.add({
-        show: false,
-        polygon: {
-          hierarchy: {
-            positions: [
-              Cesium.Cartesian3.fromDegrees(112.5, 35.5, -1500),
-              Cesium.Cartesian3.fromDegrees(112.9, 35.5, -1500),
-              Cesium.Cartesian3.fromDegrees(112.9, 35.8, -1500),
-              Cesium.Cartesian3.fromDegrees(112.5, 35.8, -1500)
-            ]
-          },
-          perPositionHeight: true,
-          outline: true,
-          material: new Cesium.ImageMaterialProperty({
-            image: this.backgroundImg,
-            repeat: new Cesium.Cartesian2(1, 2)
-            // color: Cesium.Color.BLACK
-          }),
-          outlineColor: Cesium.Color.BLACK.withAlpha(0.5)
-        }
       })
-      setTimeout(() => {
-        backgroundEntity.show = true
-      }, 2000)
+      // var backgroundEntity = viewer.entities.add({
+      //   show: false,
+      //   polygon: {
+      //     hierarchy: {
+      //       positions: [
+      //         Cesium.Cartesian3.fromDegrees(110.1713354, 38.9764920, 1000),
+      //         Cesium.Cartesian3.fromDegrees(110.1812292, 38.8517081, 1000),
+      //         Cesium.Cartesian3.fromDegrees(110.4199807, 38.9766524, 1000),
+      //         Cesium.Cartesian3.fromDegrees(110.4325386, 38.8738148, 1000)
+      //       ]
+      //     },
+      //     perPositionHeight: true,
+      //     outline: true,
+      //     material: new Cesium.ImageMaterialProperty({
+      //       image: this.backgroundImg,
+      //       repeat: new Cesium.Cartesian2(1, 2)
+      //       // color: Cesium.Color.BLACK
+      //     }),
+      //     outlineColor: Cesium.Color.BLACK.withAlpha(0.5)
+      //   }
+      // })
+      // setTimeout(() => {
+      //   backgroundEntity.show = true
+      // }, 2000)
       //注释掉添加模型代码
       /*
       debugger
