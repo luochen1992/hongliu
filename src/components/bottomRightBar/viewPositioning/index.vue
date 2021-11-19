@@ -13,7 +13,8 @@
             <img src="../../../../public/img/snap/联建楼.png" />
             <div><span>联建楼</span></div>
         </li>
-         <li @click="flyToPosition((navIndex = 3))">
+         <li @click="flyToPosition((navIndex = 3))"
+            v-show="snapShow">
             <img src="../../../../public/img/snap/餐饮楼.png" />
             <div><span>餐饮楼</span></div>
         </li>
