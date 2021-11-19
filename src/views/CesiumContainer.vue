@@ -900,15 +900,15 @@ export default {
       var camera = viewer.scene.camera
       // 煤矿处相机位置和飞行时间
       var mineBoundaryLocation = {
-        destination: new Cesium.Cartesian3.fromDegrees(110.3483829, 38.9336651, 36073.2938),
+        destination: new Cesium.Cartesian3.fromDegrees(110.2883829, 38.9336651, 36073.2938),
         duration: 3
       }
       var wangpoLocation = {
-        destination: new Cesium.Cartesian3.fromDegrees(110.3483829, 38.9336651, 11557.6067),
+        destination: new Cesium.Cartesian3.fromDegrees(110.30228998, 38.7039448, 21557.6067),
         orientation: {
-          //  heading: 6.232343055422288,
-          //  pitch: 0.9074077733454442,
-          //  roll: 0
+          heading: 6.223585370236905,
+          pitch: -0.6518620997804505,
+          roll: 6.28294670516717
         },
         duration: 3
       }
@@ -995,21 +995,21 @@ export default {
         viewer.dataSources.add(mineBoundaryJsonData)
         // 添加地名字样
         viewer.entities.add({
-          position: new Cesium.Cartesian3.fromDegrees(110.3483829, 38.9336651, 10240.07),
+          position: new Cesium.Cartesian3.fromDegrees(110.2783829, 38.9336651, 10240.07),
           billboard: {
             show: true, // default
             image: 'img/logo.png',
             pixelOffset: new Cesium.Cartesian2(-90, 5),
-            scale: 1.0,
+            scale: 1.5,
             width: 32.6,
             height: 32.6
           }
         })
         viewer.entities.add({
-          position: new Cesium.Cartesian3.fromDegrees(110.3483829, 38.9336651, 10240.07),
+          position: new Cesium.Cartesian3.fromDegrees(110.2883829, 38.9336651, 10240.07),
           label: {
             text: '陕煤红柳林',
-            font: '35px Helvetica',
+            font: '50px Helvetica',
             scale: 1,
             fillColor: Cesium.Color.WHITE,
             outlineColor: Cesium.Color.WHITE,
@@ -1086,7 +1086,7 @@ export default {
           if (!_this.addCircleEffect) {
             _this.showCircleRipple()
           }
-        } else if (height < 1000) {
+        } else if (height < 22000) {
           caikongMoudle.removeResource()
           GrowLineMoudle.removeResource()
 

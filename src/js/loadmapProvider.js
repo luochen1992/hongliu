@@ -872,35 +872,56 @@ class areacluster {
             maximumHeights.push(opt.maxheight)
             minimumHeights.push(opt.minheight)
         }
-        var a1 = this.dataSources2.entities.add({
+        // 边界墙纹理特效（new)
+        const materialWall = window.d3kit.getCustomMaterialWall({
+            image: require('@/assets/images/b2.png'),
+            freely: 'vertical',
+            direction: '+',
+            count: 2,
+            color: new Cesium.Color(10 / 155, 38 / 255, 75 / 255, 1),
+            duration: 1000
+          })
+          var a1 = this.dataSources2.entities.add({
             wall: {
                 positions: Cesium.Cartesian3.fromDegreesArrayHeights(opt.positions),
                 maximumHeights: maximumHeights,
                 minimumHeights: minimumHeights,
                 outline: false,
-                outlineColor: Cesium.Color.BLUE,
+                //outlineColor: Cesium.Color.BLUE,
                 // outlineWidth: 50,
-                material: new Cesium.ImageMaterialProperty({
-                    image: 'img/fence.png',
-                    transparent: true,
-                    color: new Cesium.CallbackProperty(function() {
-                        if ((num % 2) === 0) {
-                            alp -= 0.005
-                        } else {
-                            alp += 0.005
-                        }
-
-                        if (alp <= 0.3) {
-                            num++
-                        } else if (alp >= 0.8) {
-                            num++
-                        }
-                        return opt.color.withAlpha(alp)
-                            // entity的颜色透明 并不影响材质，并且 entity也会透明
-                    }, false)
-                })
+                material: materialWall
             }
         })
+        // 旧的实现
+        // var a1 = this.dataSources2.entities.add({
+        //     wall: {
+        //         positions: Cesium.Cartesian3.fromDegreesArrayHeights(opt.positions),
+        //         maximumHeights: maximumHeights,
+        //         minimumHeights: minimumHeights,
+        //         outline: false,
+        //         outlineColor: Cesium.Color.BLUE,
+        //         // outlineWidth: 50,
+        //         material: new Cesium.ImageMaterialProperty({
+        //             image: 'img/fence.png',
+        //             transparent: true,
+        //             color: new Cesium.CallbackProperty(function() {
+        //                 if ((num % 2) === 0) {
+        //                     alp -= 0.005
+        //                 } else {
+        //                     alp += 0.005
+        //                 }
+
+        //                 if (alp <= 0.3) {
+        //                     num++
+        //                 } else if (alp >= 0.8) {
+        //                     num++
+        //                 }
+        //                 return opt.color.withAlpha(alp)
+        //                     // entity的颜色透明 并不影响材质，并且 entity也会透明
+        //             }, false)
+        //         })
+        //     }
+        // })
         a1.prop = opt.prop
     }
 
