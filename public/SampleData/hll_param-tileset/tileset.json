@@ -94,32 +94,32 @@
                               "content" : {
                                  "url" : "./g3.b3dm"
                               },
-                              "geometricError" : 11.74305152893066,
+                              "geometricError" : 46.97220611572264,
                               "refine" : "ADD"
                            }
                         ],
                         "content" : {
                            "url" : "./g2.b3dm"
                         },
-                        "geometricError" : 22.61717796325684,
+                        "geometricError" : 90.46871185302736,
                         "refine" : "ADD"
                      }
                   ],
                   "content" : {
                      "url" : "./g1.b3dm"
                   },
-                  "geometricError" : 48.38913726806641,
+                  "geometricError" : 193.5565490722656,
                   "refine" : "ADD"
                }
             ],
             "content" : {
                "url" : "./g0.b3dm"
             },
-            "geometricError" : 83.49013519287109,
+            "geometricError" : 333.9605407714844,
             "refine" : "ADD"
          }
       ],
-      "geometricError" : 100,
+      "geometricError" : 400,
       "refine" : "ADD",
       "transform" : [
          -0.9377552886953959,
