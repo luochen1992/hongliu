@@ -4,19 +4,19 @@
             @mouseover="changeLength(true)"
             @mouseleave="changeLength(false)"
             :style="sliderStyle">
-        <li @click="flyToPosition((navIndex = 1))">
-            <img src="../../../../public/img/snap/公司大门.png" />
-            <div><span>公司大门</span></div>
-        </li>
-        <li @click="flyToPosition((navIndex = 2))"
-            v-show="snapShow">
-            <img src="../../../../public/img/snap/调度中心.png" />
-            <div><span>调度中心</span></div>
-        </li>
-        <li @click="flyToPosition((navIndex = 3))"
+        <li @click="flyToPosition((navIndex = 1))"
             v-show="snapShow">
             <img src="../../../../public/img/snap/办公大楼.png" />
             <div><span>办公大楼</span></div>
+        </li>
+          <li @click="flyToPosition((navIndex = 2))">
+            <img src="../../../../public/img/snap/餐饮楼.png" />
+            <div><span>餐饮楼</span></div>
+        </li>
+        <li @click="flyToPosition((navIndex = 3))"
+            v-show="snapShow">
+            <img src="../../../../public/img/snap/联建楼.png" />
+            <div><span>联建楼</span></div>
         </li>
         <li @click="flyToPosition((navIndex = 4))"
             v-show="snapShow">
@@ -30,38 +30,23 @@
         </li>
         <li @click="flyToPosition((navIndex = 6))"
             v-show="snapShow">
-            <img src="../../../../public/img/snap/洗选厂调度楼.png" />
-            <div><span>洗选厂调度楼</span></div>
+            <img src="../../../../public/img/snap/培训楼.png" />
+            <div><span>培训楼</span></div>
         </li>
         <li @click="flyToPosition((navIndex = 7))"
             v-show="snapShow">
-            <img src="../../../../public/img/snap/上寺头风井.png" />
-            <div><span>上寺头风井</span></div>
+            <img src="../../../../public/img/snap/煤仓.png" />
+            <div><span>煤仓</span></div>
         </li>
         <li @click="flyToPosition((navIndex = 8))"
             v-show="snapShow">
-            <img src="../../../../public/img/snap/塔里风井.png" />
-            <div><span>塔里风井</span></div>
+            <img src="../../../../public/img/snap/一号回风斜井.png" />
+            <div><span>一号回风斜井</span></div>
         </li>
         <li @click="flyToPosition((navIndex = 9))"
             v-show="snapShow">
-            <img src="../../../../public/img/snap/中央变电所.png" />
-            <div><span>中央变电所</span></div>
-        </li>
-        <li @click="flyToPosition((navIndex = 10))"
-            v-show="snapShow">
-            <img src="../../../../public/img/snap/中央水泵房.png" />
-            <div><span>中央水泵房</span></div>
-        </li>
-        <li @click="flyToPosition((navIndex = 11))"
-            v-show="snapShow">
-            <img src="../../../../public/img/snap/综采工作面.png" />
-            <div><span>3308综采面</span></div>
-        </li>
-        <li @click="flyToPosition((navIndex = 12))"
-            v-show="snapShow">
-            <img src="../../../../public/img/snap/掘进工作面.png" />
-            <div><span>智能掘进工作面</span></div>
+            <img src="../../../../public/img/snap/二号回风立井.png" />
+            <div><span>二号回风立井</span></div>
         </li>
         </ul>
     </div>
@@ -84,124 +69,94 @@ export default {
         flyToPosition(navIndex) {
         var bookmarkLis = [
             {
-            name: '公司大门',
-            id: 1,
-            heading: 282.04,
-            pitch: -14.41,
-            roll: 359.82,
-            x: 112.7348315,
-            y: 35.6718464,
-            z: 50.01
-            },
-            {
-            name: '调度中心',
-            id: 2,
-            heading: 315.18,
-            pitch: -6.43,
-            roll: 359.94,
-            x: 112.72990433,
-            y: 35.67387058,
-            z: 100.21
-            },
-            {
             name: '办公大楼',
+            id: 1,
+            heading: 1.325855818867787,
+            pitch: -21.818228994026637,
+            roll: 0.004691677799152737,
+            x: 110.40700423080524,
+            y: 38.93334189501416,
+            z: 1319.0677954670311
+            },
+            {
+            name: '餐饮楼',
+            id: 2,
+            heading: 358.7502099432243,
+            pitch: -17.706891153316782,
+            roll: 359.9956911912005,
+            x: 110.40705889044209,
+            y: 38.934386566817174,
+            z: 1307.2824099784236
+            },
+            {
+            name: '联建楼',
             id: 3,
-            heading: 307.9429292,
-            pitch: -15.13,
-            roll: 359.81,
-            x: 112.729831547,
-            y: 35.67453042,
-            z: 96.60
+            heading: 274.8345487970042,
+            pitch: -12.645470335859912,
+            roll: 359.80800634315193,
+            x: 110.40640515426355,
+            y: 38.934500596034646,
+            z: 1297.6038027233426
             },
             {
             name: '主斜井',
             id: 4,
-            heading: 255.90731112,
-            pitch: -13.3839512,
-            roll: 359.82,
-            x: 112.728129420,
-            y: 35.67433265,
-            z: 105.9361866
+            heading: 1.6556597065268994,
+            pitch: -7.1973181215773545,
+            roll: 0.00547701894801743,
+            x: 110.39615019370625,
+            y: 38.933276514856686,
+            z: 1287.4741518110554
             },
             {
             name: '副斜井',
             id: 5,
-            heading: 310.3281277267,
-            pitch: -22.40789036,
-            roll: 359.81,
-            x: 112.72857658,
-            y: 35.67403266,
-            z: 95.55
+            heading: 289.86327699793947,
+            pitch: -5.837061080648015,
+            roll: 359.82224961226984,
+            x: 110.4019580506598,
+            y: 38.93397063594572,
+            z: 1275.8008008467968
             },
             {
-            name: '洗选厂调度楼',
+            name: '培训楼',
             id: 6,
-            heading: 323.28,
-            pitch: -11.99,
-            roll: 359.86,
-            x: 112.7288481786,
-            y: 35.67292530,
-            z: 102.61
+            heading: 42.75017486807664,
+            pitch: -12.636775994413268,
+            roll: 0.1308488829160627,
+            x: 110.4067384007148,
+            y: 38.934021230855464,
+            z: 1336.4508018205568
             },
             {
-            name: '上寺头风井',
+            name: '煤仓',
             id: 7,
-            heading: 314,
-            pitch: -32,
-            roll: 359.92,
-            x: 112.7028887,
-            y: 35.6737627,
-            z: 126.69
+            heading: 288.94313091493336,
+            pitch: -9.913383119339056,
+            roll: 359.8194580229694,
+            x: 110.40472188703193,
+            y: 38.93509749080178,
+            z: 1330.9930329256226
             },
             {
-            name: '塔里风井',
+            name: '一号回风斜井',
             id: 8,
-            heading: 356,
-            pitch: -37,
-            roll: 360.0,
-            x: 112.6704490,
-            y: 35.683607280,
-            z: 252.305
+            heading: 315.45269918775125,
+            pitch: -38.30487464783891,
+            roll: 359.83163289645046,
+            x: 110.37023094539913,
+            y: 38.93480471558305,
+            z: 1330.0008661361578
             },
             {
-            name: '中央变电所',
+            name: '二号回风立井',
             id: 9,
-            heading: 3.72,
-            pitch: -53.41,
-            roll: 360.0,
-            x: 112.700209176,
-            y: 35.676534207,
-            z: -110.67
-            },
-            {
-            name: '中央水泵房',
-            id: 10,
-            heading: 3.72,
-            pitch: -53.41,
-            roll: 360.0,
-            x: 112.700209176,
-            y: 35.676534207,
-            z: -110.67
-            },
-            {
-            name: '综采工作面',
-            id: 11,
-            heading: 285.84,
-            pitch: -69.46,
-            roll: 359.5,
-            x: 112.67783,
-            y: 35.67147,
-            z: 2771.61
-            },
-            {
-            name: '掘进工作面',
-            id: 12,
-            heading: 321.75,
-            pitch: -46.40,
-            roll: 360.0,
-            x: 112.69514837,
-            y: 35.662785380,
-            z: 1260.22
+            heading: 349.925782401537,
+            pitch: -24.979058199827854,
+            roll: 359.9636678350265,
+            x: 110.28591053931154,
+            y: 38.932277192829616,
+            z: 1370.2400534737967
             }
         ]
         var ifName = false
