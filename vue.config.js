@@ -2,7 +2,8 @@ const webpack = require('webpack')
 const path = require('path')
 
 module.exports = {
-    publicPath: './',
+    // publicPath: './',  红柳林项目部署专用
+    publicPath: '/3d/',
     assetsDir: './static',
     productionSourceMap: false,
     lintOnSave: false, // 是否开启eslint
@@ -16,7 +17,7 @@ module.exports = {
                 pathRewrite: {
                     '^/api': '/4v7q56U186a9d6737982ef8ff2aea16413f736d615fe47e/api'
                 }
-            },
+            }
             // '/SampleData': {
             //     target: 'http://10.10.22.22:8080/coal/',
             //     changeOrigin: true,

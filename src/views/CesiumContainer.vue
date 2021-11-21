@@ -494,7 +494,7 @@ export default {
         var HLLgygc = new CTMap.HLLgygc(viewer)
         // 广场是否显示
         HLLgygc.isshow()
-        $.get('./SampleData/HLL-gygc/modelArray.json', {}, function(res) {
+        $.get('./SampleData/HLL-gygc/gygc.json', {}, function(res) {
             HLLgygc.add(tileseturl, res, longitude, latitude, height)
         })
     },
