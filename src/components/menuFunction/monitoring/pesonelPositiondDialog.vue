@@ -3,10 +3,12 @@
     <div v-show="ishander" class="hander"></div>
     <div class="center">
       <el-table :data="tableData" border size="mini" :row-class-name="tableRowClassName" cell-class-name="table-cell" class="dialogtable" style="width: 100%">
-        <el-table-column type="index" label="序号" width="50" align="center"> </el-table-column>
-        <el-table-column prop="name" label="姓名" width="170" align="center"> </el-table-column>
-        <el-table-column prop="number" label="卡号" align="center"> </el-table-column>
-        <el-table-column prop="area" label="区域" align="center"> </el-table-column>
+       <el-table-column type="index" label="序号" width="50" align="center"> </el-table-column>
+        <!-- <el-table-column prop="name" label="姓名" width="170" align="center"> </el-table-column>
+        <el-table-column prop="number" label="卡号" width="" align="center"> </el-table-column>
+        <el-table-column prop="area" label="区域" align="center"> </el-table-column> -->
+        <el-table-column v-for="(columnitem, cindex) in tablecolumn" :key="cindex" :prop="columnitem.prop" :label="columnitem.label" :width="columnitem.width" :align="columnitem.align">
+        </el-table-column>
         <el-table-column label="操作" align="center" width="80">
           <template slot-scope="scope">
             <el-button size="mini" type="success" @click="location(scope.$index, scope.row)">定位</el-button>
@@ -66,7 +68,19 @@ export default {
   props: {
     pData: {
       type: Array,
-      default: []
+      default: function () {
+        return []
+      }
+    },
+    tablecolumn: {
+      type: Array,
+      default: function () {
+        return [
+          { label: '姓名', prop: 'name', width: '170', align: 'center' },
+          { label: '卡号', prop: 'number', width: '', align: 'center' },
+          { label: '区域', prop: 'area', width: '', align: 'center' }
+        ]
+      }
     }
   },
   watch: {
@@ -137,31 +151,31 @@ export default {
         var pnts = []
         var polygonXYZ = []
         for (let k = 0; k < item.position.length - 3; k += 3) {
-            var x = parseFloat(item.position[k])
-            var y = parseFloat(item.position[k + 1])
-            var z = parseFloat(item.position[k + 2])
+          var x = parseFloat(item.position[k])
+          var y = parseFloat(item.position[k + 1])
+          var z = parseFloat(item.position[k + 2])
 
-            polygonXYZ.push(x)
-            polygonXYZ.push(y)
-            polygonXYZ.push(z)
+          polygonXYZ.push(x)
+          polygonXYZ.push(y)
+          polygonXYZ.push(z)
         }
 
         for (let k = 0; k < polygonXYZ.length - 3; k += 3) {
-            var x = polygonXYZ[k]
-            var y = polygonXYZ[k + 1]
-            var z = polygonXYZ[k + 2]
+          var x = polygonXYZ[k]
+          var y = polygonXYZ[k + 1]
+          var z = polygonXYZ[k + 2]
 
-            pnts.push(window.fromLocal(x, y, z - 938))
+          pnts.push(window.fromLocal(x, y, z - 938))
         }
         var color = new Cesium.Color(1, 128 / 255, 0)
         window.cesiumvariate._preObj = viewer.entities.add({
-            polyline: {
-             positions: pnts,
-             width: 4.0,
-             material: CTMap.Color.fromCssColorString('#FF0000').withAlpha(0.8),
-             // clampToGround:true,
-             zIndex: 10
-           }
+          polyline: {
+            positions: pnts,
+            width: 4.0,
+            material: CTMap.Color.fromCssColorString('#FF0000').withAlpha(0.8),
+            // clampToGround:true,
+            zIndex: 10
+          }
         })
       }
     },
@@ -244,7 +258,7 @@ export default {
       width: 100%;
       height: 100%;
       //margin: 10px 3%;
-      padding: 10px 0px ;
+      padding: 10px 0px;
       background: #000723;
       .el-pagination {
         li {

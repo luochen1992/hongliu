@@ -1,6 +1,6 @@
 <template>
   <div class="zongcaiAnimation">
-    <pesonel-positiond-dialog :pData="ppdata" v-if="showPopPoint"></pesonel-positiond-dialog>
+    <pesonel-positiond-dialog :pData="ppdata" :tablecolumn="tablecolumn" v-if="showPopPoint"></pesonel-positiond-dialog>
   </div>
 </template>
 
@@ -18,7 +18,12 @@ export default {
       isshow: false,
       showPopPoint: false,
       eflag2: false,
-      ppdata: []
+      ppdata: [],
+      tablecolumn: [
+          { label: '名称', prop: 'name', width: '', align: 'center' },
+          { label: '状态', prop: 'number', width: '', align: 'center' },
+          //{ label: '区域', prop: 'area', width: '', align: 'center' }
+      ]
     }
   },
   mounted() {},
