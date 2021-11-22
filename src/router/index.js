@@ -11,7 +11,7 @@ const routes = [{
 
 const router = new VueRouter({
     // base: process.env.BASE_URL,    红柳林项目专用
-    base: '/3d/',
+    base: '/hll/',
     routes
 })
 

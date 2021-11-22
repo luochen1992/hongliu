@@ -3,7 +3,7 @@ const path = require('path')
 
 module.exports = {
     // publicPath: './',  红柳林项目部署专用
-    publicPath: '/3d/',
+    publicPath: '/hll/',
     assetsDir: './static',
     productionSourceMap: false,
     lintOnSave: false, // 是否开启eslint
