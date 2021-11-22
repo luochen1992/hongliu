@@ -129,13 +129,15 @@ export default {
       }
       // debugger;
       var ellipsoid = viewer.scene.globe.ellipsoid
-      var cartographic = ellipsoid.cartesianToCartographic(item.possion)
+      // var cartographic = ellipsoid.cartesianToCartographic(item.possion)
 
-      var lat = Cesium.Math.toDegrees(cartographic.latitude)
+      // var lat = Cesium.Math.toDegrees(cartographic.latitude)
 
-      var lng = Cesium.Math.toDegrees(cartographic.longitude)
+      // var lng = Cesium.Math.toDegrees(cartographic.longitude)
+      var lng = item.possion.x
+      var lat = item.possion.y
 
-      var alt = cartographic.height + 700
+      var alt = item.possion.z + 700
 
       window.viewer.camera.flyTo({
         destination: window.Cesium.Cartesian3.fromDegrees(lng, lat, alt), // 经度、纬度、高度
@@ -160,23 +162,24 @@ export default {
           polygonXYZ.push(z)
         }
 
-        for (let k = 0; k < polygonXYZ.length - 3; k += 3) {
-          var x = polygonXYZ[k]
-          var y = polygonXYZ[k + 1]
-          var z = polygonXYZ[k + 2]
-
-          pnts.push(window.fromLocal(x, y, z - 938))
-        }
-        var color = new Cesium.Color(1, 128 / 255, 0)
-        window.cesiumvariate._preObj = viewer.entities.add({
-          polyline: {
-            positions: pnts,
-            width: 4.0,
-            material: CTMap.Color.fromCssColorString('#FF0000').withAlpha(0.8),
-            // clampToGround:true,
-            zIndex: 10
-          }
-        })
+        // for (let k = 0; k < polygonXYZ.length - 3; k += 3) {
+        //   var x = polygonXYZ[k]
+        //   var y = polygonXYZ[k + 1]
+        //   var z = polygonXYZ[k + 2]
+        //   var xyzCoord = window.convert2000ToWGS84(x, y, z)
+        //   var xyzArr = WGS84_to_Cartesian3(xyzCoord)
+        //   pnts.push(xyzArr)
+        // }
+        // var color = new Cesium.Color(1, 128 / 255, 0)
+        // window.cesiumvariate._preObj = viewer.entities.add({
+        //   polyline: {
+        //     positions: pnts,
+        //     width: 4.0,
+        //     material: CTMap.Color.fromCssColorString('#FF0000').withAlpha(0.8),
+        //     // clampToGround:true,
+        //     zIndex: 10
+        //   }
+        // })
       }
     },
     // 翻页

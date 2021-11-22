@@ -21,7 +21,7 @@ export default {
       ppdata: [],
       tablecolumn: [
           { label: '名称', prop: 'name', width: '', align: 'center' },
-          { label: '状态', prop: 'number', width: '', align: 'center' },
+          { label: '状态', prop: 'state', width: '', align: 'center' },
           //{ label: '区域', prop: 'area', width: '', align: 'center' }
       ]
     }
@@ -68,7 +68,7 @@ export default {
       var dataSources2 = new Cesium.CustomDataSource(Cesium.createGuid())
       viewer.dataSources.add(dataSources2)
 
-      Cesium.Resource.fetchJson('data/采空区.json').then(function (jsonData) {
+      Cesium.Resource.fetchJson('data/miningEngineer/zongcaiAnimation.json').then(function (jsonData) {
         var arr = []
         var aveX = 0
         var aveY = 0
@@ -84,27 +84,27 @@ export default {
           var matrix = obj.Matrix.split(',')
           for(var j = 0; j < (Position.length); j=j+3)
           {
-            aveX = parseFloat(Position[j]) + aveX
+            aveX = parseFloat((Position[j]).substring(((Position[j]).length-10))) + aveX
             aveY = parseFloat(Position[j+1]) + aveY
             aveZ = parseFloat(Position[j+2]) + aveZ
           }
           if (Position.length){
             var x = aveX / (Position.length / 3)
             var y = aveY / (Position.length / 3)
-            var z = (aveZ / (Position.length/3)) - 450.5
+            var z = (aveZ / (Position.length/3)) //- 450.5
           } else {
             continue
           }        
 
-        
-          var pos = window.fromLocal(x, y, z)
+          var xx = '37' + x
+          var pos = window.convert2000ToWGS84(parseFloat(xx), y, z)
           var info = obj
           info.possion = pos
           info.position = Position
           var namelist = Name
 
           info.name = Name
-          info.number = 'P_UI0004' + i * 7
+          info.state = obj.state
           info.area = 'A区域'
           arr.push(info)
           Position=[]

@@ -35,7 +35,7 @@ export default {
     // 显示
     show() {
       var _this = this
-      _this.addWaterRoute('data/巷道属性.json')
+      _this.addWaterRoute('data/oneVentilationThreePrevention/巷道属性.json')
     },
     // 隐藏
     hide() {
@@ -53,16 +53,16 @@ export default {
         var json = res
         var length = json.Map.length
         for (var j = 0; j < length; j++) {
-          if (j < 1500) continue
+          //if (j < 1500) continue
           var obj = json.Map[j]
           if (obj.ModelType == 'MModel_Passage') {
-            if (obj.FireRescue) {
-              var W = obj.W*2
-              var H = obj.H
+            if (obj.WaterRescue) {
+              var W = obj.W*1.5
+              var H = obj.H*2
               var xyz = obj.XYZ
               var coordList = []
               var xyzArr = obj.XYZ.split(';')
-              if (obj.FireRescueDirect) {
+              if (obj.WaterRescueDirect) {
                 //与巷道同向
                 for (var k = 0; k < xyzArr.length; k++) {
                   var xyzArr2 = xyzArr[k].split(',')
@@ -70,7 +70,7 @@ export default {
                   var y1 = parseFloat(xyzArr2[1])
                   var z1 = parseFloat(xyzArr2[2])
 
-                  var pos = window.LocalToDegree(x1, y1, z1 - 922)
+                  var pos = window.convert2000ToWGS84(x1, y1, z1)
                   coordList.push(pos.x)
                   coordList.push(pos.y)
                   coordList.push(pos.z)
@@ -83,7 +83,7 @@ export default {
                   var y1 = parseFloat(xyzArr2[1])
                   var z1 = parseFloat(xyzArr2[2])
 
-                  var pos = window.LocalToDegree(x1, y1, z1 - 922)
+                  var pos = window.convert2000ToWGS84(x1, y1, z1)
                   coordList.push(pos.x)
                   coordList.push(pos.y)
                   coordList.push(pos.z)

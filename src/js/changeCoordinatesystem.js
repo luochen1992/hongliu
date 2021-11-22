@@ -112,9 +112,25 @@ function convertWGS84To2000(lon, lat, height) {
     tarobj.z = transformPoint[2];
     return tarobj;
 }
+/**
+ * WGS84坐标系转笛卡尔坐标系
+ * @param point
+ * @return {{x: *, y: *, z: *}}
+ * @constructor
+ */
+var WGS84_to_Cartesian3 = function (point) {
+    var car33 = Cesium.Cartesian3.fromDegrees(point.lng, point.lat, point.alt);
+    // var x = car33.x;
+    // var y = car33.y;
+    // var z = car33.z;
+    // return {x: x, y: y, z: z};
+    return car33
+}
+
 export {
     fromLocal,
     LocalToDegree,
     convert2000ToWGS84,
-    convertWGS84To2000
+    convertWGS84To2000,
+    WGS84_to_Cartesian3
 }
