@@ -198,6 +198,28 @@
                 "isZoomTo": false,
                 "setopacity": true,
                 "visible": true
+            }, {
+                "id": "002002",
+                "type": "gobArea",
+                "name": "工作面",
+                "upAxis": 0,
+                "url": "./SampleData/models/工作面/采空区.json",
+                "distanceDisplayCondition": [
+                    0,
+                    40000
+                ],
+                "center": {
+                    "y": 38.9336651,
+                    "x": 110.3483829,
+                    "z": 0,
+                    "heading": 360.00,
+                    "pitch": -89.00,
+                    "roll": 0
+                },
+                "isZoomTo": false,
+                "height": 0,
+                "setopacity": true,
+                "visible": true
             }]
         }]
     }

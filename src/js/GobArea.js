@@ -2,7 +2,7 @@
  * 工作面、采空区图层
  */
 import {
-    loadGobArea
+    loadGobArea2
 } from './loadmapProvider'
 /**
  * 工作面、采空区图层
@@ -50,7 +50,7 @@ export default class GobAreaLayer {
             this.config.style = this.config.styleOptions
         }
         // eslint-disable-next-line new-cap
-        var tiles3d = new loadGobArea(this.viewer, this.config)
+        var tiles3d = new loadGobArea2(this.viewer, this.config)
         if (tiles3d === null) return
         this.layer = tiles3d
         this.layer.config = this.config
@@ -101,6 +101,6 @@ export default class GobAreaLayer {
 
     // 设置叠加顺序
     setZIndex(order) {
-        if (this.layer == null || order == null) { }
+        if (this.layer == null || order == null) {}
     }
 }

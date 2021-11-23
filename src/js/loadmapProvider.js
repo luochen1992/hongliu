@@ -622,6 +622,86 @@ function loadGobArea(viewer, opts) {
     return _dataSource
 }
 
+function loadGobArea2(viewer, opts) {
+    var opts = opts
+    var viewer = viewer
+    var imageLibPath = './img/采空区'
+    var enableTexture = true
+    var _dataSource = new Cesium.CustomDataSource(Cesium.createGuid())
+    viewer.dataSources.add(_dataSource)
+    $.get(opts.url, {}, function(res) {
+        var json = (res)
+        var id = 0
+        for (var j = 0; j < json.Map.length; j++) {
+            var obj = json.Map[j]
+            var name = obj.Name
+            var colorstr = (obj.Color).split(',')
+            var color = new Cesium.Color(parseFloat(colorstr[0]) / 255, parseFloat(colorstr[1]) / 255, parseFloat(colorstr[2]) / 255)
+                // var color = new Cesium.Color(1, 0, 0);
+            var coords = obj.coords
+            var xyzArr = coords.split(',')
+            var pnts = []
+
+            var polygonXYZ = []
+            for (var k = 0; k < xyzArr.length - 3; k += 3) {
+                var x = parseFloat(xyzArr[k])
+                var y = parseFloat(xyzArr[k + 1])
+                var z = parseFloat(xyzArr[k + 2])
+
+                polygonXYZ.push(x)
+                polygonXYZ.push(y)
+                polygonXYZ.push(z)
+            }
+
+            for (var k = 0; k < polygonXYZ.length - 3; k += 3) {
+                var x = polygonXYZ[k]
+                var y = polygonXYZ[k + 1]
+                var z = polygonXYZ[k + 2]
+
+                // eslint-disable-next-line no-undef
+                //说明：因在后台编辑器是沿着顶端进行绘制的，所以需要减去巷道高度
+                let tar = window.convert2000ToWGS84(x, y, z - 4)
+                pnts.push(tar.x, tar.y, tar.z)
+            }
+            console.log(imageLibPath + '/' + name + '.png')
+            if (enableTexture) {
+                var baseMaterial = new Cesium.ImageMaterialProperty({
+                    image: imageLibPath + '/' + name + '.png',
+                    transparent: false,
+                    repeat: new Cesium.Cartesian2(1, 1)
+                })
+                _dataSource.entities.add({
+                    polygon: {
+                        hierarchy: new Cesium.Cartesian3.fromDegreesArrayHeights(pnts),
+                        perPositionHeight: true,
+                        outline: true,
+                        material: baseMaterial,
+                        outlineColor: Cesium.Color.BLACK.withAlpha(1)
+                    }
+                })
+            } else {
+                _dataSource.entities.add({
+                    polygon: {
+                        hierarchy: new Cesium.Cartesian3.fromDegreesArrayHeights(pnts),
+                        perPositionHeight: true,
+                        outline: true,
+                        material: color,
+                        outlineColor: Cesium.Color.BLACK.withAlpha(1)
+                    }
+                })
+            }
+        }
+        if (opts.isZoomTo) {
+            if (opts.center) {
+                window.centerAt2(opts.center)
+            } else {
+                viewer.zoomTo(_dataSource)
+            }
+        }
+    })
+    return _dataSource
+}
+
 function GetAzimuth(X1, Y1, X2, Y2) {
     var tmpValue = 0
 
@@ -880,36 +960,36 @@ class areacluster {
             count: 2,
             color: new Cesium.Color(10 / 155, 38 / 255, 75 / 255, 1),
             duration: 1000
-          })
-          var a1 = this.dataSources2.entities.add({
-            wall: {
-                positions: Cesium.Cartesian3.fromDegreesArrayHeights(opt.positions),
-                maximumHeights: maximumHeights,
-                minimumHeights: minimumHeights,
-                outline: false,
-                //outlineColor: Cesium.Color.BLUE,
-                // outlineWidth: 50,
-                material: materialWall
-            }
         })
-        // 旧的实现
-        // var a1 = this.dataSources2.entities.add({
-        //     wall: {
-        //         positions: Cesium.Cartesian3.fromDegreesArrayHeights(opt.positions),
-        //         maximumHeights: maximumHeights,
-        //         minimumHeights: minimumHeights,
-        //         outline: false,
-        //         outlineColor: Cesium.Color.BLUE,
-        //         // outlineWidth: 50,
-        //         material: new Cesium.ImageMaterialProperty({
-        //             image: 'img/fence.png',
-        //             transparent: true,
-        //             color: new Cesium.CallbackProperty(function() {
-        //                 if ((num % 2) === 0) {
-        //                     alp -= 0.005
-        //                 } else {
-        //                     alp += 0.005
-        //                 }
+        var a1 = this.dataSources2.entities.add({
+                wall: {
+                    positions: Cesium.Cartesian3.fromDegreesArrayHeights(opt.positions),
+                    maximumHeights: maximumHeights,
+                    minimumHeights: minimumHeights,
+                    outline: false,
+                    //outlineColor: Cesium.Color.BLUE,
+                    // outlineWidth: 50,
+                    material: materialWall
+                }
+            })
+            // 旧的实现
+            // var a1 = this.dataSources2.entities.add({
+            //     wall: {
+            //         positions: Cesium.Cartesian3.fromDegreesArrayHeights(opt.positions),
+            //         maximumHeights: maximumHeights,
+            //         minimumHeights: minimumHeights,
+            //         outline: false,
+            //         outlineColor: Cesium.Color.BLUE,
+            //         // outlineWidth: 50,
+            //         material: new Cesium.ImageMaterialProperty({
+            //             image: 'img/fence.png',
+            //             transparent: true,
+            //             color: new Cesium.CallbackProperty(function() {
+            //                 if ((num % 2) === 0) {
+            //                     alp -= 0.005
+            //                 } else {
+            //                     alp += 0.005
+            //                 }
 
         //                 if (alp <= 0.3) {
         //                     num++
@@ -1357,5 +1437,6 @@ export {
     addlabel,
     areacluster,
     showfacilitypoint,
-    loadGobArea
+    loadGobArea,
+    loadGobArea2
 }

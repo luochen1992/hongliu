@@ -1076,13 +1076,13 @@ export default {
       viewer.camera.changed.addEventListener(function(percentage) {
         var height = viewer.camera.positionCartographic.height
         // 注册左键单击事件
-        _this.clickEventer()
+        // _this.clickEventer()
         if (height < 22000 && height > 1000) {
           caikongMoudle.removeResource()
           GrowLineMoudle.removeResource()
 
           _this.openUndergroundMode()
-          _this.doulbClickHD(true)
+          // _this.doulbClickHD(true)
           // 添加动态圆
           if (!_this.addCircleEffect) {
             _this.showCircleRipple()
@@ -1092,7 +1092,7 @@ export default {
           GrowLineMoudle.removeResource()
 
           _this.openUndergroundMode()
-          _this.doulbClickHD(true)
+         // _this.doulbClickHD(true)
           if (_this.addCircleArr.length > 0) {
             for (let ll = 0; ll < _this.addCircleArr.length; ll++) {
               _this.addCircleArr[ll].remove()
@@ -1111,7 +1111,7 @@ export default {
             caikongMoudle.addCaiKong(url1, url2)
           }
           _this.cancelUndergroundMode()
-          _this.doulbClickHD(false)
+          // _this.doulbClickHD(false)
         }
         if (window.clustercallback && window.clustercallback.length > 0) {
           for (var ci = 0; ci < window.clustercallback.length; ci++) {
