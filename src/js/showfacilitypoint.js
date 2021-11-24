@@ -50,9 +50,9 @@ export default class ShowFacilityPoint {
         }
         var copts = {
             viewer: this.viewer,
-            minheight: -1000,
-            divideheight: -180,
-            maxheight: 2500
+            minheight: -2000,
+            divideheight: 1050,
+            maxheight: 18000
         }
         var opt = Object.assign(copts, this.config)
         // eslint-disable-next-line new-cap

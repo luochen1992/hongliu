@@ -1,14 +1,14 @@
 <template>
   <div class="jiankongsite">
-    <pesonel-positiond-dialog :pData="ppdata" v-if="showPopPoint"></pesonel-positiond-dialog>
+    <table-page :pData="ppdata" v-if="showPopPoint"></table-page>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
-import pesonelPositiondDialog from '../pesonelPositiondDialog.vue'
+import TablePage from '../../tablePageControl/TablePage.vue'
 export default {
-  components: { pesonelPositiondDialog },
+  components: { TablePage },
   name: 'jiankongsite',
   computed: {
     ...mapGetters(['getNowMenuName'])

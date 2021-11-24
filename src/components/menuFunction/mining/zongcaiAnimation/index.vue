@@ -1,14 +1,14 @@
 <template>
   <div class="zongcaiAnimation">
-    <pesonel-positiond-dialog :pData="ppdata" :tablecolumn="tablecolumn" v-if="showPopPoint"></pesonel-positiond-dialog>
+    <table-page :pData="ppdata" :tablecolumn="tablecolumn" v-if="showPopPoint"></table-page>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
-import pesonelPositiondDialog from '../../monitoring/pesonelPositiondDialog.vue'
+import TablePage from '../../tablePageControl/TablePage.vue'
 export default {
-  components: { pesonelPositiondDialog },
+  components: { TablePage },
   name: 'zongcaiAnimation',
   computed: {
     ...mapGetters(['getNowMenuName'])

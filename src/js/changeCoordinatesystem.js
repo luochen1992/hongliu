@@ -36,7 +36,7 @@ function fromLocal(x, y, z) {
  * @param {Number} x 本地坐标x值
  * @param {Number} y 本地坐标y值
  * @param {Number} y 本地坐标y值
- * @return  {Cartesian3} Cartesian3对象
+ * @return  {Cartesian3} Cartesian3对象里面存的经纬度
  */
 function LocalToDegree(x, y, z) {
     var lon = 112.6910153

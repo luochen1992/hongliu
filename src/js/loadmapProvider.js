@@ -1092,9 +1092,9 @@ class showfacilitypoint {
     constructor(opt) {
         this.options = {
             url: '',
-            minheight: -200,
-            // divideheight: 200,
-            maxheight: 3000
+            minheight: -2000,
+            divideheight: 1050,
+            maxheight: 18000
         }
         this.options = Object.assign(this.options, opt)
         this.viewer = opt.viewer
@@ -1119,235 +1119,188 @@ class showfacilitypoint {
             // debugger;
             for (var j = 0; j < jsonData.Map.length; j++) {
                 var obj = jsonData.Map[j]
-                var Name = obj.Name
-                var Position = (obj.Position).split(',')
+                var Name = obj.URL
+                //var Position = (obj.Position).split(',')
                 if (obj.Matrix == undefined) { obj.Matrix = '1,0,0,0,1,0,0,0,1' }
                 var matrix = (obj.Matrix).split(',')
-                var x = parseFloat(Position[0])
-                var y = parseFloat(Position[1])
-                var z = parseFloat(Position[2]) - 925.5
+                var x = parseFloat(obj.X)
+                var y = parseFloat(obj.Y)
+                var z = parseFloat(obj.Z) //- 925.5
+                // var x = parseFloat(Position[0])
+                // var y = parseFloat(Position[1])
+                // var z = parseFloat(Position[2]) //- 925.5
+
                     // addModel33("models/mo/jw2.gltf",Matrix,(x),(y),(z));
 
-                var pos2 = window.fromLocal(x, y, z)
+                var pos2 = window.convert2000ToWGS84(x, y, z)
 
                 var model = this_.options.model || {}
-                model.uri = './SampleData/models/systemEquipment/' + obj.Name
+                model.uri = './SampleData/models/systemEquipment/' + Name
                 model.distanceDisplayCondition = this_.options.distanceDisplayCondition ? new Cesium.DistanceDisplayCondition(this_.options.distanceDisplayCondition[0], this_.options.distanceDisplayCondition[1]) : null
                 model.property = obj
                 model.scale = 1
                 model.config = this_.options
                 var namelist = Name.split('/')
-                var labelcont = namelist[2].split('.')[0] + j
-                switch (namelist[1]) {
-                    case '安全监控系统':
+                var labelcont = namelist[1].split('.')[0] + j
+                switch (namelist[0]) {
+                    case '安全监控系统_data':
                         break
-                    case '人员定位系统':
+                    // case '人员定位系统':
+                    //     break
+                    // case '调度通讯系统':
+                    //     break
+                    // case '矿压监测系统':
+                    //     break
+                    // case '抽放系统':
+                    //     break
+                    // case '网络通讯监控系统':
+                    //     break
+                    // case '避难硐室':
+                    //     break
+                    case '工业视频系统_data':
                         break
-                    case '调度通讯系统':
+                    // case '调度通信系统':
+                    //     break
+                    // case '排水系统':
+                    //     break
+                    case '工业视频系统_data':
                         break
-                    case '矿压监测系统':
-                        break
-                    case '抽放系统':
-                        break
-                    case '网络通讯监控系统':
-                        break
-                    case '避难硐室':
-                        break
-                    case '视频监控系统':
-                        break
-                    case '调度通信系统':
-                        break
-                    case '排水系统':
-                        break
-                    case '广播通信系统':
-                        break
-                    case '工业环网设备布置':
-                        break
+                    // case '工业环网设备布置':
+                    //     break
                     default:
                         break
                 }
                 var icourl = 'AQJKXT.png'
-                switch (namelist[2]) {
+                switch (namelist[1]) {
                     // 安全监控系统
-                    case '二氧化碳传感器.gltf':
+                    case '二氧化碳.gltf':
                         icourl = 'AQJKXT.png'
                         labelcont += '\r \n浓度：0.1%'
                         break
-                    case '_粉尘传感器.gltf':
+                    case '粉尘.gltf':
                         icourl = 'AQJKXT.png'
                         labelcont += '\r \n浓度：1mg/m³'
                         break
-                    case '_风流压力.gltf':
+                    case '甲烷.gltf':
                         icourl = 'AQJKXT.png'
                         break
-                    case '_风门开闭传感器.gltf':
+                    case '一氧化碳.gltf':
                         icourl = 'AQJKXT.png'
                         break
-                    case '风速传感器.gltf':
-                        icourl = 'AQJKXT.png'
-                        break
-                    case '_风筒风量传感器.gltf':
-                        icourl = 'AQJKXT.png'
-                        break
-                    case '_负压传感器.gltf':
-                        icourl = 'AQJKXT.png'
-                        break
-                    case '高低浓甲烷.gltf':
-                        icourl = 'AQJKXT.png'
-                        break
-                    case '_管道多参数传感器.gltf':
-                        icourl = 'AQJKXT.png'
-                        break
-                    case '_管道瓦斯传感器.gltf':
-                        icourl = 'AQJKXT.png'
-                        break
-                    case '管道一氧化碳.gltf':
-                        icourl = 'AQJKXT.png'
-                        break
-                    case '_井下监控分站.gltf':
-                        icourl = 'AQJKXT.png'
-                        break
-                    case '_井下终端.gltf':
-                        icourl = 'AQJKXT.png'
-                        break
-                    case '_局部通风机.gltf':
-                        icourl = 'AQJKXT.png'
-                        break
-                    case '_开停传感器.gltf':
-                        icourl = 'AQJKXT.png'
-                        break
-                    case '_馈电传感器.gltf':
-                        icourl = 'AQJKXT.png'
-                        break
-                    case '_馈电断电器.gltf':
-                        icourl = 'AQJKXT.png'
-                        break
-                    case '_流量开关.gltf':
-                        icourl = 'AQJKXT.png'
-                        break
-                    case '_声光报警器.gltf':
-                        icourl = 'AQJKXT.png'
-                        break
-                    case '温度传感器.gltf':
+                    case '温度.gltf':
                         icourl = 'AQJKXT.png'
                         labelcont += '\r \n温度：27°\r \n湿度：65%'
                         break
-                    case '_烟雾传感器.gltf':
+                    case '烟雾.gltf':
                         icourl = 'AQJKXT.png'
                         break
-                    case '氧气传感器.gltf':
+                    case '氧气.gltf':
                         icourl = 'AQJKXT.png'
                         break
-                    case '液位传感器.gltf':
-                        icourl = 'AQJKXT.png'
-                        break
-                    case '一氧化碳传感器.gltf':
-                        icourl = 'AQJKXT.png'
-                        break
-                        // 避难硐室
-                    case '临时避难硐室.gltf':
-                        icourl = 'QTJKXT.png'
-                        break
-                    case '永久避难硐室.gltf':
-                        icourl = 'QTJKXT.png'
-                        break
-                        // 抽放系统
-                    case '抽采瓦斯泵站.gltf':
-                        icourl = 'TFSJKX.png'
-                        break
-                    case '流量计.gltf':
-                        icourl = 'TFSJKX.png'
-                        break
-                    case '排渣装置.gltf':
-                        icourl = 'TFSJKX.png'
-                        break
-                    case '人工放水器.gltf':
-                        icourl = 'TFSJKX.png'
-                        break
-                    case '自动放水器.gltf':
-                        icourl = 'TFSJKX.png'
-                        break
-                        // 工业环网设备布置
-                    case '井下隔爆交换机.gltf':
-                        icourl = 'WLTXXT.png'
-                        break
-                        // 广播通信系统
-                    case '广播分站.gltf':
+                    //     // 避难硐室
+                    // case '临时避难硐室.gltf':
+                    //     icourl = 'QTJKXT.png'
+                    //     break
+                    // case '永久避难硐室.gltf':
+                    //     icourl = 'QTJKXT.png'
+                    //     break
+                    //     // 抽放系统
+                    // case '抽采瓦斯泵站.gltf':
+                    //     icourl = 'TFSJKX.png'
+                    //     break
+                    // case '流量计.gltf':
+                    //     icourl = 'TFSJKX.png'
+                    //     break
+                    // case '排渣装置.gltf':
+                    //     icourl = 'TFSJKX.png'
+                    //     break
+                    // case '人工放水器.gltf':
+                    //     icourl = 'TFSJKX.png'
+                    //     break
+                    // case '自动放水器.gltf':
+                    //     icourl = 'TFSJKX.png'
+                    //     break
+                    //     // 工业环网设备布置
+                    // case '井下隔爆交换机.gltf':
+                    //     icourl = 'WLTXXT.png'
+                    //     break
+                    // 应急广播系统
+                    case '矿用本安型音响8.gltf':
                         icourl = 'WLKBXT.png'
                         break
 
-                        // 排水系统
-                    case '离心水泵.gltf':
-                        icourl = 'ZNPSXT.png'
-                        break
-                    case '气动隔膜泵.gltf':
-                        icourl = 'ZNPSXT.png'
-                        break
-                    case '潜水泵.gltf':
-                        icourl = 'ZNPSXT.png'
-                        break
-                    case '强排泵.gltf':
-                        icourl = 'ZNPSXT.png'
-                        break
-                    case '主排水泵.gltf':
-                        icourl = 'ZNPSXT.png'
-                        break
-                        // 调度通信系统
-                    case '程控数字电话交换机.gltf':
-                        icourl = 'DDTTXT.png'
-                        break
-                    case '矿用电话机.gltf':
-                        icourl = 'DDTTXT.png'
-                        break
-                    case '直通电话机.gltf':
-                        icourl = 'DDTTXT.png'
-                        break
+                    //     // 排水系统
+                    // case '离心水泵.gltf':
+                    //     icourl = 'ZNPSXT.png'
+                    //     break
+                    // case '气动隔膜泵.gltf':
+                    //     icourl = 'ZNPSXT.png'
+                    //     break
+                    // case '潜水泵.gltf':
+                    //     icourl = 'ZNPSXT.png'
+                    //     break
+                    // case '强排泵.gltf':
+                    //     icourl = 'ZNPSXT.png'
+                    //     break
+                    // case '主排水泵.gltf':
+                    //     icourl = 'ZNPSXT.png'
+                    //     break
+                    //     // 调度通信系统
+                    // case '程控数字电话交换机.gltf':
+                    //     icourl = 'DDTTXT.png'
+                    //     break
+                    // case '矿用电话机.gltf':
+                    //     icourl = 'DDTTXT.png'
+                    //     break
+                    // case '直通电话机.gltf':
+                    //     icourl = 'DDTTXT.png'
+                    //     break
 
                         // 视频监控系统
-                    case '_视频摄像头.gltf':
+                    case '摄像头.gltf':
                         icourl = 'SPJKXT.png'
                         break
-                        // 人员定位系统
-                    case '_传输分站.gltf':
-                        icourl = 'RYDWXT.png'
-                        labelcont += '\r \n名称：李子旭\r \n状态：工作中'
-                        break
-                    case '_读卡分站.gltf':
-                        icourl = 'RYDWXT.png'
-                        break
-                        // 矿压监测系统
-                    case '矿压监测分站.gltf':
-                        icourl = 'KYJCXT.png'
-                        break
-                    case '矿压监测转换器.gltf':
-                        icourl = 'KYJCXT.png'
-                        break
-                    case '锚杆测力计.gltf':
-                        icourl = 'KYJCXT.png'
-                        break
-                    case '锚索测力计.gltf':
-                        icourl = 'KYJCXT.png'
-                        break
-                    case '围岩移动传感器.gltf':
-                        icourl = 'KYJCXT.png'
-                        break
-                        // 一体化融合通信系统
-                    case '5G基站.gltf':
-                        icourl = 'WLTXXT.png'
-                        break
-                    case '千兆交换机.gltf':
-                        icourl = 'WLTXXT.png'
-                        break
-                    case '融合通信分站.gltf':
-                        icourl = 'WLTXXT.png'
-                        break
+                    //     // 人员定位系统
+                    // case '_传输分站.gltf':
+                    //     icourl = 'RYDWXT.png'
+                    //     labelcont += '\r \n名称：李子旭\r \n状态：工作中'
+                    //     break
+                    // case '_读卡分站.gltf':
+                    //     icourl = 'RYDWXT.png'
+                    //     break
+                    //     // 矿压监测系统
+                    // case '矿压监测分站.gltf':
+                    //     icourl = 'KYJCXT.png'
+                    //     break
+                    // case '矿压监测转换器.gltf':
+                    //     icourl = 'KYJCXT.png'
+                    //     break
+                    // case '锚杆测力计.gltf':
+                    //     icourl = 'KYJCXT.png'
+                    //     break
+                    // case '锚索测力计.gltf':
+                    //     icourl = 'KYJCXT.png'
+                    //     break
+                    // case '围岩移动传感器.gltf':
+                    //     icourl = 'KYJCXT.png'
+                    //     break
+                    //     // 一体化融合通信系统
+                    // case '5G基站.gltf':
+                    //     icourl = 'WLTXXT.png'
+                    //     break
+                    // case '千兆交换机.gltf':
+                    //     icourl = 'WLTXXT.png'
+                    //     break
+                    // case '融合通信分站.gltf':
+                    //     icourl = 'WLTXXT.png'
+                    //     break
                     default:
                         break
                 }
 
                 var img = './img/marker/' + icourl
                 var eb = this_.dataSources.entities.add({
-                    position: pos2,
+                    position: Cesium.Cartesian3.fromDegrees(pos2.x, pos2.y, pos2.z),
                     // 模型对应图标
                     billboard: {
                         image: img,
@@ -1363,7 +1316,7 @@ class showfacilitypoint {
                 eb.layertype = 'cgqpoint'
 
                 var em = this_.dataSources2.entities.add({
-                    position: pos2,
+                    position: Cesium.Cartesian3.fromDegrees(pos2.x, pos2.y, pos2.z),
                     model: model,
                     label: {
                         text: labelcont,
