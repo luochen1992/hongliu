@@ -663,7 +663,6 @@ function loadGobArea2(viewer, opts) {
                 let tar = window.convert2000ToWGS84(x, y, z - 4)
                 pnts.push(tar.x, tar.y, tar.z)
             }
-            console.log(imageLibPath + '/' + name + '.png')
             if (enableTexture) {
                 var baseMaterial = new Cesium.ImageMaterialProperty({
                     image: imageLibPath + '/' + name + '.png',
