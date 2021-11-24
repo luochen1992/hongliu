@@ -919,7 +919,7 @@ export default {
         duration: 2
       }
       // 添加中国边界
-      var chinaBoundaryJsonData = Cesium.GeoJsonDataSource.load('./SampleData/Boundary/chinaBoundary.json', {
+      var chinaBoundaryJsonData = Cesium.GeoJsonDataSource.load('data/Boundary/chinaBoundary.json', {
         // stroke: Cesium.Color.HOTPINK,
         fill: Cesium.Color.YELLOW.withAlpha(0.0),
         strokeWidth: 2,
@@ -943,7 +943,7 @@ export default {
       // 飞行至陕西省处显示、 移除边界和陕西字样，再飞行至煤矿
       shanxiLocation.complete = function() {
         // 添加陕西省省界
-        var shanxiBoundaryJsonData = Cesium.GeoJsonDataSource.load('./SampleData/Boundary/shanxiBoundary.json', {
+        var shanxiBoundaryJsonData = Cesium.GeoJsonDataSource.load('data/Boundary/shanxiBoundary.json', {
           stroke: Cesium.Color.MIDNIGHTBLUE,
           fill: Cesium.Color.NAVY.withAlpha(0.5),
           strokeWidth: 5,
@@ -987,7 +987,7 @@ export default {
           window.cesiumvariate.mousePosition.show = true
         }
         // 添加矿区边界
-        var mineBoundaryJsonData = Cesium.GeoJsonDataSource.load('./SampleData/Boundary/mineBoundary.json', {
+        var mineBoundaryJsonData = Cesium.GeoJsonDataSource.load('data/Boundary/mineBoundary.json', {
           stroke: Cesium.Color.STEELBLUE,
           fill: Cesium.Color.STEELBLUE.withAlpha(0.7),
           strokeWidth: 3,
