@@ -57,7 +57,7 @@ import { createImageryProvider, createTerrainProvider } from '../js/loadmapProvi
 import rotateCamera from '../js/rotateCamera'
 import createLayer from '../js/createLayer'
 import pointstatis from '../js/cluster'
-import { fromLocal, LocalToDegree,convert2000ToWGS84,convertWGS84To2000,WGS84_to_Cartesian3 } from '../js/changeCoordinatesystem'
+import { fromLocal, LocalToDegree, convert2000ToWGS84, convertWGS84To2000, WGS84_to_Cartesian3 } from '../js/changeCoordinatesystem'
 import touchtool from '../components/bottomRightBar/touchTool/index.vue'
 import legendTool from '../components/bottomRightBar/legendTool/index.vue'
 import searchTool from '../components/bottomRightBar/searchTool/index.vue'
@@ -143,7 +143,7 @@ export default {
           name: '机电运输',
           id: 'electricalTransportation',
           img: 'img/cicular/机电运输.png',
-           children: [
+          children: [
             {
               name: '电力系统',
               id: 'electricalSystem',
@@ -274,7 +274,8 @@ export default {
               img: 'img/cicular/调度通讯.png'
             }
           ]
-        }, {
+        },
+        {
           name: '灾害专题',
           id: 'disaster',
           img: 'img/cicular/灾害专题.png',
@@ -314,7 +315,7 @@ export default {
             {
               name: '救援队伍',
               id: 'rescueteam',
-              img: 'img/cicular/救援队伍.png' //,
+              img: 'img/cicular/救援队伍.png'
             },
             {
               name: '救援物资',
@@ -418,7 +419,7 @@ export default {
     _this.createMap({
       id: 'cesiumContainer',
       url: _this.url,
-      success: function(_map, gisdata, jsondata) {
+      success: function (_map, gisdata, jsondata) {
         window.viewer = _map.viewer
         window.gisdata = gisdata
         window.d3kit = new Cesium.D3Kit(window.viewer, { loadGuiPlugin: true })
@@ -444,7 +445,7 @@ export default {
       var _this = this
       var hi = 0
       var helper = new Cesium.EventHelper()
-      helper.add(viewer.scene.globe.tileLoadProgressEvent, function(e) {
+      helper.add(viewer.scene.globe.tileLoadProgressEvent, function (e) {
         if (e === 0) {
           if (_this.loadend) {
             // debugger
@@ -470,7 +471,7 @@ export default {
             helper.removeAll()
             pointstatis.add(window.viewer)
 
-           // _this.pointstatis()
+            // _this.pointstatis()
           }
           if (hi === 0) {
             _this.fullscreenLoading.text = '场景定位中'
@@ -486,88 +487,31 @@ export default {
     },
     // 工业广场
     add_HLL_GYGC() {
-        // 中心偏移点
-        var longitude = 110.40177239999998
-	      var latitude = 38.933657900000004
-        var height = 1263
-        var tileseturl = './SampleData/HLL-gygc'
-        // eslint-disable-next-line no-undef
-        var HLLgygc = new CTMap.HLLgygc(viewer)
-        // 广场是否显示
-        HLLgygc.isshow()
-        $.get('./SampleData/HLL-gygc/gygc.json', {}, function(res) {
-            HLLgygc.add(tileseturl, res, longitude, latitude, height)
-        })
+      // 中心偏移点
+      var longitude = 110.40177239999998
+      var latitude = 38.933657900000004
+      var height = 1263
+      var tileseturl = './SampleData/HLL-gygc'
+      // eslint-disable-next-line no-undef
+      var HLLgygc = new CTMap.HLLgygc(viewer)
+      // 广场是否显示
+      HLLgygc.isshow()
+      $.get('./SampleData/HLL-gygc/gygc.json', {}, function (res) {
+        HLLgygc.add(tileseturl, res, longitude, latitude, height)
+      })
     },
     addGrowLine(GrowLineMoudle) {
       var position = [
-        112.666679,
-        35.699997,
-        1.5,
-        112.715782,
-        35.699989,
-        1.47,
-        112.705994,
-        35.679314,
-        1.49,
-        112.729988,
-        35.676205,
-        1.49,
-        112.729973,
-        35.674404,
-        1.5,
-        112.734169,
-        35.674397,
-        1.52,
-        112.734154,
-        35.6698,
-        1.5,
-        112.725014,
-        35.669807,
-        1.51,
-        112.725136,
-        35.673183,
-        1.52,
-        112.714981,
-        35.675266,
-        1.5,
-        112.71286,
-        35.672646,
-        1.5,
-        112.703995,
-        35.674438,
-        1.51,
-        112.703201,
-        35.671791,
-        1.5,
-        112.692116,
-        35.671661,
-        1.5,
-        112.692169,
-        35.660225,
-        1.53,
-        112.656815,
-        35.666321,
-        1.5,
-        112.643036,
-        35.66634,
-        1.52,
-        112.658394,
-        35.704113,
-        1.54,
-        112.666656,
-        35.704159,
-        1.53,
-        112.666679,
-        35.699997,
-        1.5
+        112.666679, 35.699997, 1.5, 112.715782, 35.699989, 1.47, 112.705994, 35.679314, 1.49, 112.729988, 35.676205, 1.49, 112.729973, 35.674404, 1.5, 112.734169, 35.674397, 1.52, 112.734154, 35.6698,
+        1.5, 112.725014, 35.669807, 1.51, 112.725136, 35.673183, 1.52, 112.714981, 35.675266, 1.5, 112.71286, 35.672646, 1.5, 112.703995, 35.674438, 1.51, 112.703201, 35.671791, 1.5, 112.692116,
+        35.671661, 1.5, 112.692169, 35.660225, 1.53, 112.656815, 35.666321, 1.5, 112.643036, 35.66634, 1.52, 112.658394, 35.704113, 1.54, 112.666656, 35.704159, 1.53, 112.666679, 35.699997, 1.5
       ]
       GrowLineMoudle.addGrowLine(position)
     },
 
     loadHangDao(url) {
       if (window.g_HangDaoDataList.length > 0) return
-      $.get(url, {}, function(res) {
+      $.get(url, {}, function (res) {
         var json = res
         var id = 0
         for (let j = 0; j < json.Map.length; j++) {
@@ -608,16 +552,16 @@ export default {
       var url = opt.url
       if (opt.url) {
         fetch(url)
-          .then(function(response) {
+          .then(function (response) {
             return response.json()
           })
-          .then(function(config) {
+          .then(function (config) {
             // map初始化
             var configdata = config.map
 
             _this.createMapByData(opt, configdata, config)
           })
-          .catch(function(ex) {
+          .catch(function (ex) {
             _this.fullscreenLoading.close()
             window.layui.layer.msg(opt.url + '加载失败！')
           })
@@ -936,12 +880,12 @@ export default {
         // }
       })
       // 飞行至陕西省
-      var animate1 = setTimeout(function() {
+      var animate1 = setTimeout(function () {
         camera.flyTo(shanxiLocation)
         clearTimeout(animate1) // 停止动画
       }, 5000)
       // 飞行至陕西省处显示、 移除边界和陕西字样，再飞行至煤矿
-      shanxiLocation.complete = function() {
+      shanxiLocation.complete = function () {
         // 添加陕西省省界
         var shanxiBoundaryJsonData = Cesium.GeoJsonDataSource.load('data/Boundary/shanxiBoundary.json', {
           stroke: Cesium.Color.MIDNIGHTBLUE,
@@ -964,15 +908,15 @@ export default {
         })
         var shanxiBoundaryJsonDataSource
         var chinaBoundaryJsonDataSource
-        var animate2 = setTimeout(function() {
+        var animate2 = setTimeout(function () {
           viewer.entities.removeAll()
           // 移除中国边界geojson数据
-          chinaBoundaryJsonData.then(res => {
+          chinaBoundaryJsonData.then((res) => {
             chinaBoundaryJsonDataSource = res
           })
           viewer.dataSources.remove(chinaBoundaryJsonDataSource)
           // 移除陕西边界geojson数据
-          shanxiBoundaryJsonData.then(res => {
+          shanxiBoundaryJsonData.then((res) => {
             shanxiBoundaryJsonDataSource = res
           })
           viewer.dataSources.remove(shanxiBoundaryJsonDataSource)
@@ -981,7 +925,7 @@ export default {
           clearTimeout(animate2) // 停止动画
         }, 2000)
       }
-      mineBoundaryLocation.complete = function() {
+      mineBoundaryLocation.complete = function () {
         if (!window.cesiumvariate.mousePosition) {
           window.cesiumvariate.mousePosition = window.viewer.navigation.mousePosition
           window.cesiumvariate.mousePosition.show = true
@@ -1020,10 +964,10 @@ export default {
           }
         })
         var mineBoundaryJsonDataSource
-        var animate3 = setTimeout(function() {
+        var animate3 = setTimeout(function () {
           viewer.entities.removeAll()
           // 移除矿区边界geojson数据
-          mineBoundaryJsonData.then(res => {
+          mineBoundaryJsonData.then((res) => {
             mineBoundaryJsonDataSource = res
           })
           viewer.dataSources.remove(mineBoundaryJsonDataSource)
@@ -1073,7 +1017,7 @@ export default {
     },
     addEventFun(GrowLineMoudle, caikongMoudle) {
       var _this = this
-      viewer.camera.changed.addEventListener(function(percentage) {
+      viewer.camera.changed.addEventListener(function (percentage) {
         var height = viewer.camera.positionCartographic.height
         // 注册左键单击事件
         // _this.clickEventer()
@@ -1092,7 +1036,7 @@ export default {
           GrowLineMoudle.removeResource()
 
           _this.openUndergroundMode()
-         // _this.doulbClickHD(true)
+          // _this.doulbClickHD(true)
           if (_this.addCircleArr.length > 0) {
             for (let ll = 0; ll < _this.addCircleArr.length; ll++) {
               _this.addCircleArr[ll].remove()
@@ -1127,23 +1071,7 @@ export default {
       var tt = this
       tt.addCircleEffect = true
       var positions = [
-        112.7145642,
-        35.6762447,
-        -275.34,
-        112.7025492,
-        35.6797271,
-        -346.6,
-        112.662633,
-        35.6871531,
-        -490.95,
-        112.6696057,
-        35.6800442,
-        -451.29,
-        112.6960627,
-        35.6943101,
-        -390.61,
-        112.6764629,
-        35.6840686,
+        112.7145642, 35.6762447, -275.34, 112.7025492, 35.6797271, -346.6, 112.662633, 35.6871531, -490.95, 112.6696057, 35.6800442, -451.29, 112.6960627, 35.6943101, -390.61, 112.6764629, 35.6840686,
         -428.83
       ]
       var j = 0
@@ -1683,7 +1611,7 @@ export default {
       // setTimeout(() => {
       //   backgroundEntity.show = true
       // }, 2000)
-      //注释掉添加模型代码
+      // 注释掉添加模型代码
       /*
       debugger
       const scene = window.viewer.scene
@@ -1756,7 +1684,7 @@ export default {
       if (!window.isClickHander && isClickHander) {
         window.isClickHander = new window.Cesium.ScreenSpaceEventHandler(window.viewer.scene.canvas)
       }
-      window.isClickHander.setInputAction(function(movement) {
+      window.isClickHander.setInputAction(function (movement) {
         if (window.rcamera) {
           window.rcamera.endRotate()
         }
@@ -1770,7 +1698,7 @@ export default {
         window.dcHDHandler = new window.Cesium.ScreenSpaceEventHandler(window.viewer.scene.canvas)
       }
       if (flag && this.dbcHDflag !== true) {
-        window.dcHDHandler.setInputAction(function(movement) {
+        window.dcHDHandler.setInputAction(function (movement) {
           var fea = window.viewer.scene.pick(movement.position)
           var cartesian = _this.getCurrentMousePosition(window.viewer.scene, movement.position)
           // 开启绕中心旋转

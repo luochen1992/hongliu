@@ -659,8 +659,8 @@ function loadGobArea2(viewer, opts) {
                 var z = polygonXYZ[k + 2]
 
                 // eslint-disable-next-line no-undef
-                //说明：因在后台编辑器是沿着顶端进行绘制的，所以需要减去巷道高度
-                let tar = window.convert2000ToWGS84(x, y, z - 4)
+                // 说明：因在后台编辑器是沿着顶端进行绘制的，所以需要减去巷道高度
+                const tar = window.convert2000ToWGS84(x, y, z - 4)
                 pnts.push(tar.x, tar.y, tar.z)
             }
             if (enableTexture) {
@@ -953,7 +953,7 @@ class areacluster {
         }
         // 边界墙纹理特效（new)
         const materialWall = window.d3kit.getCustomMaterialWall({
-            image: require('@/assets/images/b2.png'),
+            image: require('@/assets/images/b3.png'),
             freely: 'vertical',
             direction: '+',
             count: 2,
@@ -966,7 +966,7 @@ class areacluster {
                     maximumHeights: maximumHeights,
                     minimumHeights: minimumHeights,
                     outline: false,
-                    //outlineColor: Cesium.Color.BLUE,
+                    // outlineColor: Cesium.Color.BLUE,
                     // outlineWidth: 50,
                     material: materialWall
                 }
@@ -1120,12 +1120,12 @@ class showfacilitypoint {
             for (var j = 0; j < jsonData.Map.length; j++) {
                 var obj = jsonData.Map[j]
                 var Name = obj.URL
-                //var Position = (obj.Position).split(',')
+                // var Position = (obj.Position).split(',')
                 if (obj.Matrix == undefined) { obj.Matrix = '1,0,0,0,1,0,0,0,1' }
                 var matrix = (obj.Matrix).split(',')
                 var x = parseFloat(obj.X)
                 var y = parseFloat(obj.Y)
-                var z = parseFloat(obj.Z) //- 925.5
+                var z = parseFloat(obj.Z) // - 925.5
                 // var x = parseFloat(Position[0])
                 // var y = parseFloat(Position[1])
                 // var z = parseFloat(Position[2]) //- 925.5
@@ -1392,3 +1392,4 @@ export {
     loadGobArea,
     loadGobArea2
 }
+

@@ -1,6 +1,6 @@
 const createWall = function (points, maximumHeights, minimumHeights) {
   const materialWall = window.d3kit.getCustomMaterialWall({
-    image: require('@/assets/images/b2.png'),
+    image: require('@/assets/images/Wall.png'),
     freely: 'vertical',
     direction: '+',
     count: 2,
