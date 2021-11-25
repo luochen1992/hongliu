@@ -84,9 +84,11 @@ function convert2000ToWGS84(x, y, z) {
     let projection4326 = '+proj=longlat +datum=WGS84 +no_defs'
     let posArr = [x, y, z];
     let transformPoint = proj4(projection4525, projection4326, posArr)
-    tarobj.x = transformPoint[0];
-    tarobj.y = transformPoint[1];
-    tarobj.z = transformPoint[2];
+        // tarobj.x = parseFloat(transformPoint[0]) - 0.000012
+        // tarobj.y = parseFloat(transformPoint[1]) - 0.00045
+    tarobj.x = parseFloat(transformPoint[0])
+    tarobj.y = parseFloat(transformPoint[1])
+    tarobj.z = parseFloat(transformPoint[2])
     return tarobj;
 }
 /* 球面坐标WGS84至本地坐标2000坐标系
@@ -118,7 +120,7 @@ function convertWGS84To2000(lon, lat, height) {
  * @return {{x: *, y: *, z: *}}
  * @constructor
  */
-var WGS84_to_Cartesian3 = function (point) {
+var WGS84_to_Cartesian3 = function(point) {
     var car33 = Cesium.Cartesian3.fromDegrees(point.lng, point.lat, point.alt);
     // var x = car33.x;
     // var y = car33.y;

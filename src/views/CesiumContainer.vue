@@ -461,6 +461,7 @@ export default {
             // 添加工业广场
             // eslint-disable-next-line no-undef
             _this.add_HLL_GYGC()
+            // 添加巷道
             _this.loadHangDao('data/巷道.json')
             var st = setTimeout(() => {
               _this.fullscreenLoading.close()
@@ -849,10 +850,10 @@ export default {
         duration: 3
       }
       var wangpoLocation = {
-        destination: new Cesium.Cartesian3.fromDegrees(110.30228998, 38.7039448, 21557.6067),
+        destination: new Cesium.Cartesian3.fromDegrees(110.30228998, 38.7039448, 10357.6067),
         orientation: {
           heading: 6.223585370236905,
-          pitch: -0.6518620997804505,
+          pitch: -0.3218620997804505,
           roll: 6.28294670516717
         },
         duration: 3
