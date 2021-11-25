@@ -141,7 +141,7 @@ export default {
         },
         {
           name: '机电运输',
-          id: 'fusionlinkage',
+          id: 'electricalTransportation',
           img: 'img/cicular/机电运输.png',
            children: [
             {
@@ -276,7 +276,7 @@ export default {
           ]
         }, {
           name: '灾害专题',
-          id: 'mining',
+          id: 'disaster',
           img: 'img/cicular/灾害专题.png',
           children: [
             {
@@ -362,7 +362,7 @@ export default {
         },
         {
           name: '单兵互联',
-          id: 'technology',
+          id: 'individualInterconnection',
           img: 'img/cicular/单兵互联.png',
           children: [
             {

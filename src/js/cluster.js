@@ -1743,7 +1743,7 @@ var pointstatis = {
     },
     //
     addBoundary() {
-        $.get('data/mineBoundary/红柳林矿区边界.json', {}, function(res) {
+        $.get('data/Boundary/mineBoundary.json', {}, function(res) {
             var json = res
             var positionsArr = []
             var coordList = []
