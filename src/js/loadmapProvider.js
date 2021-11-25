@@ -265,8 +265,8 @@ function loadgltf(viewer, opts) {
 }
 // 加载模型图层
 function gltflayer2(viewer, opts) {
-    var _dataSource = new Cesium.CustomDataSource(Cesium.createGuid())
-    viewer.dataSources.add(_dataSource)
+    var Source = new Cesium.CustomDataSource(Cesium.createGuid())
+    viewer.dataSources.add(Source)
     Cesium.Resource.fetchJson(opts.url).then(function(jsonData) {
         for (let i = 0; i < jsonData.Map.length; i += 1) {
             var obj = jsonData.Map[i]
@@ -284,7 +284,7 @@ function gltflayer2(viewer, opts) {
             var c3 = Cesium.Cartesian3.fromArray(pos)
             var mat4 = Cesium.Matrix4.fromRotationTranslation(mat3, c3)
             var m = Cesium.Matrix4.multiplyTransformation(modelMatrix, mat4, new Cesium.Matrix4())
-            var model = _dataSource._primitives.add(Cesium.Model.fromGltf({
+            var model = Source._primitives.add(Cesium.Model.fromGltf({
                 id: Cesium.createGuid(),
                 // 资源路径
                 url: './SampleData/gltf/jw.gltf', // obj.Name,
@@ -310,17 +310,17 @@ function gltflayer2(viewer, opts) {
             if (opts.center) {
                 window.centerAt2(opts.center)
             } else {
-                viewer.zoomTo(_dataSource)
+                viewer.zoomTo(Source)
             }
         }
     })
 
-    return _dataSource
+    return Source
 }
 // 加载模型图层
 function gltflayer(viewer, opts) {
-    var _dataSource = new Cesium.CustomDataSource(Cesium.createGuid())
-    viewer.dataSources.add(_dataSource)
+    var Source = new Cesium.CustomDataSource(Cesium.createGuid())
+    viewer.dataSources.add(Source)
     Cesium.Resource.fetchJson(opts.url).then(function(jsonData) {
         for (let i = 0; i < jsonData.data.length; i += 1) {
             var heading = Cesium.Math.toRadians(jsonData.data[i].geometry.heading)
@@ -334,7 +334,7 @@ function gltflayer(viewer, opts) {
             const position = Cesium.Cartesian3.fromDegrees(x, y, z)
                 // 生成一个函数，该函数从以提供的原点为中心的参考帧到提供的椭圆体的固定参考帧计算4x4变换矩阵。
             var fixedFrame = Cesium.Transforms.localFrameToFixedFrameGenerator('north', 'west')
-            var model = _dataSource._primitives.add(Cesium.Model.fromGltf({
+            var model = Source._primitives.add(Cesium.Model.fromGltf({
                 id: Cesium.createGuid(),
                 // 资源路径
                 url: jsonData.data[i].url,
@@ -361,12 +361,12 @@ function gltflayer(viewer, opts) {
             if (opts.center) {
                 window.centerAt2(opts.center)
             } else {
-                viewer.zoomTo(_dataSource)
+                viewer.zoomTo(Source)
             }
         }
     })
 
-    return _dataSource
+    return Source
 }
 // 加载kml
 function loadKML(viewer, opts) {
@@ -399,8 +399,8 @@ function loadGeojson(viewer, opts) {
         var upAxis = 1
     }
     var movez = opts.movez ? opts.movez : 0
-    var _dataSource = new Cesium.CustomDataSource(Cesium.createGuid())
-    viewer.dataSources.add(_dataSource)
+    var Source = new Cesium.CustomDataSource(Cesium.createGuid())
+    viewer.dataSources.add(Source)
     $.get(opts.url, {}, function(res) {
         var json = (res)
         for (var j = 0; j < json.Map.length; j++) {
@@ -435,14 +435,14 @@ function loadGeojson(viewer, opts) {
             // var p = new Cesium.Cartesian3(0.0, 0.0, 0.0);
             // var pos2 = Cesium.Matrix4.multiplyByPoint(modelMatrix, p, new Cesium.Cartesian3());
             // var pos = Cesium.Cartesian3.fromDegrees(lon, lat, alt);
-            /* var model = _dataSource._primitives.add(Cesium.Model.fromGltf({
+            /* var model = Source._primitives.add(Cesium.Model.fromGltf({
                  url: './SampleData/models/' + filename + '/' + Name,
                  modelMatrix: modelMatrix,
                  scale: 1,
                  upAxis: upAxis
              })) */
             var fixedFrame = Cesium.Transforms.localFrameToFixedFrameGenerator('north', 'west')
-            var model = _dataSource._primitives.add(Cesium.Model.fromGltf({
+            var model = Source._primitives.add(Cesium.Model.fromGltf({
                     id: Cesium.createGuid(),
                     // 资源路径
                     url: './SampleData/models/' + filename + '/' + Name,
@@ -475,11 +475,11 @@ function loadGeojson(viewer, opts) {
             if (opts.center) {
                 window.centerAt2(opts.center)
             } else {
-                viewer.zoomTo(_dataSource)
+                viewer.zoomTo(Source)
             }
         }
     })
-    return _dataSource
+    return Source
 }
 // 加载工作面、采空区
 function loadGobArea(viewer, opts) {
@@ -487,8 +487,8 @@ function loadGobArea(viewer, opts) {
     var viewer = viewer
     var imageLibPath = './img/采空区'
     var enableTexture = true
-    var _dataSource = new Cesium.CustomDataSource(Cesium.createGuid())
-    viewer.dataSources.add(_dataSource)
+    var Source = new Cesium.CustomDataSource(Cesium.createGuid())
+    viewer.dataSources.add(Source)
     $.get(opts.url, {}, function(res) {
         var json = (res)
             // var json = JSON.parse(res)
@@ -586,7 +586,7 @@ function loadGobArea(viewer, opts) {
                     repeat: new Cesium.Cartesian2(1, 1)
                 })
 
-                _dataSource.entities.add({
+                Source.entities.add({
                     polygon: {
                         hierarchy: {
                             positions: pnts
@@ -598,7 +598,7 @@ function loadGobArea(viewer, opts) {
                     }
                 })
             } else {
-                _dataSource.entities.add({
+                Source.entities.add({
                     polygon: {
                         hierarchy: {
                             positions: pnts
@@ -615,11 +615,11 @@ function loadGobArea(viewer, opts) {
             if (opts.center) {
                 window.centerAt2(opts.center)
             } else {
-                viewer.zoomTo(_dataSource)
+                viewer.zoomTo(Source)
             }
         }
     })
-    return _dataSource
+    return Source
 }
 
 function loadGobArea2(viewer, opts) {
@@ -627,8 +627,8 @@ function loadGobArea2(viewer, opts) {
     var viewer = viewer
     var imageLibPath = './img/采空区'
     var enableTexture = true
-    var _dataSource = new Cesium.CustomDataSource(Cesium.createGuid())
-    viewer.dataSources.add(_dataSource)
+    var Source = new Cesium.CustomDataSource(Cesium.createGuid())
+    viewer.dataSources.add(Source)
     $.get(opts.url, {}, function(res) {
         var json = (res)
         var id = 0
@@ -669,7 +669,7 @@ function loadGobArea2(viewer, opts) {
                     transparent: false,
                     repeat: new Cesium.Cartesian2(1, 1)
                 })
-                _dataSource.entities.add({
+                Source.entities.add({
                     polygon: {
                         hierarchy: new Cesium.Cartesian3.fromDegreesArrayHeights(pnts),
                         perPositionHeight: true,
@@ -679,7 +679,7 @@ function loadGobArea2(viewer, opts) {
                     }
                 })
             } else {
-                _dataSource.entities.add({
+                Source.entities.add({
                     polygon: {
                         hierarchy: new Cesium.Cartesian3.fromDegreesArrayHeights(pnts),
                         perPositionHeight: true,
@@ -694,11 +694,11 @@ function loadGobArea2(viewer, opts) {
             if (opts.center) {
                 window.centerAt2(opts.center)
             } else {
-                viewer.zoomTo(_dataSource)
+                viewer.zoomTo(Source)
             }
         }
     })
-    return _dataSource
+    return Source
 }
 
 function GetAzimuth(X1, Y1, X2, Y2) {
@@ -745,8 +745,8 @@ function GetAzimuth(X1, Y1, X2, Y2) {
 }
 
 function addlabel(viewer, opts) {
-    var _dataSource = new Cesium.CustomDataSource(Cesium.createGuid())
-    viewer.dataSources.add(_dataSource)
+    var Source = new Cesium.CustomDataSource(Cesium.createGuid())
+    viewer.dataSources.add(Source)
     window.Cesium.when.all([window.Cesium.Resource.fetchImage('./img/labelBg.png')], function(images) {
         var canvas = document.createElement('canvas')
         canvas.width = 138
@@ -758,7 +758,7 @@ function addlabel(viewer, opts) {
         ctx.drawImage(images[0], 0, 0, 96, 96)
         ctx.fillText('办公大楼', 16, 20)
         var pintest = canvas.toDataURL()
-        var officePin = _dataSource.entities.add({
+        var officePin = Source.entities.add({
             name: '办公大楼',
             position: new window.Cesium.Cartesian3.fromDegrees(112.7289062, 35.6746298, 98.4412),
             billboard: {
@@ -772,7 +772,7 @@ function addlabel(viewer, opts) {
         ctx.drawImage(images[0], 0, 0, 96, 96)
         ctx.fillText('副斜井', 24, 20)
         var pintest = canvas.toDataURL()
-        var rujinkouPin = _dataSource.entities.add({
+        var rujinkouPin = Source.entities.add({
             name: '副斜井',
             position: new window.Cesium.Cartesian3.fromDegrees(112.7280412, 35.6743790, 88.8168),
             billboard: {
@@ -786,7 +786,7 @@ function addlabel(viewer, opts) {
         ctx.drawImage(images[0], 0, 0, 96, 96)
         ctx.fillText('员工宿舍', 16, 20)
         var pintest = canvas.toDataURL()
-        var dormitoryPin = _dataSource.entities.add({
+        var dormitoryPin = Source.entities.add({
             name: '员工宿舍',
             position: new window.Cesium.Cartesian3.fromDegrees(112.7283154, 35.6752356, 104.2138),
             billboard: {
@@ -800,7 +800,7 @@ function addlabel(viewer, opts) {
         ctx.drawImage(images[0], 0, 0, 96, 96)
         ctx.fillText('职工餐厅', 16, 20)
         var pintest = canvas.toDataURL()
-        var canteenPin = _dataSource.entities.add({
+        var canteenPin = Source.entities.add({
             name: '职工餐厅',
             position: new window.Cesium.Cartesian3.fromDegrees(112.7278276, 35.6752195, 94.3812),
             billboard: {
@@ -814,7 +814,7 @@ function addlabel(viewer, opts) {
         ctx.drawImage(images[0], 0, 0, 96, 96)
         ctx.fillText('煤仓', 33, 20)
         var pintest = canvas.toDataURL()
-        var lijingPin = _dataSource.entities.add({
+        var lijingPin = Source.entities.add({
             name: '煤仓',
             position: new window.Cesium.Cartesian3.fromDegrees(112.7296934, 35.6720215, 84.1019),
             billboard: {
@@ -828,7 +828,7 @@ function addlabel(viewer, opts) {
         ctx.drawImage(images[0], 0, 0, 96, 96)
         ctx.fillText('洗选厂', 24, 20)
         var pintest = canvas.toDataURL()
-        var xuanmeichangPin = _dataSource.entities.add({
+        var xuanmeichangPin = Source.entities.add({
             name: '洗选厂',
             position: new window.Cesium.Cartesian3.fromDegrees(112.7281118, 35.6735463, 90.8430),
             billboard: {
@@ -872,7 +872,7 @@ function addlabel(viewer, opts) {
         ctx.fillText('51.89', 760, 166)
         ctx.fillText('52.58', 760, 186)
         var pintest = canvas.toDataURL()
-        var officePin = _dataSource.entities.add({
+        var officePin = Source.entities.add({
             name: '办公大楼',
             position: new window.Cesium.Cartesian3.fromDegrees(112.6695911, 35.6870407, 20),
             billboard: {
@@ -883,7 +883,7 @@ function addlabel(viewer, opts) {
             }
         })
     })
-    return _dataSource
+    return Source
 }
 class areacluster {
     constructor(viewer, opts) {
@@ -1121,6 +1121,7 @@ class showfacilitypoint {
                 var obj = jsonData.Map[j]
                 var Name = obj.URL
                 // var Position = (obj.Position).split(',')
+
                 if (obj.Matrix == undefined) { obj.Matrix = '1,0,0,0,1,0,0,0,1' }
                 var matrix = (obj.Matrix).split(',')
                 var x = parseFloat(obj.X)
@@ -1130,7 +1131,7 @@ class showfacilitypoint {
                 // var y = parseFloat(Position[1])
                 // var z = parseFloat(Position[2]) //- 925.5
 
-                    // addModel33("models/mo/jw2.gltf",Matrix,(x),(y),(z));
+                // addModel33("models/mo/jw2.gltf",Matrix,(x),(y),(z));
 
                 var pos2 = window.convert2000ToWGS84(x, y, z)
 
@@ -1143,30 +1144,31 @@ class showfacilitypoint {
                 var namelist = Name.split('/')
                 var labelcont = namelist[1].split('.')[0] + j
                 switch (namelist[0]) {
-                    case '安全监控系统_data':
+                    case '安全监控系统':
                         break
-                    // case '人员定位系统':
-                    //     break
-                    // case '调度通讯系统':
-                    //     break
-                    // case '矿压监测系统':
-                    //     break
-                    // case '抽放系统':
-                    //     break
-                    // case '网络通讯监控系统':
-                    //     break
-                    // case '避难硐室':
-                    //     break
-                    case '工业视频系统_data':
+                        // case '人员定位系统':
+                        //     break
+                        // case '调度通讯系统':
+                        //     break
+                        // case '矿压监测系统':
+                        //     break
+                        // case '抽放系统':
+                        //     break
+                        // case '网络通讯监控系统':
+                        //     break
+                        // case '避难硐室':
+                        //     break
+                    case '人员定位系统':
                         break
-                    // case '调度通信系统':
-                    //     break
-                    // case '排水系统':
-                    //     break
-                    case '工业视频系统_data':
+                        // case '调度通信系统':
+                        //     break
+                        // case '排水系统':
+                        //     break
+                        // eslint-disable-next-line no-duplicate-case
+                    case '工业视频系统':
                         break
-                    // case '工业环网设备布置':
-                    //     break
+                        // case '工业环网设备布置':
+                        //     break
                     default:
                         break
                 }
@@ -1197,103 +1199,103 @@ class showfacilitypoint {
                     case '氧气.gltf':
                         icourl = 'AQJKXT.png'
                         break
-                    //     // 避难硐室
-                    // case '临时避难硐室.gltf':
-                    //     icourl = 'QTJKXT.png'
-                    //     break
-                    // case '永久避难硐室.gltf':
-                    //     icourl = 'QTJKXT.png'
-                    //     break
-                    //     // 抽放系统
-                    // case '抽采瓦斯泵站.gltf':
-                    //     icourl = 'TFSJKX.png'
-                    //     break
-                    // case '流量计.gltf':
-                    //     icourl = 'TFSJKX.png'
-                    //     break
-                    // case '排渣装置.gltf':
-                    //     icourl = 'TFSJKX.png'
-                    //     break
-                    // case '人工放水器.gltf':
-                    //     icourl = 'TFSJKX.png'
-                    //     break
-                    // case '自动放水器.gltf':
-                    //     icourl = 'TFSJKX.png'
-                    //     break
-                    //     // 工业环网设备布置
-                    // case '井下隔爆交换机.gltf':
-                    //     icourl = 'WLTXXT.png'
-                    //     break
-                    // 应急广播系统
+                        //     // 避难硐室
+                        // case '临时避难硐室.gltf':
+                        //     icourl = 'QTJKXT.png'
+                        //     break
+                        // case '永久避难硐室.gltf':
+                        //     icourl = 'QTJKXT.png'
+                        //     break
+                        //     // 抽放系统
+                        // case '抽采瓦斯泵站.gltf':
+                        //     icourl = 'TFSJKX.png'
+                        //     break
+                        // case '流量计.gltf':
+                        //     icourl = 'TFSJKX.png'
+                        //     break
+                        // case '排渣装置.gltf':
+                        //     icourl = 'TFSJKX.png'
+                        //     break
+                        // case '人工放水器.gltf':
+                        //     icourl = 'TFSJKX.png'
+                        //     break
+                        // case '自动放水器.gltf':
+                        //     icourl = 'TFSJKX.png'
+                        //     break
+                        //     // 工业环网设备布置
+                        // case '井下隔爆交换机.gltf':
+                        //     icourl = 'WLTXXT.png'
+                        //     break
+                        // 应急广播系统
                     case '矿用本安型音响8.gltf':
                         icourl = 'WLKBXT.png'
                         break
 
-                    //     // 排水系统
-                    // case '离心水泵.gltf':
-                    //     icourl = 'ZNPSXT.png'
-                    //     break
-                    // case '气动隔膜泵.gltf':
-                    //     icourl = 'ZNPSXT.png'
-                    //     break
-                    // case '潜水泵.gltf':
-                    //     icourl = 'ZNPSXT.png'
-                    //     break
-                    // case '强排泵.gltf':
-                    //     icourl = 'ZNPSXT.png'
-                    //     break
-                    // case '主排水泵.gltf':
-                    //     icourl = 'ZNPSXT.png'
-                    //     break
-                    //     // 调度通信系统
-                    // case '程控数字电话交换机.gltf':
-                    //     icourl = 'DDTTXT.png'
-                    //     break
-                    // case '矿用电话机.gltf':
-                    //     icourl = 'DDTTXT.png'
-                    //     break
-                    // case '直通电话机.gltf':
-                    //     icourl = 'DDTTXT.png'
-                    //     break
+                        //     // 排水系统
+                        // case '离心水泵.gltf':
+                        //     icourl = 'ZNPSXT.png'
+                        //     break
+                        // case '气动隔膜泵.gltf':
+                        //     icourl = 'ZNPSXT.png'
+                        //     break
+                        // case '潜水泵.gltf':
+                        //     icourl = 'ZNPSXT.png'
+                        //     break
+                        // case '强排泵.gltf':
+                        //     icourl = 'ZNPSXT.png'
+                        //     break
+                        // case '主排水泵.gltf':
+                        //     icourl = 'ZNPSXT.png'
+                        //     break
+                        //     // 调度通信系统
+                        // case '程控数字电话交换机.gltf':
+                        //     icourl = 'DDTTXT.png'
+                        //     break
+                        // case '矿用电话机.gltf':
+                        //     icourl = 'DDTTXT.png'
+                        //     break
+                        // case '直通电话机.gltf':
+                        //     icourl = 'DDTTXT.png'
+                        //     break
 
                         // 视频监控系统
                     case '摄像头.gltf':
                         icourl = 'SPJKXT.png'
                         break
-                    //     // 人员定位系统
-                    // case '_传输分站.gltf':
-                    //     icourl = 'RYDWXT.png'
-                    //     labelcont += '\r \n名称：李子旭\r \n状态：工作中'
-                    //     break
-                    // case '_读卡分站.gltf':
-                    //     icourl = 'RYDWXT.png'
-                    //     break
-                    //     // 矿压监测系统
-                    // case '矿压监测分站.gltf':
-                    //     icourl = 'KYJCXT.png'
-                    //     break
-                    // case '矿压监测转换器.gltf':
-                    //     icourl = 'KYJCXT.png'
-                    //     break
-                    // case '锚杆测力计.gltf':
-                    //     icourl = 'KYJCXT.png'
-                    //     break
-                    // case '锚索测力计.gltf':
-                    //     icourl = 'KYJCXT.png'
-                    //     break
-                    // case '围岩移动传感器.gltf':
-                    //     icourl = 'KYJCXT.png'
-                    //     break
-                    //     // 一体化融合通信系统
-                    // case '5G基站.gltf':
-                    //     icourl = 'WLTXXT.png'
-                    //     break
-                    // case '千兆交换机.gltf':
-                    //     icourl = 'WLTXXT.png'
-                    //     break
-                    // case '融合通信分站.gltf':
-                    //     icourl = 'WLTXXT.png'
-                    //     break
+                        //     // 人员定位系统
+                        // case '_传输分站.gltf':
+                        //     icourl = 'RYDWXT.png'
+                        //     labelcont += '\r \n名称：李子旭\r \n状态：工作中'
+                        //     break
+                        // case '_读卡分站.gltf':
+                        //     icourl = 'RYDWXT.png'
+                        //     break
+                        //     // 矿压监测系统
+                        // case '矿压监测分站.gltf':
+                        //     icourl = 'KYJCXT.png'
+                        //     break
+                        // case '矿压监测转换器.gltf':
+                        //     icourl = 'KYJCXT.png'
+                        //     break
+                        // case '锚杆测力计.gltf':
+                        //     icourl = 'KYJCXT.png'
+                        //     break
+                        // case '锚索测力计.gltf':
+                        //     icourl = 'KYJCXT.png'
+                        //     break
+                        // case '围岩移动传感器.gltf':
+                        //     icourl = 'KYJCXT.png'
+                        //     break
+                        //     // 一体化融合通信系统
+                        // case '5G基站.gltf':
+                        //     icourl = 'WLTXXT.png'
+                        //     break
+                        // case '千兆交换机.gltf':
+                        //     icourl = 'WLTXXT.png'
+                        //     break
+                        // case '融合通信分站.gltf':
+                        //     icourl = 'WLTXXT.png'
+                        //     break
                     default:
                         break
                 }
