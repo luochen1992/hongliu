@@ -191,7 +191,7 @@ var pointstatis = {
                                 }
                             })
                         }
-                         // 图标点
+                        // 图标点
                     } else if (fea.id.layertype && (fea.id.layertype === 'cgqpoint')) {
                         var posit = fea.id.position.getValue()
                         var ellipsoid = window.viewer.scene.globe.ellipsoid
@@ -220,7 +220,7 @@ var pointstatis = {
                         var tp, content, head
                         switch (tname) {
                             // 安全监控系统
-                            case '安全监控系统_data/二氧化碳.gltf':
+                            case '安全监控系统/二氧化碳.gltf':
                                 content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
                                     <div class="layui-tab-content"style="height:320px">
                                         <div class="layui-tab-item layui-show">
@@ -259,7 +259,7 @@ var pointstatis = {
                                 head = '<div>安全监控系统</div>'
                                 tp = tp2
                                 break
-                            case '安全监控系统_data/粉尘.gltf':
+                            case '安全监控系统/粉尘.gltf':
                                 content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
                                     <div class="layui-tab-content"style="height:320px">
                                         <div class="layui-tab-item layui-show">
@@ -298,7 +298,7 @@ var pointstatis = {
                                 head = '<div>安全监控系统</div> '
                                 tp = tp2
                                 break
-                            case '安全监控系统_data/甲烷.gltf':
+                            case '安全监控系统/甲烷.gltf':
                                 content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
                                     <div class="layui-tab-content"style="height:320px">
                                         <div class="layui-tab-item layui-show">
@@ -337,319 +337,319 @@ var pointstatis = {
                                 head = '<div>安全监控系统</div> '
                                 tp = tp2
                                 break
-                            // case 'systemModelLabel/安全监控系统/_风流压力.gltf':
-                            //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                            //         <div class="layui-tab-content">
-                            //             <div class="layui-tab-item layui-show">
-                            //             <table class="layuitable">
-                            //                 <tbody align="center" valign="middle">
-                            //                     <tr>
-                            //                     <td>测点：</td><td>0320105A风流</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>实时状态：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>预警级别：</td><td>--</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>逻辑状态：</td><td>正常</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>监测值：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>安装位置：</td><td>12煤辅运大巷</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>最近标校时间：</td><td>19日17:53:01</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>更新时间：</td><td>17:52:59</td>
-                            //                     </tr>
-                            //                 </tbody>
-                            //             </table>
-                            //             </div>
-                            //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
-                            //         </div>
-                            //         </div> `
-                            //     head = '<div>安全监控系统</div> '
-                            //     tp = tp2
-                            //     break
-                            // case 'systemModelLabel/安全监控系统/_风门开闭传感器.gltf':
-                            //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                            //         <div class="layui-tab-content">
-                            //             <div class="layui-tab-item layui-show">
-                            //             <table class="layuitable">
-                            //                 <tbody align="center" valign="middle">
-                            //                     <tr>
-                            //                     <td>测点：</td><td>0320105A风门开闭传感器</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>实时状态：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>预警级别：</td><td>--</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>逻辑状态：</td><td>正常</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>监测值：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>安装位置：</td><td>12煤辅运大巷</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>最近标校时间：</td><td>19日17:53:01</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>更新时间：</td><td>17:52:59</td>
-                            //                     </tr>
-                            //                 </tbody>
-                            //             </table>
-                            //             </div>
-                            //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
-                            //         </div>
-                            //         </div> `
-                            //     head = '<div>安全监控系统</div>'
-                            //     tp = tp2
-                            //     break
-                            // case 'systemModelLabel/安全监控系统/风速传感器.gltf':
-                            //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                            //         <div class="layui-tab-content">
-                            //             <div class="layui-tab-item layui-show">
-                            //             <table class="layuitable">
-                            //                 <tbody align="center" valign="middle">
-                            //                     <tr>
-                            //                     <td>测点：</td><td>0320105A风速传感器</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>实时状态：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>预警级别：</td><td>--</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>逻辑状态：</td><td>正常</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>监测值：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>安装位置：</td><td>12煤辅运大巷</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>最近标校时间：</td><td>19日17:53:01</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>更新时间：</td><td>17:52:59</td>
-                            //                     </tr>
-                            //                 </tbody>
-                            //             </table>
-                            //             </div>
-                            //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
-                            //         </div>
-                            //         </div> `
-                            //     head = '<div>安全监控系统</div>'
-                            //     tp = tp2
-                            //     break
-                            // case 'systemModelLabel/安全监控系统/_风筒风量传感器.gltf':
-                            //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                            //         <div class="layui-tab-content">
-                            //             <div class="layui-tab-item layui-show">
-                            //             <table class="layuitable">
-                            //                 <tbody align="center" valign="middle">
-                            //                     <tr>
-                            //                     <td>测点：</td><td>0320105A风筒风量传感器</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>实时状态：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>预警级别：</td><td>--</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>逻辑状态：</td><td>正常</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>监测值：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>安装位置：</td><td>12煤辅运大巷</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>最近标校时间：</td><td>19日17:53:01</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>更新时间：</td><td>17:52:59</td>
-                            //                     </tr>
-                            //                 </tbody>
-                            //             </table>
-                            //             </div>
-                            //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
-                            //         </div>
-                            //         </div> `
-                            //     head = '<div>安全监控系统</div> '
-                            //     tp = tp2
-                            //     break
-                            // case 'systemModelLabel/安全监控系统/_负压传感器.gltf':
-                            //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                            //         <div class="layui-tab-content">
-                            //             <div class="layui-tab-item layui-show">
-                            //             <table class="layuitable">
-                            //                 <tbody align="center" valign="middle">
-                            //                     <tr>
-                            //                     <td>测点：</td><td>0320105A负压传感器</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>实时状态：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>预警级别：</td><td>--</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>逻辑状态：</td><td>正常</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>监测值：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>安装位置：</td><td>12煤辅运大巷</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>最近标校时间：</td><td>19日17:53:01</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>更新时间：</td><td>17:52:59</td>
-                            //                     </tr>
-                            //                 </tbody>
-                            //             </table>
-                            //             </div>
-                            //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
-                            //         </div>
-                            //         </div> `
-                            //     head = '<div>安全监控系统</div> '
-                            //     tp = tp2
-                            //     break
-                            // case 'systemModelLabel/安全监控系统/高低浓甲烷.gltf':
-                            //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                            //         <div class="layui-tab-content">
-                            //             <div class="layui-tab-item layui-show">
-                            //             <table class="layuitable">
-                            //                 <tbody align="center" valign="middle">
-                            //                     <tr>
-                            //                     <td>测点：</td><td>0320105A高低浓甲烷</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>实时状态：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>预警级别：</td><td>--</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>逻辑状态：</td><td>正常</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>监测值：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>安装位置：</td><td>12煤辅运大巷</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>最近标校时间：</td><td>19日17:53:01</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>更新时间：</td><td>17:52:59</td>
-                            //                     </tr>
-                            //                 </tbody>
-                            //             </table>
-                            //             </div>
-                            //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
-                            //         </div>
-                            //         </div> `
-                            //     head = '<div>安全监控系统</div> '
-                            //     tp = tp2
-                            //     break
-                            // case 'systemModelLabel/安全监控系统/_管道多参数传感器.gltf':
-                            //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                            //         <div class="layui-tab-content">
-                            //             <div class="layui-tab-item layui-show">
-                            //             <table class="layuitable">
-                            //                 <tbody align="center" valign="middle">
-                            //                     <tr>
-                            //                     <td>测点：</td><td>0320105A管道多参数传感器</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>实时状态：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>预警级别：</td><td>--</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>逻辑状态：</td><td>正常</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>监测值：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>安装位置：</td><td>12煤辅运大巷</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>最近标校时间：</td><td>19日17:53:01</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>更新时间：</td><td>17:52:59</td>
-                            //                     </tr>
-                            //                 </tbody>
-                            //             </table>
-                            //             </div>
-                            //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
-                            //         </div>
-                            //         </div> `
-                            //     head = '<div>安全监控系统</div> '
-                            //     tp = tp2
-                            //     break
-                            // case 'systemModelLabel/安全监控系统/_管道瓦斯传感器.gltf':
-                            //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                            //         <div class="layui-tab-content">
-                            //             <div class="layui-tab-item layui-show">
-                            //             <table class="layuitable">
-                            //                 <tbody align="center" valign="middle">
-                            //                     <tr>
-                            //                     <td>测点：</td><td>0320105A管道瓦斯传感器</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>实时状态：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>预警级别：</td><td>--</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>逻辑状态：</td><td>正常</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>监测值：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>安装位置：</td><td>12煤辅运大巷</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>最近标校时间：</td><td>19日17:53:01</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>更新时间：</td><td>17:52:59</td>
-                            //                     </tr>
-                            //                 </tbody>
-                            //             </table>
-                            //             </div>
-                            //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
-                            //         </div>
-                            //         </div> `
-                            //     head = '<div>安全监控系统</div>'
-                            //     tp = tp2
-                            //     break
-                            case '安全监控系统_data/一氧化碳.gltf':
+                                // case 'systemModelLabel/安全监控系统/_风流压力.gltf':
+                                //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //         <div class="layui-tab-content">
+                                //             <div class="layui-tab-item layui-show">
+                                //             <table class="layuitable">
+                                //                 <tbody align="center" valign="middle">
+                                //                     <tr>
+                                //                     <td>测点：</td><td>0320105A风流</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>实时状态：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>预警级别：</td><td>--</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>逻辑状态：</td><td>正常</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>监测值：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>安装位置：</td><td>12煤辅运大巷</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>最近标校时间：</td><td>19日17:53:01</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>更新时间：</td><td>17:52:59</td>
+                                //                     </tr>
+                                //                 </tbody>
+                                //             </table>
+                                //             </div>
+                                //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
+                                //         </div>
+                                //         </div> `
+                                //     head = '<div>安全监控系统</div> '
+                                //     tp = tp2
+                                //     break
+                                // case 'systemModelLabel/安全监控系统/_风门开闭传感器.gltf':
+                                //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //         <div class="layui-tab-content">
+                                //             <div class="layui-tab-item layui-show">
+                                //             <table class="layuitable">
+                                //                 <tbody align="center" valign="middle">
+                                //                     <tr>
+                                //                     <td>测点：</td><td>0320105A风门开闭传感器</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>实时状态：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>预警级别：</td><td>--</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>逻辑状态：</td><td>正常</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>监测值：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>安装位置：</td><td>12煤辅运大巷</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>最近标校时间：</td><td>19日17:53:01</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>更新时间：</td><td>17:52:59</td>
+                                //                     </tr>
+                                //                 </tbody>
+                                //             </table>
+                                //             </div>
+                                //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
+                                //         </div>
+                                //         </div> `
+                                //     head = '<div>安全监控系统</div>'
+                                //     tp = tp2
+                                //     break
+                                // case 'systemModelLabel/安全监控系统/风速传感器.gltf':
+                                //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //         <div class="layui-tab-content">
+                                //             <div class="layui-tab-item layui-show">
+                                //             <table class="layuitable">
+                                //                 <tbody align="center" valign="middle">
+                                //                     <tr>
+                                //                     <td>测点：</td><td>0320105A风速传感器</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>实时状态：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>预警级别：</td><td>--</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>逻辑状态：</td><td>正常</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>监测值：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>安装位置：</td><td>12煤辅运大巷</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>最近标校时间：</td><td>19日17:53:01</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>更新时间：</td><td>17:52:59</td>
+                                //                     </tr>
+                                //                 </tbody>
+                                //             </table>
+                                //             </div>
+                                //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
+                                //         </div>
+                                //         </div> `
+                                //     head = '<div>安全监控系统</div>'
+                                //     tp = tp2
+                                //     break
+                                // case 'systemModelLabel/安全监控系统/_风筒风量传感器.gltf':
+                                //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //         <div class="layui-tab-content">
+                                //             <div class="layui-tab-item layui-show">
+                                //             <table class="layuitable">
+                                //                 <tbody align="center" valign="middle">
+                                //                     <tr>
+                                //                     <td>测点：</td><td>0320105A风筒风量传感器</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>实时状态：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>预警级别：</td><td>--</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>逻辑状态：</td><td>正常</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>监测值：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>安装位置：</td><td>12煤辅运大巷</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>最近标校时间：</td><td>19日17:53:01</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>更新时间：</td><td>17:52:59</td>
+                                //                     </tr>
+                                //                 </tbody>
+                                //             </table>
+                                //             </div>
+                                //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
+                                //         </div>
+                                //         </div> `
+                                //     head = '<div>安全监控系统</div> '
+                                //     tp = tp2
+                                //     break
+                                // case 'systemModelLabel/安全监控系统/_负压传感器.gltf':
+                                //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //         <div class="layui-tab-content">
+                                //             <div class="layui-tab-item layui-show">
+                                //             <table class="layuitable">
+                                //                 <tbody align="center" valign="middle">
+                                //                     <tr>
+                                //                     <td>测点：</td><td>0320105A负压传感器</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>实时状态：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>预警级别：</td><td>--</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>逻辑状态：</td><td>正常</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>监测值：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>安装位置：</td><td>12煤辅运大巷</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>最近标校时间：</td><td>19日17:53:01</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>更新时间：</td><td>17:52:59</td>
+                                //                     </tr>
+                                //                 </tbody>
+                                //             </table>
+                                //             </div>
+                                //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
+                                //         </div>
+                                //         </div> `
+                                //     head = '<div>安全监控系统</div> '
+                                //     tp = tp2
+                                //     break
+                                // case 'systemModelLabel/安全监控系统/高低浓甲烷.gltf':
+                                //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //         <div class="layui-tab-content">
+                                //             <div class="layui-tab-item layui-show">
+                                //             <table class="layuitable">
+                                //                 <tbody align="center" valign="middle">
+                                //                     <tr>
+                                //                     <td>测点：</td><td>0320105A高低浓甲烷</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>实时状态：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>预警级别：</td><td>--</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>逻辑状态：</td><td>正常</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>监测值：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>安装位置：</td><td>12煤辅运大巷</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>最近标校时间：</td><td>19日17:53:01</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>更新时间：</td><td>17:52:59</td>
+                                //                     </tr>
+                                //                 </tbody>
+                                //             </table>
+                                //             </div>
+                                //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
+                                //         </div>
+                                //         </div> `
+                                //     head = '<div>安全监控系统</div> '
+                                //     tp = tp2
+                                //     break
+                                // case 'systemModelLabel/安全监控系统/_管道多参数传感器.gltf':
+                                //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //         <div class="layui-tab-content">
+                                //             <div class="layui-tab-item layui-show">
+                                //             <table class="layuitable">
+                                //                 <tbody align="center" valign="middle">
+                                //                     <tr>
+                                //                     <td>测点：</td><td>0320105A管道多参数传感器</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>实时状态：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>预警级别：</td><td>--</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>逻辑状态：</td><td>正常</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>监测值：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>安装位置：</td><td>12煤辅运大巷</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>最近标校时间：</td><td>19日17:53:01</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>更新时间：</td><td>17:52:59</td>
+                                //                     </tr>
+                                //                 </tbody>
+                                //             </table>
+                                //             </div>
+                                //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
+                                //         </div>
+                                //         </div> `
+                                //     head = '<div>安全监控系统</div> '
+                                //     tp = tp2
+                                //     break
+                                // case 'systemModelLabel/安全监控系统/_管道瓦斯传感器.gltf':
+                                //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //         <div class="layui-tab-content">
+                                //             <div class="layui-tab-item layui-show">
+                                //             <table class="layuitable">
+                                //                 <tbody align="center" valign="middle">
+                                //                     <tr>
+                                //                     <td>测点：</td><td>0320105A管道瓦斯传感器</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>实时状态：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>预警级别：</td><td>--</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>逻辑状态：</td><td>正常</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>监测值：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>安装位置：</td><td>12煤辅运大巷</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>最近标校时间：</td><td>19日17:53:01</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>更新时间：</td><td>17:52:59</td>
+                                //                     </tr>
+                                //                 </tbody>
+                                //             </table>
+                                //             </div>
+                                //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
+                                //         </div>
+                                //         </div> `
+                                //     head = '<div>安全监控系统</div>'
+                                //     tp = tp2
+                                //     break
+                            case '安全监控系统/一氧化碳.gltf':
                                 content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
                                     <div class="layui-tab-content">
                                         <div class="layui-tab-item layui-show">
@@ -688,394 +688,394 @@ var pointstatis = {
                                 head = '<div>安全监控系统</div>'
                                 tp = tp2
                                 break
-                            // case 'systemModelLabel/安全监控系统/_井下监控分站.gltf':
-                            //     // 安全监控系统--分站
-                            //     head = '<div>安全监控系统</div>'
-                            //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                            //         <ul class="layui-tab-title">
-                            //             <li class="layui-this">分站信息</li>
-                            //             <li>详细信息</li>
-                            //         </ul>
-                            //         <div class="layui-tab-content " style="height:300px" >
-                            //             <div class="layui-tab-item layui-show">
-                            //             <table class="layuitable"  >
-                            //                 <tbody  align="center" valign="middle"  >
-                            //             <tr>
-                            //             <td >分站编号：</td><td style="width:95px;height:40px">41</td>
-                            //             <td >通讯状态:</td><td>正常</td>
-                            //             <td >手控状态：</td><td><img src="img/dialog/u749.svg" alt="" ></td>
-                            //             <td>故障异控:</td><td><img src="img/dialog/u750.svg" alt="" ></td>
-                                        
-                            //             </tr>
-                                        
-                                        
-                            //             </tbody>
+                                // case 'systemModelLabel/安全监控系统/_井下监控分站.gltf':
+                                //     // 安全监控系统--分站
+                                //     head = '<div>安全监控系统</div>'
+                                //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //         <ul class="layui-tab-title">
+                                //             <li class="layui-this">分站信息</li>
+                                //             <li>详细信息</li>
+                                //         </ul>
+                                //         <div class="layui-tab-content " style="height:300px" >
+                                //             <div class="layui-tab-item layui-show">
+                                //             <table class="layuitable"  >
+                                //                 <tbody  align="center" valign="middle"  >
+                                //             <tr>
+                                //             <td >分站编号：</td><td style="width:95px;height:40px">41</td>
+                                //             <td >通讯状态:</td><td>正常</td>
+                                //             <td >手控状态：</td><td><img src="img/dialog/u749.svg" alt="" ></td>
+                                //             <td>故障异控:</td><td><img src="img/dialog/u750.svg" alt="" ></td>
 
-                            //             </table>
-                            //             </div>
-                            //             <div class="layui-tab-item"> 
-                            //             <table class="layuitable" >
-                            //                 <thead bgcolor="#0777aacc"  align="center" valign="middle">
-                            //             <tr>
-                            //             <th >序号</th>
-                            //             <th >测点</th>
-                            //             <th>安装位置</th>
-                            //             <th>监测值</th>
-                            //             <th>实时状态</th>
-                            //             <th>预警级别</th>
-                            //             <th>逻辑状态</th>
-                            //             <th>更新时间</th>
-                                        
-                            //             </tr> 
-                            //         </thead>
-                            //         <tbody  align="center" valign="middle" style="height:210px;width: 690px; ">
-                            //             <tr>
-                            //             <td>1</td>
-                            //             <td >007安全监控分站V1.0</td>
-                            //             <td>测试7号分站</td>
-                            //             <td></td>
-                            //             <td bgcolor="#297c58">交流供电</td>
-                            //             <td></td>
-                            //             <td>正常</td>
-                            //             <td>09:53:46</td>
-                                        
-                            //             </tr>
-                            //             <tr>
-                            //             <td>2</td>
-                            //         <td style="text-decoration:underline">0070101A低浓激光甲烷</td>
-                            //         <td bgcolor="#5480d6"></td>
-                            //             <td>0%</td>
-                            //             <td bgcolor="#297c58">正常</td>
-                            //             <td>--</td>
-                            //             <td>正常</td>
-                            //             <td>09:53:46</td>
-                                    
-                            //             </tr>
-                            //             <tr>
-                            //             <td>3</td>
-                            //         <td style="text-decoration:underline">0070102A风速</td>
-                            //         <td bgcolor="#5480d6"></td>
-                            //             <td>--</td>
-                            //             <td bgcolor="#b2d838">中断/断线</td>
-                            //             <td>--</td>
-                            //             <td>正常</td>
-                            //             <td>09:53:46</td>
-                                    
-                            //             </tr>
-                            //             <tr>
-                            //             <td>4</td>
-                            //         <td style="text-decoration:underline">0070103A低浓激光甲烷</td>
-                            //         <td bgcolor="#5480d6"></td>
-                            //             <td>0%</td>
-                            //             <td bgcolor="#297c58">正常</td>
-                            //             <td>--</td>
-                            //             <td>正常</td>
-                            //             <td>09:53:46</td>
-                                    
-                            //             </tr>
-                            //             <tr>
-                            //             <td>5</td>
-                            //         <td style="text-decoration:underline">0070104D风向传感器</td>
-                            //         <td bgcolor="#5480d6"></td>
-                            //             <td>反风</td>
-                            //             <td bgcolor="#297c58">正常</td>
-                            //             <td>--</td>
-                            //             <td>正常</td>
-                            //             <td>09:53:46</td>
-                                    
-                            //             </tr>
-                            //             <tr>
-                            //             <td>6</td>
-                            //         <td style="text-decoration:underline">0070105A高浓激光甲烷</td>
-                            //         <td bgcolor="#5480d6"></td>
-                            //             <td>--</td>
-                            //             <td bgcolor="red">故障</td>
-                            //             <td>--</td>
-                            //             <td>正常</td>
-                            //             <td>09:53:46</td>
-                                    
-                            //             </tr>
-                            //             </tbody>
-                            //                 </div>
-                                    
-                            //         </div>
-                            //         </div>`
-                            //     tp = tp2
-                            //     break
-                            // case 'systemModelLabel/安全监控系统/_井下终端.gltf':
-                            //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                            //         <div class="layui-tab-content">
-                            //             <div class="layui-tab-item layui-show">
-                            //             <table class="layuitable">
-                            //                 <tbody align="center" valign="middle">
-                            //                     <tr>
-                            //                     <td>测点：</td><td>0320105A井下终端</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>实时状态：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>预警级别：</td><td>--</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>逻辑状态：</td><td>正常</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>监测值：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>安装位置：</td><td>12煤辅运大巷</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>最近标校时间：</td><td>19日17:53:01</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>更新时间：</td><td>17:52:59</td>
-                            //                     </tr>
-                            //                 </tbody>
-                            //             </table>
-                            //             </div>
-                            //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
-                            //         </div>
-                            //         </div> `
-                            //     head = '<div>安全监控系统</div>'
-                            //     tp = tp2
-                            //     break
-                            // case 'systemModelLabel/安全监控系统/_局部通风机.gltf':
-                            //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                            //         <div class="layui-tab-content">
-                            //             <div class="layui-tab-item layui-show">
-                            //             <table class="layuitable">
-                            //                 <tbody align="center" valign="middle">
-                            //                     <tr>
-                            //                     <td>测点：</td><td>0320105A局部通风机</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>实时状态：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>预警级别：</td><td>--</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>逻辑状态：</td><td>正常</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>监测值：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>安装位置：</td><td>12煤辅运大巷</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>最近标校时间：</td><td>19日17:53:01</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>更新时间：</td><td>17:52:59</td>
-                            //                     </tr>
-                            //                 </tbody>
-                            //             </table>
-                            //             </div>
-                            //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
-                            //         </div>
-                            //         </div> `
-                            //     head = '<div>安全监控系统</div>'
-                            //     tp = tp2
-                            //     break
-                            // case 'systemModelLabel/安全监控系统/_开停传感器.gltf':
-                            //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                            //         <div class="layui-tab-content">
-                            //             <div class="layui-tab-item layui-show">
-                            //             <table class="layuitable">
-                            //                 <tbody align="center" valign="middle">
-                            //                     <tr>
-                            //                     <td>测点：</td><td>0320105A开停传感器</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>实时状态：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>预警级别：</td><td>--</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>逻辑状态：</td><td>正常</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>监测值：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>安装位置：</td><td>12煤辅运大巷</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>最近标校时间：</td><td>19日17:53:01</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>更新时间：</td><td>17:52:59</td>
-                            //                     </tr>
-                            //                 </tbody>
-                            //             </table>
-                            //             </div>
-                            //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
-                            //         </div>
-                            //         </div> `
-                            //     head = '<div>安全监控系统</div>'
-                            //     tp = tp2
-                            //     break
-                            // case 'systemModelLabel/安全监控系统/_馈电传感器.gltf':
-                            //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                            //         <div class="layui-tab-content">
-                            //             <div class="layui-tab-item layui-show">
-                            //             <table class="layuitable">
-                            //                 <tbody align="center" valign="middle">
-                            //                     <tr>
-                            //                     <td>测点：</td><td>0320105A馈电传感器</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>实时状态：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>预警级别：</td><td>--</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>逻辑状态：</td><td>正常</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>监测值：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>安装位置：</td><td>12煤辅运大巷</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>最近标校时间：</td><td>19日17:53:01</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>更新时间：</td><td>17:52:59</td>
-                            //                     </tr>
-                            //                 </tbody>
-                            //             </table>
-                            //             </div>
-                            //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
-                            //         </div>
-                            //         </div> `
-                            //     head = '<div>安全监控系统</div> '
-                            //     tp = tp2
-                            //     break
-                            // case 'systemModelLabel/安全监控系统/_馈电断电器.gltf':
-                            //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                            //         <div class="layui-tab-content">
-                            //             <div class="layui-tab-item layui-show">
-                            //             <table class="layuitable">
-                            //                 <tbody align="center" valign="middle">
-                            //                     <tr>
-                            //                     <td>测点：</td><td>0320105A馈电断电器</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>实时状态：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>预警级别：</td><td>--</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>逻辑状态：</td><td>正常</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>监测值：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>安装位置：</td><td>12煤辅运大巷</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>最近标校时间：</td><td>19日17:53:01</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>更新时间：</td><td>17:52:59</td>
-                            //                     </tr>
-                            //                 </tbody>
-                            //             </table>
-                            //             </div>
-                            //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
-                            //         </div>
-                            //         </div> `
-                            //     head = '<div>安全监控系统</div>'
-                            //     tp = tp2
-                            //     break
-                            // case 'systemModelLabel/安全监控系统/_流量开关.gltf':
-                            //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                            //         <div class="layui-tab-content">
-                            //             <div class="layui-tab-item layui-show">
-                            //             <table class="layuitable">
-                            //                 <tbody align="center" valign="middle">
-                            //                     <tr>
-                            //                     <td>测点：</td><td>0320105A流量开关</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>实时状态：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>预警级别：</td><td>--</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>逻辑状态：</td><td>正常</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>监测值：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>安装位置：</td><td>12煤辅运大巷</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>最近标校时间：</td><td>19日17:53:01</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>更新时间：</td><td>17:52:59</td>
-                            //                     </tr>
-                            //                 </tbody>
-                            //             </table>
-                            //             </div>
-                            //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
-                            //         </div>
-                            //         </div> `
-                            //     head = '<div>安全监控系统</div>'
-                            //     tp = tp2
-                            //     break
-                            // case 'systemModelLabel/安全监控系统/_声光报警器.gltf':
-                            //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                            //         <div class="layui-tab-content">
-                            //             <div class="layui-tab-item layui-show">
-                            //             <table class="layuitable">
-                            //                 <tbody align="center" valign="middle">
-                            //                     <tr>
-                            //                     <td>测点：</td><td>0320105A声光报警器</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>实时状态：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>预警级别：</td><td>--</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>逻辑状态：</td><td>正常</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>监测值：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>安装位置：</td><td>12煤辅运大巷</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>最近标校时间：</td><td>19日17:53:01</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>更新时间：</td><td>17:52:59</td>
-                            //                     </tr>
-                            //                 </tbody>
-                            //             </table>
-                            //             </div>
-                            //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
-                            //         </div>
-                            //         </div> `
-                            //     head = '<div>安全监控系统</div>'
-                            //     tp = tp2
-                            //     break
-                            case '安全监控系统_data/温度.gltf':
+                                //             </tr>
+
+
+                                //             </tbody>
+
+                                //             </table>
+                                //             </div>
+                                //             <div class="layui-tab-item"> 
+                                //             <table class="layuitable" >
+                                //                 <thead bgcolor="#0777aacc"  align="center" valign="middle">
+                                //             <tr>
+                                //             <th >序号</th>
+                                //             <th >测点</th>
+                                //             <th>安装位置</th>
+                                //             <th>监测值</th>
+                                //             <th>实时状态</th>
+                                //             <th>预警级别</th>
+                                //             <th>逻辑状态</th>
+                                //             <th>更新时间</th>
+
+                                //             </tr> 
+                                //         </thead>
+                                //         <tbody  align="center" valign="middle" style="height:210px;width: 690px; ">
+                                //             <tr>
+                                //             <td>1</td>
+                                //             <td >007安全监控分站V1.0</td>
+                                //             <td>测试7号分站</td>
+                                //             <td></td>
+                                //             <td bgcolor="#297c58">交流供电</td>
+                                //             <td></td>
+                                //             <td>正常</td>
+                                //             <td>09:53:46</td>
+
+                                //             </tr>
+                                //             <tr>
+                                //             <td>2</td>
+                                //         <td style="text-decoration:underline">0070101A低浓激光甲烷</td>
+                                //         <td bgcolor="#5480d6"></td>
+                                //             <td>0%</td>
+                                //             <td bgcolor="#297c58">正常</td>
+                                //             <td>--</td>
+                                //             <td>正常</td>
+                                //             <td>09:53:46</td>
+
+                                //             </tr>
+                                //             <tr>
+                                //             <td>3</td>
+                                //         <td style="text-decoration:underline">0070102A风速</td>
+                                //         <td bgcolor="#5480d6"></td>
+                                //             <td>--</td>
+                                //             <td bgcolor="#b2d838">中断/断线</td>
+                                //             <td>--</td>
+                                //             <td>正常</td>
+                                //             <td>09:53:46</td>
+
+                                //             </tr>
+                                //             <tr>
+                                //             <td>4</td>
+                                //         <td style="text-decoration:underline">0070103A低浓激光甲烷</td>
+                                //         <td bgcolor="#5480d6"></td>
+                                //             <td>0%</td>
+                                //             <td bgcolor="#297c58">正常</td>
+                                //             <td>--</td>
+                                //             <td>正常</td>
+                                //             <td>09:53:46</td>
+
+                                //             </tr>
+                                //             <tr>
+                                //             <td>5</td>
+                                //         <td style="text-decoration:underline">0070104D风向传感器</td>
+                                //         <td bgcolor="#5480d6"></td>
+                                //             <td>反风</td>
+                                //             <td bgcolor="#297c58">正常</td>
+                                //             <td>--</td>
+                                //             <td>正常</td>
+                                //             <td>09:53:46</td>
+
+                                //             </tr>
+                                //             <tr>
+                                //             <td>6</td>
+                                //         <td style="text-decoration:underline">0070105A高浓激光甲烷</td>
+                                //         <td bgcolor="#5480d6"></td>
+                                //             <td>--</td>
+                                //             <td bgcolor="red">故障</td>
+                                //             <td>--</td>
+                                //             <td>正常</td>
+                                //             <td>09:53:46</td>
+
+                                //             </tr>
+                                //             </tbody>
+                                //                 </div>
+
+                                //         </div>
+                                //         </div>`
+                                //     tp = tp2
+                                //     break
+                                // case 'systemModelLabel/安全监控系统/_井下终端.gltf':
+                                //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //         <div class="layui-tab-content">
+                                //             <div class="layui-tab-item layui-show">
+                                //             <table class="layuitable">
+                                //                 <tbody align="center" valign="middle">
+                                //                     <tr>
+                                //                     <td>测点：</td><td>0320105A井下终端</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>实时状态：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>预警级别：</td><td>--</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>逻辑状态：</td><td>正常</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>监测值：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>安装位置：</td><td>12煤辅运大巷</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>最近标校时间：</td><td>19日17:53:01</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>更新时间：</td><td>17:52:59</td>
+                                //                     </tr>
+                                //                 </tbody>
+                                //             </table>
+                                //             </div>
+                                //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
+                                //         </div>
+                                //         </div> `
+                                //     head = '<div>安全监控系统</div>'
+                                //     tp = tp2
+                                //     break
+                                // case 'systemModelLabel/安全监控系统/_局部通风机.gltf':
+                                //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //         <div class="layui-tab-content">
+                                //             <div class="layui-tab-item layui-show">
+                                //             <table class="layuitable">
+                                //                 <tbody align="center" valign="middle">
+                                //                     <tr>
+                                //                     <td>测点：</td><td>0320105A局部通风机</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>实时状态：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>预警级别：</td><td>--</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>逻辑状态：</td><td>正常</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>监测值：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>安装位置：</td><td>12煤辅运大巷</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>最近标校时间：</td><td>19日17:53:01</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>更新时间：</td><td>17:52:59</td>
+                                //                     </tr>
+                                //                 </tbody>
+                                //             </table>
+                                //             </div>
+                                //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
+                                //         </div>
+                                //         </div> `
+                                //     head = '<div>安全监控系统</div>'
+                                //     tp = tp2
+                                //     break
+                                // case 'systemModelLabel/安全监控系统/_开停传感器.gltf':
+                                //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //         <div class="layui-tab-content">
+                                //             <div class="layui-tab-item layui-show">
+                                //             <table class="layuitable">
+                                //                 <tbody align="center" valign="middle">
+                                //                     <tr>
+                                //                     <td>测点：</td><td>0320105A开停传感器</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>实时状态：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>预警级别：</td><td>--</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>逻辑状态：</td><td>正常</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>监测值：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>安装位置：</td><td>12煤辅运大巷</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>最近标校时间：</td><td>19日17:53:01</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>更新时间：</td><td>17:52:59</td>
+                                //                     </tr>
+                                //                 </tbody>
+                                //             </table>
+                                //             </div>
+                                //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
+                                //         </div>
+                                //         </div> `
+                                //     head = '<div>安全监控系统</div>'
+                                //     tp = tp2
+                                //     break
+                                // case 'systemModelLabel/安全监控系统/_馈电传感器.gltf':
+                                //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //         <div class="layui-tab-content">
+                                //             <div class="layui-tab-item layui-show">
+                                //             <table class="layuitable">
+                                //                 <tbody align="center" valign="middle">
+                                //                     <tr>
+                                //                     <td>测点：</td><td>0320105A馈电传感器</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>实时状态：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>预警级别：</td><td>--</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>逻辑状态：</td><td>正常</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>监测值：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>安装位置：</td><td>12煤辅运大巷</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>最近标校时间：</td><td>19日17:53:01</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>更新时间：</td><td>17:52:59</td>
+                                //                     </tr>
+                                //                 </tbody>
+                                //             </table>
+                                //             </div>
+                                //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
+                                //         </div>
+                                //         </div> `
+                                //     head = '<div>安全监控系统</div> '
+                                //     tp = tp2
+                                //     break
+                                // case 'systemModelLabel/安全监控系统/_馈电断电器.gltf':
+                                //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //         <div class="layui-tab-content">
+                                //             <div class="layui-tab-item layui-show">
+                                //             <table class="layuitable">
+                                //                 <tbody align="center" valign="middle">
+                                //                     <tr>
+                                //                     <td>测点：</td><td>0320105A馈电断电器</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>实时状态：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>预警级别：</td><td>--</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>逻辑状态：</td><td>正常</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>监测值：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>安装位置：</td><td>12煤辅运大巷</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>最近标校时间：</td><td>19日17:53:01</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>更新时间：</td><td>17:52:59</td>
+                                //                     </tr>
+                                //                 </tbody>
+                                //             </table>
+                                //             </div>
+                                //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
+                                //         </div>
+                                //         </div> `
+                                //     head = '<div>安全监控系统</div>'
+                                //     tp = tp2
+                                //     break
+                                // case 'systemModelLabel/安全监控系统/_流量开关.gltf':
+                                //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //         <div class="layui-tab-content">
+                                //             <div class="layui-tab-item layui-show">
+                                //             <table class="layuitable">
+                                //                 <tbody align="center" valign="middle">
+                                //                     <tr>
+                                //                     <td>测点：</td><td>0320105A流量开关</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>实时状态：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>预警级别：</td><td>--</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>逻辑状态：</td><td>正常</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>监测值：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>安装位置：</td><td>12煤辅运大巷</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>最近标校时间：</td><td>19日17:53:01</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>更新时间：</td><td>17:52:59</td>
+                                //                     </tr>
+                                //                 </tbody>
+                                //             </table>
+                                //             </div>
+                                //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
+                                //         </div>
+                                //         </div> `
+                                //     head = '<div>安全监控系统</div>'
+                                //     tp = tp2
+                                //     break
+                                // case 'systemModelLabel/安全监控系统/_声光报警器.gltf':
+                                //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //         <div class="layui-tab-content">
+                                //             <div class="layui-tab-item layui-show">
+                                //             <table class="layuitable">
+                                //                 <tbody align="center" valign="middle">
+                                //                     <tr>
+                                //                     <td>测点：</td><td>0320105A声光报警器</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>实时状态：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>预警级别：</td><td>--</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>逻辑状态：</td><td>正常</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>监测值：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>安装位置：</td><td>12煤辅运大巷</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>最近标校时间：</td><td>19日17:53:01</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>更新时间：</td><td>17:52:59</td>
+                                //                     </tr>
+                                //                 </tbody>
+                                //             </table>
+                                //             </div>
+                                //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
+                                //         </div>
+                                //         </div> `
+                                //     head = '<div>安全监控系统</div>'
+                                //     tp = tp2
+                                //     break
+                            case '安全监控系统/温度.gltf':
                                 content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
                                     <div class="layui-tab-content">
                                         <div class="layui-tab-item layui-show">
@@ -1114,7 +1114,7 @@ var pointstatis = {
                                 head = '<div>安全监控系统</div>'
                                 tp = tp2
                                 break
-                            case '安全监控系统_data/烟雾.gltf':
+                            case '安全监控系统/烟雾.gltf':
                                 content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
                                     <div class="layui-tab-content">
                                         <div class="layui-tab-item layui-show">
@@ -1153,7 +1153,7 @@ var pointstatis = {
                                 head = '<div>安全监控系统</div>'
                                 tp = tp2
                                 break
-                            case '安全监控系统_data/氧气.gltf':
+                            case '安全监控系统/氧气.gltf':
                                 content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
                                     <div class="layui-tab-content">
                                         <div class="layui-tab-item layui-show">
@@ -1192,46 +1192,46 @@ var pointstatis = {
                                 head = '<div>安全监控系统</div>'
                                 tp = tp2
                                 break
-                            // case 'systemModelLabel/安全监控系统/液位传感器.gltf':
-                            //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                            //         <div class="layui-tab-content">
-                            //             <div class="layui-tab-item layui-show">
-                            //             <table class="layuitable">
-                            //                 <tbody align="center" valign="middle">
-                            //                     <tr>
-                            //                     <td>测点：</td><td>0320105A液位传感器</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>实时状态：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>预警级别：</td><td>--</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>逻辑状态：</td><td>正常</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>监测值：</td><td>故障</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>安装位置：</td><td>12煤辅运大巷</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>最近标校时间：</td><td>19日17:53:01</td>
-                            //                     </tr>
-                            //                     <tr>
-                            //                     <td>更新时间：</td><td>17:52:59</td>
-                            //                     </tr>
-                            //                 </tbody>
-                            //             </table>
-                            //             </div>
-                            //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
-                            //         </div>
-                            //         </div> `
-                            //     head = '<div>安全监控系统</div>'
-                            //     tp = tp2
-                            //     break
-                            case '安全监控系统_data/一氧化碳.gltf':
+                                // case 'systemModelLabel/安全监控系统/液位传感器.gltf':
+                                //     content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //         <div class="layui-tab-content">
+                                //             <div class="layui-tab-item layui-show">
+                                //             <table class="layuitable">
+                                //                 <tbody align="center" valign="middle">
+                                //                     <tr>
+                                //                     <td>测点：</td><td>0320105A液位传感器</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>实时状态：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>预警级别：</td><td>--</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>逻辑状态：</td><td>正常</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>监测值：</td><td>故障</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>安装位置：</td><td>12煤辅运大巷</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>最近标校时间：</td><td>19日17:53:01</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>更新时间：</td><td>17:52:59</td>
+                                //                     </tr>
+                                //                 </tbody>
+                                //             </table>
+                                //             </div>
+                                //                 <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
+                                //         </div>
+                                //         </div> `
+                                //     head = '<div>安全监控系统</div>'
+                                //     tp = tp2
+                                //     break
+                            case '安全监控系统/一氧化碳.gltf':
                                 content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
                           <div class="layui-tab-content">
                             <div class="layui-tab-item layui-show">
@@ -1270,53 +1270,53 @@ var pointstatis = {
                                 head = '<div>安全监控系统</div> '
                                 tp = tp2
                                 break
-                    //         case 'systemModelLabel/安全监控系统/_风流压力.gltf':
-                    //             // 人员定位--车辆
-                    //             content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                    //   <div class="layui-tab-content">
-                    //     <div class="layui-tab-item layui-show">
-                    //     <table class="layuitable">
-                    //     <tbody align="center" valign="middle">
-                    //         <tr>
-                    //         <td>车辆编号：</td><td>XXX</td><td rowspan="10"><img src="img/dialog/car.jpg" alt="" width="120" ></td>
-                    //         </tr>
-                    //         <tr>
-                    //         <td>车辆名称：</td><td>XXX</td>
-                    //         </tr>
-                    //         <tr>
-                    //         <td>识别卡号：</td><td>25654</td>
-                    //         </tr>
-                    //         <tr>
-                    //         <td>车辆类型：</td><td>卡车</td>
-                    //         </tr>
-                    //         <tr>
-                    //         <td>所属部门：</td><td>机电科</td>
-                    //         </tr>
-                    //         <tr>
-                    //         <td>当前区域：</td><td>21102轨道巷（外） 09:53:46</td>
-                    //         </tr>
-                    //         <tr>
-                    //         <td>当前位置：</td><td></td>
-                    //         </tr>
-                    //         <tr>
-                    //         <td>下井时间：</td><td>2021-07-15 08:24:54</td>
-                    //         </tr>
-                    //         <tr>
-                    //         <td>监测时间：</td><td>2021-07-15 09:53:46</td>
-                    //         </tr>
-                    //         <tr>
-                    //         <td>坐标：</td><td></td>
-                    //         </tr>
-                    //         </tbody>
-                    //     </table>
-                    //     </div>
-                    //     <button type="button" id="routePath" class="layui-btn">轨迹回放</button>
-                      
-                    //   </div>
-                    // </div> `
-                    //             head = '<div>人员定位系统</div> '
-                    //             tp = tp4
-                    //             break
+                                //         case 'systemModelLabel/安全监控系统/_风流压力.gltf':
+                                //             // 人员定位--车辆
+                                //             content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //   <div class="layui-tab-content">
+                                //     <div class="layui-tab-item layui-show">
+                                //     <table class="layuitable">
+                                //     <tbody align="center" valign="middle">
+                                //         <tr>
+                                //         <td>车辆编号：</td><td>XXX</td><td rowspan="10"><img src="img/dialog/car.jpg" alt="" width="120" ></td>
+                                //         </tr>
+                                //         <tr>
+                                //         <td>车辆名称：</td><td>XXX</td>
+                                //         </tr>
+                                //         <tr>
+                                //         <td>识别卡号：</td><td>25654</td>
+                                //         </tr>
+                                //         <tr>
+                                //         <td>车辆类型：</td><td>卡车</td>
+                                //         </tr>
+                                //         <tr>
+                                //         <td>所属部门：</td><td>机电科</td>
+                                //         </tr>
+                                //         <tr>
+                                //         <td>当前区域：</td><td>21102轨道巷（外） 09:53:46</td>
+                                //         </tr>
+                                //         <tr>
+                                //         <td>当前位置：</td><td></td>
+                                //         </tr>
+                                //         <tr>
+                                //         <td>下井时间：</td><td>2021-07-15 08:24:54</td>
+                                //         </tr>
+                                //         <tr>
+                                //         <td>监测时间：</td><td>2021-07-15 09:53:46</td>
+                                //         </tr>
+                                //         <tr>
+                                //         <td>坐标：</td><td></td>
+                                //         </tr>
+                                //         </tbody>
+                                //     </table>
+                                //     </div>
+                                //     <button type="button" id="routePath" class="layui-btn">轨迹回放</button>
+
+                                //   </div>
+                                // </div> `
+                                //             head = '<div>人员定位系统</div> '
+                                //             tp = tp4
+                                //             break
                             case '工业视频系统/摄像头.gltf':
                                 // 摄像头
                                 content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
@@ -1336,297 +1336,297 @@ var pointstatis = {
                                 tp = tp3
                                 break
                                 // 人员定位系统
-                //             case 'systemModelLabel/人员定位系统/_传输分站.gltf':
-                //                 // 人员分站
-                //                 content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                //                   <ul class="layui-tab-title">
-                //                   <li class="layui-this">分站信息</li>
-                //                   <li>读卡器信息</li>
-                //                   </ul>
-                //                   <div class="layui-tab-content"style="height:300px">
-                //                   <div class="layui-tab-item layui-show">
-                //                   <table class="layuitable">
-                //                   <tbody align="center" valign="middle">
-                //                   <tr>
-                //                   <td >分站编号：</td><td>41</td><td>分站名称：</td><td>017安全监控分站V0.0</td><td>区域编号：</td><td>二采区</td><td>区域名称</td><td>二采区</td>
-                //                   </tr>
-                //                   <tr>
-                //                   <td>分站状态：</td><td bgcolor="#297c58">交流供电</td><td>更新时间：</td><td>2021-07-05 09:00:01:010 </td><td>最大监测半径(m)：</td><td>无</td><td>精准定位</td><td>是</td>
+                                //             case 'systemModelLabel/人员定位系统/_传输分站.gltf':
+                                //                 // 人员分站
+                                //                 content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //                   <ul class="layui-tab-title">
+                                //                   <li class="layui-this">分站信息</li>
+                                //                   <li>读卡器信息</li>
+                                //                   </ul>
+                                //                   <div class="layui-tab-content"style="height:300px">
+                                //                   <div class="layui-tab-item layui-show">
+                                //                   <table class="layuitable">
+                                //                   <tbody align="center" valign="middle">
+                                //                   <tr>
+                                //                   <td >分站编号：</td><td>41</td><td>分站名称：</td><td>017安全监控分站V0.0</td><td>区域编号：</td><td>二采区</td><td>区域名称</td><td>二采区</td>
+                                //                   </tr>
+                                //                   <tr>
+                                //                   <td>分站状态：</td><td bgcolor="#297c58">交流供电</td><td>更新时间：</td><td>2021-07-05 09:00:01:010 </td><td>最大监测半径(m)：</td><td>无</td><td>精准定位</td><td>是</td>
 
-                //                   </tr>
-                //                   <tr>
-                //                   <td>精确距离(m)：</td><td>0.01</td><td>坐标位置(x,y,z)：</td><td></td><td>安装位置：</td><td>二采区补掘水仓</td><td></td><td></td>
-                //                   </tr>
-                //                   </tbody>
-                //                   </table>
-                //                   </div> 
-                //                   <div class="layui-tab-item">
-                //                   <table class="layuitable" >
-                //                   <thead align="center" valign="middle">
-                //                       <tr>
-                //                   <td>序号</td><td>读卡器编号</td><td>状态</td><td>读卡器位置</td><td>分站-通道</td><td>读卡器类型</td><td>人数</td><td>监测时间</td>
-                //                   </tr>
-                //                   </thead>
-                //                   <tbody align="center" valign="middle">
-                //                   <tr>
-                //                   <td>1</td><td>18</td><td bgcolor="#297c58">正常</td><td class="tdreaderifcard">新副井下口西 </td><td>161-1</td><td>井下定位</td><td>3</td><td>2021-07-15 9:53:46.067</td>
+                                //                   </tr>
+                                //                   <tr>
+                                //                   <td>精确距离(m)：</td><td>0.01</td><td>坐标位置(x,y,z)：</td><td></td><td>安装位置：</td><td>二采区补掘水仓</td><td></td><td></td>
+                                //                   </tr>
+                                //                   </tbody>
+                                //                   </table>
+                                //                   </div> 
+                                //                   <div class="layui-tab-item">
+                                //                   <table class="layuitable" >
+                                //                   <thead align="center" valign="middle">
+                                //                       <tr>
+                                //                   <td>序号</td><td>读卡器编号</td><td>状态</td><td>读卡器位置</td><td>分站-通道</td><td>读卡器类型</td><td>人数</td><td>监测时间</td>
+                                //                   </tr>
+                                //                   </thead>
+                                //                   <tbody align="center" valign="middle">
+                                //                   <tr>
+                                //                   <td>1</td><td>18</td><td bgcolor="#297c58">正常</td><td class="tdreaderifcard">新副井下口西 </td><td>161-1</td><td>井下定位</td><td>3</td><td>2021-07-15 9:53:46.067</td>
 
-                //                   </tr>
-                //                   <tr>
-                //                   <td>2</td><td>6</td><td bgcolor="#cc1924">异常</td><td class="tdreaderifcard">新副井下口东 </td><td>161-2</td><td>井下定位</td><td>1</td><td>2021-07-15 9:53:46.067</td>
-                //                   </tr>
-                //                   <tr>
-                //                   <td>3</td><td>69</td><td bgcolor="#297c58">正常</td><td class="tdreaderifcard">东翼集中皮带</td><td>143-2</td><td>井下定位</td><td>2</td><td>2021-07-15 9:53:46.067</td>
-                //                   </tr>
-                //                   <tr>
-                //                   <td>4</td><td>74</td><td bgcolor="#297c58">正常</td><td class="tdreaderifcard">暗斜巷 </td><td>161-1</td><td>井下定位</td><td>2</td><td>2021-07-15 9:53:46.067</td>
-                //                   </tr>
-                //                   </tbody>
-                //                   </table>
-                //                   </div> 
-                //                 </div>
-                //               </div> `
-                //                 head = '<div>人员定位系统</div>'
-                //                 tp = tp4
-                //                 break
-                //             case 'systemModelLabel/人员定位系统/_读卡分站.gltf':
-                //                 // 人员
-                //                 content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                //                   <div class="layui-tab-content" >
-                //                     <div class="layui-tab-item layui-show">
-                //                     <table class="layuitable">
-                //                     <tbody align="center" valign="middle">
-                //                     <tr>
-                //                     <td>姓名：</td><td>马增军</td><td rowspan="9"><img src="img/dialog/renyuan.jpg" alt="" width="90" ></td>
-                //                     </tr>
-                //                     <tr>
-                //                     <td>工号：</td><td>20859</td>
-                //                     </tr>
-                //                     <tr>
-                //                     <td>部门：</td><td>通防科</td>
-                //                     </tr>
-                //                     <tr>
-                //                     <td>职务：</td><td>辅助员工</td>
-                //                     </tr>
-                //                     <tr>
-                //                     <td>下井时间：</td><td>2021-07-15 08:24:54</td>
-                //                     </tr>
-                //                     <tr>
-                //                     <td>监测时间：</td><td>2021-07-15 09:53:46</td>
-                //                     </tr>
-                //                     <tr>
-                //                     <td>当前人员位置：</td><td></td>
-                //                     </tr>
-                //                     <tr>
-                //                     <td>当前基站位置：</td><td>21102轨道巷(外)</td>
-                //                     </tr>
-                //                     <tr>
-                //                     <td>坐标：</td><td></td>
-                //                     </tr>
-                //                     </tbody>
-                //                     </table>
-                //                     </div>
-                //                     <button type="button" id="routePath" class="layui-btn">轨迹回放</button>
+                                //                   </tr>
+                                //                   <tr>
+                                //                   <td>2</td><td>6</td><td bgcolor="#cc1924">异常</td><td class="tdreaderifcard">新副井下口东 </td><td>161-2</td><td>井下定位</td><td>1</td><td>2021-07-15 9:53:46.067</td>
+                                //                   </tr>
+                                //                   <tr>
+                                //                   <td>3</td><td>69</td><td bgcolor="#297c58">正常</td><td class="tdreaderifcard">东翼集中皮带</td><td>143-2</td><td>井下定位</td><td>2</td><td>2021-07-15 9:53:46.067</td>
+                                //                   </tr>
+                                //                   <tr>
+                                //                   <td>4</td><td>74</td><td bgcolor="#297c58">正常</td><td class="tdreaderifcard">暗斜巷 </td><td>161-1</td><td>井下定位</td><td>2</td><td>2021-07-15 9:53:46.067</td>
+                                //                   </tr>
+                                //                   </tbody>
+                                //                   </table>
+                                //                   </div> 
+                                //                 </div>
+                                //               </div> `
+                                //                 head = '<div>人员定位系统</div>'
+                                //                 tp = tp4
+                                //                 break
+                                //             case 'systemModelLabel/人员定位系统/_读卡分站.gltf':
+                                //                 // 人员
+                                //                 content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //                   <div class="layui-tab-content" >
+                                //                     <div class="layui-tab-item layui-show">
+                                //                     <table class="layuitable">
+                                //                     <tbody align="center" valign="middle">
+                                //                     <tr>
+                                //                     <td>姓名：</td><td>马增军</td><td rowspan="9"><img src="img/dialog/renyuan.jpg" alt="" width="90" ></td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>工号：</td><td>20859</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>部门：</td><td>通防科</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>职务：</td><td>辅助员工</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>下井时间：</td><td>2021-07-15 08:24:54</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>监测时间：</td><td>2021-07-15 09:53:46</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>当前人员位置：</td><td></td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>当前基站位置：</td><td>21102轨道巷(外)</td>
+                                //                     </tr>
+                                //                     <tr>
+                                //                     <td>坐标：</td><td></td>
+                                //                     </tr>
+                                //                     </tbody>
+                                //                     </table>
+                                //                     </div>
+                                //                     <button type="button" id="routePath" class="layui-btn">轨迹回放</button>
 
-                //                   </div>
-                //                 </div> `
-                //                 head = '<div>人员定位系统</div> '
-                //                 tp = tp4
-                //                 break
-                //             case './SampleData/models/传感器设备/传感器设备_data/GWD200.gltf':
-                //                 // 安全监控系统--分站
-                //                 head = '<div>安全监控系统</div>'
-                //                 content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                //       <ul class="layui-tab-title">
-                //         <li class="layui-this">分站信息</li>
-                //         <li>详细信息</li>
-                //       </ul>
-                //       <div class="layui-tab-content " style="height:300px" >
-                //         <div class="layui-tab-item layui-show">
-                //         <table class="layuitable"  >
-                //             <tbody  align="center" valign="middle"  >
-                //         <tr>
-                //         <td >分站编号：</td><td style="width:95px;height:40px">41</td>
-                //         <td >通讯状态:</td><td>正常</td>
-                //         <td >手控状态：</td><td><img src="img/dialog/u749.svg" alt="" ></td>
-                //         <td>故障异控:</td><td><img src="img/dialog/u750.svg" alt="" ></td>
-                        
-                //         </tr>
-                        
-                        
-                //         </tbody>
+                                //                   </div>
+                                //                 </div> `
+                                //                 head = '<div>人员定位系统</div> '
+                                //                 tp = tp4
+                                //                 break
+                                //             case './SampleData/models/传感器设备/传感器设备/GWD200.gltf':
+                                //                 // 安全监控系统--分站
+                                //                 head = '<div>安全监控系统</div>'
+                                //                 content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //       <ul class="layui-tab-title">
+                                //         <li class="layui-this">分站信息</li>
+                                //         <li>详细信息</li>
+                                //       </ul>
+                                //       <div class="layui-tab-content " style="height:300px" >
+                                //         <div class="layui-tab-item layui-show">
+                                //         <table class="layuitable"  >
+                                //             <tbody  align="center" valign="middle"  >
+                                //         <tr>
+                                //         <td >分站编号：</td><td style="width:95px;height:40px">41</td>
+                                //         <td >通讯状态:</td><td>正常</td>
+                                //         <td >手控状态：</td><td><img src="img/dialog/u749.svg" alt="" ></td>
+                                //         <td>故障异控:</td><td><img src="img/dialog/u750.svg" alt="" ></td>
 
-                //         </table>
-                //         </div>
-                //         <div class="layui-tab-item"> 
-                //         <table class="layuitable" >
-                //             <thead bgcolor="#0777aacc"  align="center" valign="middle">
-                //         <tr>
-                //           <th >序号</th>
-                //           <th >测点</th>
-                //           <th>安装位置</th>
-                //           <th>监测值</th>
-                //           <th>实时状态</th>
-                //           <th>预警级别</th>
-                //           <th>逻辑状态</th>
-                //           <th>更新时间</th>
-                          
-                //         </tr> 
-                //       </thead>
-                //       <tbody  align="center" valign="middle" style="height:210px;width: 690px; ">
-                //         <tr>
-                //         <td>1</td>
-                //         <td >007安全监控分站V1.0</td>
-                //         <td>测试7号分站</td>
-                //         <td></td>
-                //         <td bgcolor="#297c58">交流供电</td>
-                //         <td></td>
-                //         <td>正常</td>
-                //         <td>09:53:46</td>
-                        
-                //         </tr>
-                //         <tr>
-                //         <td>2</td>
-                //       <td style="text-decoration:underline">0070101A低浓激光甲烷</td>
-                //       <td bgcolor="#5480d6"></td>
-                //         <td>0%</td>
-                //         <td bgcolor="#297c58">正常</td>
-                //         <td>--</td>
-                //         <td>正常</td>
-                //         <td>09:53:46</td>
-                      
-                //         </tr>
-                //         <tr>
-                //         <td>3</td>
-                //       <td style="text-decoration:underline">0070102A风速</td>
-                //       <td bgcolor="#5480d6"></td>
-                //         <td>--</td>
-                //         <td bgcolor="#b2d838">中断/断线</td>
-                //         <td>--</td>
-                //         <td>正常</td>
-                //         <td>09:53:46</td>
-                      
-                //         </tr>
-                //         <tr>
-                //         <td>4</td>
-                //       <td style="text-decoration:underline">0070103A低浓激光甲烷</td>
-                //       <td bgcolor="#5480d6"></td>
-                //         <td>0%</td>
-                //         <td bgcolor="#297c58">正常</td>
-                //         <td>--</td>
-                //         <td>正常</td>
-                //         <td>09:53:46</td>
-                      
-                //         </tr>
-                //         <tr>
-                //         <td>5</td>
-                //       <td style="text-decoration:underline">0070104D风向传感器</td>
-                //       <td bgcolor="#5480d6"></td>
-                //         <td>反风</td>
-                //         <td bgcolor="#297c58">正常</td>
-                //         <td>--</td>
-                //         <td>正常</td>
-                //         <td>09:53:46</td>
-                      
-                //         </tr>
-                //         <tr>
-                //         <td>6</td>
-                //       <td style="text-decoration:underline">0070105A高浓激光甲烷</td>
-                //       <td bgcolor="#5480d6"></td>
-                //         <td>--</td>
-                //         <td bgcolor="red">故障</td>
-                //         <td>--</td>
-                //         <td>正常</td>
-                //         <td>09:53:46</td>
-                      
-                //         </tr>
-                //         </tbody>
-                //             </div>
-                      
-                //       </div>
-                //     </div>`
-                //                 tp = tp2
-                //                 break
-                //             case './SampleData/models/传感器设备/传感器设备_data/GSY10.gltf':
-                //                 // 安全监控系统--CO2
-                //                 head = '<div>安全监控系统</div> '
-                //                 content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                //     <div class="layui-tab-content">
-                //       <div class="layui-tab-item layui-show">
-                //       <table class="layuitable">
-                //           <tbody align="center" valign="middle">
-                //               <tr>
-                //               <td>测点：</td><td>0320105A二氧化碳</td>
-                //               </tr>
-                //               <tr>
-                //               <td>实时状态：</td><td>故障</td>
-                //               </tr>
-                //               <tr>
-                //               <td>预警级别：</td><td>--</td>
-                //               </tr>
-                //               <tr>
-                //               <td>逻辑状态：</td><td>正常</td>
-                //               </tr>
-                //               <tr>
-                //               <td>监测值：</td><td>故障</td>
-                //               </tr>
-                //               <tr>
-                //               <td>安装位置：</td><td>12煤辅运大巷</td>
-                //               </tr>
-                //               <tr>
-                //               <td>最近标校时间：</td><td>19日17:53:01</td>
-                //               </tr>
-                //               <tr>
-                //               <td>更新时间：</td><td>17:52:59</td>
-                //               </tr>
-                //           </tbody>
-                //       </table>
-                //       </div>
-                //           <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
-                //     </div>
-                //   </div> `
-                //                 tp = tp2
-                //                 break
-                //             case './SampleData/models/传感器设备/传感器设备_data/GYH25(B).gltf':
-                //                 // 安全监控系统-- 02
-                //                 head = '<div>安全监控系统</div> '
-                //                 content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                //     <div class="jiankongdialoglayui-tab-content">
-                //       <div class="layui-tab-item layui-show">
-                //       <table class="layuitable">
-                //           <tbody align="center" valign="middle">
-                //               <tr>
-                //               <td>测点：</td><td>0320105A O2</td>
-                //               </tr>
-                //               <tr>
-                //               <td>实时状态：</td><td>故障</td>
-                //               </tr>
-                //               <tr>
-                //               <td>预警级别：</td><td>--</td>
-                //               </tr>
-                //               <tr>
-                //               <td>逻辑状态：</td><td>正常</td>
-                //               </tr>
-                //               <tr>
-                //               <td>监测值：</td><td>故障</td>
-                //               </tr>
-                //               <tr>
-                //               <td>安装位置：</td><td>12煤辅运大巷</td>
-                //               </tr>
-                //               <tr>
-                //               <td>最近标校时间：</td><td>19日17:53:01</td>
-                //               </tr>
-                //               <tr>
-                //               <td>更新时间：</td><td>17:52:59</td>
-                //               </tr>
-                //           </tbody>
-                //       </table>
-                //       </div>
-                //           <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
-                //     </div>
-                //   </div> `
-                //                 tp = tp2
-                //                 break
+                                //         </tr>
+
+
+                                //         </tbody>
+
+                                //         </table>
+                                //         </div>
+                                //         <div class="layui-tab-item"> 
+                                //         <table class="layuitable" >
+                                //             <thead bgcolor="#0777aacc"  align="center" valign="middle">
+                                //         <tr>
+                                //           <th >序号</th>
+                                //           <th >测点</th>
+                                //           <th>安装位置</th>
+                                //           <th>监测值</th>
+                                //           <th>实时状态</th>
+                                //           <th>预警级别</th>
+                                //           <th>逻辑状态</th>
+                                //           <th>更新时间</th>
+
+                                //         </tr> 
+                                //       </thead>
+                                //       <tbody  align="center" valign="middle" style="height:210px;width: 690px; ">
+                                //         <tr>
+                                //         <td>1</td>
+                                //         <td >007安全监控分站V1.0</td>
+                                //         <td>测试7号分站</td>
+                                //         <td></td>
+                                //         <td bgcolor="#297c58">交流供电</td>
+                                //         <td></td>
+                                //         <td>正常</td>
+                                //         <td>09:53:46</td>
+
+                                //         </tr>
+                                //         <tr>
+                                //         <td>2</td>
+                                //       <td style="text-decoration:underline">0070101A低浓激光甲烷</td>
+                                //       <td bgcolor="#5480d6"></td>
+                                //         <td>0%</td>
+                                //         <td bgcolor="#297c58">正常</td>
+                                //         <td>--</td>
+                                //         <td>正常</td>
+                                //         <td>09:53:46</td>
+
+                                //         </tr>
+                                //         <tr>
+                                //         <td>3</td>
+                                //       <td style="text-decoration:underline">0070102A风速</td>
+                                //       <td bgcolor="#5480d6"></td>
+                                //         <td>--</td>
+                                //         <td bgcolor="#b2d838">中断/断线</td>
+                                //         <td>--</td>
+                                //         <td>正常</td>
+                                //         <td>09:53:46</td>
+
+                                //         </tr>
+                                //         <tr>
+                                //         <td>4</td>
+                                //       <td style="text-decoration:underline">0070103A低浓激光甲烷</td>
+                                //       <td bgcolor="#5480d6"></td>
+                                //         <td>0%</td>
+                                //         <td bgcolor="#297c58">正常</td>
+                                //         <td>--</td>
+                                //         <td>正常</td>
+                                //         <td>09:53:46</td>
+
+                                //         </tr>
+                                //         <tr>
+                                //         <td>5</td>
+                                //       <td style="text-decoration:underline">0070104D风向传感器</td>
+                                //       <td bgcolor="#5480d6"></td>
+                                //         <td>反风</td>
+                                //         <td bgcolor="#297c58">正常</td>
+                                //         <td>--</td>
+                                //         <td>正常</td>
+                                //         <td>09:53:46</td>
+
+                                //         </tr>
+                                //         <tr>
+                                //         <td>6</td>
+                                //       <td style="text-decoration:underline">0070105A高浓激光甲烷</td>
+                                //       <td bgcolor="#5480d6"></td>
+                                //         <td>--</td>
+                                //         <td bgcolor="red">故障</td>
+                                //         <td>--</td>
+                                //         <td>正常</td>
+                                //         <td>09:53:46</td>
+
+                                //         </tr>
+                                //         </tbody>
+                                //             </div>
+
+                                //       </div>
+                                //     </div>`
+                                //                 tp = tp2
+                                //                 break
+                                //             case './SampleData/models/传感器设备/传感器设备/GSY10.gltf':
+                                //                 // 安全监控系统--CO2
+                                //                 head = '<div>安全监控系统</div> '
+                                //                 content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //     <div class="layui-tab-content">
+                                //       <div class="layui-tab-item layui-show">
+                                //       <table class="layuitable">
+                                //           <tbody align="center" valign="middle">
+                                //               <tr>
+                                //               <td>测点：</td><td>0320105A二氧化碳</td>
+                                //               </tr>
+                                //               <tr>
+                                //               <td>实时状态：</td><td>故障</td>
+                                //               </tr>
+                                //               <tr>
+                                //               <td>预警级别：</td><td>--</td>
+                                //               </tr>
+                                //               <tr>
+                                //               <td>逻辑状态：</td><td>正常</td>
+                                //               </tr>
+                                //               <tr>
+                                //               <td>监测值：</td><td>故障</td>
+                                //               </tr>
+                                //               <tr>
+                                //               <td>安装位置：</td><td>12煤辅运大巷</td>
+                                //               </tr>
+                                //               <tr>
+                                //               <td>最近标校时间：</td><td>19日17:53:01</td>
+                                //               </tr>
+                                //               <tr>
+                                //               <td>更新时间：</td><td>17:52:59</td>
+                                //               </tr>
+                                //           </tbody>
+                                //       </table>
+                                //       </div>
+                                //           <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
+                                //     </div>
+                                //   </div> `
+                                //                 tp = tp2
+                                //                 break
+                                //             case './SampleData/models/传感器设备/传感器设备/GYH25(B).gltf':
+                                //                 // 安全监控系统-- 02
+                                //                 head = '<div>安全监控系统</div> '
+                                //                 content = `<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                //     <div class="jiankongdialoglayui-tab-content">
+                                //       <div class="layui-tab-item layui-show">
+                                //       <table class="layuitable">
+                                //           <tbody align="center" valign="middle">
+                                //               <tr>
+                                //               <td>测点：</td><td>0320105A O2</td>
+                                //               </tr>
+                                //               <tr>
+                                //               <td>实时状态：</td><td>故障</td>
+                                //               </tr>
+                                //               <tr>
+                                //               <td>预警级别：</td><td>--</td>
+                                //               </tr>
+                                //               <tr>
+                                //               <td>逻辑状态：</td><td>正常</td>
+                                //               </tr>
+                                //               <tr>
+                                //               <td>监测值：</td><td>故障</td>
+                                //               </tr>
+                                //               <tr>
+                                //               <td>安装位置：</td><td>12煤辅运大巷</td>
+                                //               </tr>
+                                //               <tr>
+                                //               <td>最近标校时间：</td><td>19日17:53:01</td>
+                                //               </tr>
+                                //               <tr>
+                                //               <td>更新时间：</td><td>17:52:59</td>
+                                //               </tr>
+                                //           </tbody>
+                                //       </table>
+                                //       </div>
+                                //           <button type="button" id="shebeiinfo" class="layui-btn">设备信息</button>
+                                //     </div>
+                                //   </div> `
+                                //                 tp = tp2
+                                //                 break
                         }
 
                         // this_.showtimechange(ftimeea.id)
@@ -1685,17 +1685,7 @@ var pointstatis = {
             }
         }, Cesium.ScreenSpaceEventType.LEFT_CLICK)
 
-        var name = {
-            './SampleData/gltf/jw.gltf': '甲烷',
-            './SampleData/models/传感器设备/传感器设备_data/GRG5H(B).gltf': 'GRG5H(B)',
-            './SampleData/models/传感器设备/传感器设备_data/GELH100.gltf': 'GELH100',
-            './SampleData/models/传感器设备/传感器设备_data/GFY15.gltf': 'GFY15',
-            './SampleData/models/传感器设备/传感器设备_data/GLH100.gltf': 'GLH100',
-            './SampleData/models/传感器设备/传感器设备_data/GTH1000.gltf': 'GTH1000',
-            './SampleData/models/传感器设备/传感器设备_data/GWD200.gltf': 'GWD200',
-            './SampleData/models/传感器设备/传感器设备_data/GSY10.gltf': 'GSY10',
-            './SampleData/models/传感器设备/传感器设备_data/GYH25(B).gltf': 'GYH25(B)'
-        }
+
         handler.setInputAction(function(movement) {
             var fea = viewer.scene.pick(movement.endPosition)
             this_.clearPopup([tp1])
