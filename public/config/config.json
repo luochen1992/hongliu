@@ -163,10 +163,16 @@
         ],
         "operationallayers": [{
             "id": "002",
-            "name": "矿山数据",
+            "name": "地面模型",
+            "type": "group",
+            "layers": []
+        },
+        {
+            "id": "003",
+            "name": "地质体模型",
             "type": "group",
             "layers": [{
-                "id": "002001",
+                "id": "003001",
                 "type": "hangdao",
                 "name": "巷道",
                 "url": "./SampleData/hll_param-tileset/tileset.json",
@@ -198,8 +204,9 @@
                 "isZoomTo": false,
                 "setopacity": true,
                 "visible": true
-            }, {
-                "id": "002002",
+            }, 
+            {
+                "id": "003002",
                 "type": "gobArea",
                 "name": "工作面",
                 "upAxis": 0,
@@ -221,6 +228,94 @@
                 "setopacity": true,
                 "visible": true
             }]
+
+        },
+        {
+            "id": "004",
+            "name": "系统专业模型",
+            "type": "group",
+            "layers": [{
+                "id": "004001",
+                        "type": "showfacilitypoint",
+                        "name": "安全监控系统",
+                        "upAxis": 0,
+                        "url": "./SampleData/models/systemEquipment/安全监控系统.json",
+                        "distanceDisplayCondition": [
+                            0,
+                            100
+                        ],
+                        "minheight": -2000,
+                        "divideheight": 1050,
+                        "maxheight": 18000,
+                        "center": {
+                            "y": 35.65963456726941,
+                            "x": 112.71085928561125,
+                            "z": 800,
+                            "heading": 325.51,
+                            "pitch": -22.36,
+                            "roll": 0
+                        },
+                        "isZoomTo": false,
+                        "height": 0,
+                        "setopacity": true,
+                        "visible": true,
+                        "movez": 1000
+            }, 
+            {
+                "id": "004002",
+                        "type": "showfacilitypoint",
+                        "name": "工业视频系统",
+                        "upAxis": 0,
+                        "url": "./SampleData/models/systemEquipment/工业视频系统.json",
+                        "distanceDisplayCondition": [
+                            0,
+                            100
+                        ],
+                        "minheight": -2000,
+                        "divideheight": 1050,
+                        "maxheight": 18000,
+                        "center": {
+                            "y": 35.65963456726941,
+                            "x": 112.71085928561125,
+                            "z": 800,
+                            "heading": 325.51,
+                            "pitch": -22.36,
+                            "roll": 0
+                        },
+                        "isZoomTo": false,
+                        "height": 0,
+                        "setopacity": true,
+                        "visible": true,
+                        "movez": 1000
+            },
+            {
+                "id": "004003",
+                        "type": "showfacilitypoint",
+                        "name": "应急广播系统",
+                        "upAxis": 0,
+                        "url": "./SampleData/models/systemEquipment/应急广播系统.json",
+                        "distanceDisplayCondition": [
+                            0,
+                            100
+                        ],
+                        "minheight": -2000,
+                        "divideheight": 1050,
+                        "maxheight": 18000,
+                        "center": {
+                            "y": 35.65963456726941,
+                            "x": 112.71085928561125,
+                            "z": 800,
+                            "heading": 325.51,
+                            "pitch": -22.36,
+                            "roll": 0
+                        },
+                        "isZoomTo": false,
+                        "height": 0,
+                        "setopacity": true,
+                        "visible": true,
+                        "movez": 1000
+            }]
+
         }]
     }
 }
