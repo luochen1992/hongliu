@@ -21,7 +21,7 @@ export default {
       ppdata: [],
       tablecolumn: [
           { label: '名称', prop: 'name', width: '', align: 'center' },
-          { label: '状态', prop: 'state', width: '', align: 'center' },
+          { label: '状态', prop: 'state', width: '80', align: 'center' },
           //{ label: '区域', prop: 'area', width: '', align: 'center' }
       ]
     }
