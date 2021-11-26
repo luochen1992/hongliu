@@ -69,8 +69,10 @@ export default {
       this.isshow2 = false
       viewer.clock.shouldAnimate = false
 
-      viewer.scene.primitives.remove(window.e_route.fireModel)
-      window.e_route.fireModel = null
+      if (window.e_route.fireModel) {
+        window.e_route.fireModel.remove()
+        window.e_route.fireModel = null
+      }
       
       if (window.e_route !== undefined) {
         if (window.e_route.fiteE) {
@@ -92,50 +94,99 @@ export default {
       var _this = this
       _this.point = { longitude: 112.7108292, latitude: 35.69518, height: -304.8428 }
       _this.polyline = [
-        { longitude: 112.7108292, latitude: 35.69518, height: -304.8428 },
-        { longitude: 112.7107317, latitude: 35.6949846, height: -308.1725 },
-        { longitude: 112.7105318, latitude: 35.6945681, height: -313.185 },
-        { longitude: 112.7101957, latitude: 35.6939195, height: -325.7606 },
+        { longitude:112.7096853, latitude:35.6969674 , height:-305.4866},
+        { longitude:	112.7090409	, latitude:35.6956949	, height:	-308.6565},	
+        { longitude:112.7086802	, latitude: 35.6949820	, height:-310.4350	},
+        { longitude:112.7083423	, latitude:35.6943142	, height:-312.0959	},
+        { longitude:112.7078927	, latitude:	35.6934255	, height:-314.3029	},
+        { longitude:112.7075541	, latitude:35.6927570	, height:-315.9624	},
+        { longitude:112.7069512	, latitude:35.6915655	, height:-318.9218	},
+        { longitude:112.7064452	, latitude: 35.6905660	, height:-321.4005},	
+        { longitude:112.7056408	, latitude:35.6889764	, height:-325.3395	},
+        { longitude:112.7051805	, latitude:35.6880671	, height:-327.5881	},
+        { longitude:112.7049280	, latitude:35.6875677	, height:-328.8234	},
+        { longitude:112.7045191	, latitude:35.6867599	, height:-330.8178	},
+        { longitude:112.7041274	, latitude:35.6859859	, height:-332.7300	},
+        { longitude:112.7038748	, latitude:35.6854865	, height:-333.9616},
+        { longitude:112.7022304	, latitude:35.6822367	, height:-341.9662	},
+        { longitude:112.7017508	, latitude:35.6812888	, height:-344.2989	},
+        { longitude:112.7013508	, latitude:35.6804989	, height:-346.2384	},
+        { longitude:112.7013372	, latitude:35.6804644	, height:-346.1817	},
+        { longitude:112.7013905	, latitude:35.6804713	, height:-345.7367	},
+        { longitude:112.7014815	, latitude:35.6804820	, height:-344.7786	},
+        { longitude:112.7015197	, latitude:35.6804816	, height:-344.4582	},
+        { longitude:112.7015174	, latitude:35.6804551	, height:-344.2931	},
+        { longitude:112.7012959	, latitude:35.6800212	, height:-345.2816	},
+        { longitude:112.7012830	, latitude:35.6799875	, height:-345.2854	},
+        { longitude:112.7013234	, latitude:35.6799776	, height:-344.7432	},
+        { longitude:112.7016158	, latitude:35.6799104	, height:	-340.5953	},
+        { longitude:112.7016481	, latitude:35.6799063	, height:-340.2979	},
+        { longitude:112.7016987	, latitude:35.6798911	, height:-339.8701	},
+        { longitude:112.7018040	, latitude:35.6798661	, height:-339.5129	},
+        { longitude: 112.7018459	, latitude:35.6798568	, height:-339.3727	},
+        { longitude:112.7018891	, latitude:35.6798464	, height:-339.2270	},
+        { longitude:112.7022144	, latitude:35.6797737	, height:-338.1465	},
+        { longitude:112.7022502	, latitude:35.6797650	, height:-338.0590},
+        { longitude:112.7022995	, latitude:35.6797537	, height:-337.8588	},
+        { longitude:112.7024788	, latitude:35.6797115	, height:-337.2421	},
+        { longitude:112.7025637	, latitude:35.6796910	, height:-336.9514	},
+        { longitude:112.7026815	, latitude:35.6796631	, height:-336.5493	},
+        { longitude:112.7027193	, latitude:35.6796537	, height:-336.6301},
 
-        { longitude: 112.7100971, latitude: 35.693736, height: -330.338 },
-        { longitude: 112.710005, latitude: 35.693539, height: -329.9675 },
-        { longitude: 112.7099645, latitude: 35.6934588, height: -331.2666 },
-        { longitude: 112.7094939, latitude: 35.6925453, height: -345.6278 },
-        { longitude: 112.7089354, latitude: 35.691394, height: -345.5472 },
-        { longitude: 112.7083987, latitude: 35.6903267, height: -336.748 },
-        { longitude: 112.7083586, latitude: 35.6902516, height: -336.1945 },
-        { longitude: 112.7077414, latitude: 35.6890116, height: -327.5936 },
+        { longitude:112.7027668	, latitude:35.6796427	, height:-336.2513	},
+        { longitude:112.7027991	, latitude:35.6796260	, height:-336.1760	},
+        { longitude:112.7028234	, latitude:35.6795995	, height:-336.1091	},
+        { longitude:112.7028867	, latitude:	35.6794665	, height:-336.0984	},
+        { longitude:112.7029048	, latitude:35.6794394	, height:	-336.0279	},
+        { longitude:112.7029372	, latitude:35.6794259	, height:-335.8691	},
+        { longitude:112.7033534	, latitude:35.6793333	, height:-332.9757	},
+        { longitude:112.7033816	, latitude:35.6793259	, height:	-332.8699	},
 
-        { longitude: 112.707481, latitude: 35.6885152, height: -324.4203 },
-        { longitude: 112.7070284, latitude: 35.6876582, height: -320.6443 },
-        { longitude: 112.7065221, latitude: 35.6866636, height: -319.9562 },
-        { longitude: 112.7054782, latitude: 35.6845776, height: -320.9151 },
-        { longitude: 112.7044007, latitude: 35.6824008, height: -331.4701 },
-        { longitude: 112.7034027, latitude: 35.6804461, height: -336.7989 },
-        { longitude: 112.7027219, latitude: 35.6790724, height: -335.8359 },
-        { longitude: 112.702978, latitude: 35.6789809, height: -334.4832 },
-        { longitude: 112.7032436, latitude: 35.6789193, height: -332.4746 },
-        { longitude: 112.7032825, latitude: 35.6790179, height: -330.9346 },
-        { longitude: 112.7033659, latitude: 35.67929, height: -330.8945 },
-        { longitude: 112.7033858, latitude: 35.6793483, height: -330.8884 },
-        { longitude: 112.7034209, latitude: 35.6794042, height: -329.9834 },
-        { longitude: 112.7034378, latitude: 35.679482, height: -331.5909 },
-        { longitude: 112.7052521, latitude: 35.6791071, height: -333.6503 },
-        { longitude: 112.7057055, latitude: 35.6790078, height: -325.2326 },
-        { longitude: 112.7074107, latitude: 35.6786342, height: -317.2294 },
-        { longitude: 112.7081901, latitude: 35.678465, height: -312.9999 },
-        { longitude: 112.7100018, latitude: 35.6780659, height: -295.8632 },
-        { longitude: 112.7113151, latitude: 35.6777839, height: -289.8966 },
-        { longitude: 112.7117378, latitude: 35.6776827, height: -287.8127 },
-        { longitude: 112.7118477, latitude: 35.6776827, height: -287.5944 },
-        { longitude: 112.71467, latitude: 35.6770699, height: -277.1478 },
-        { longitude: 112.7156803, latitude: 35.6768467, height: -266.5502 },
-        { longitude: 112.7161921, latitude: 35.6767265, height: -248.0544 },
-        { longitude: 112.716297, latitude: 35.6767021, height: -246.7608 },
-        { longitude: 112.7184143, latitude: 35.6762562, height: -236.389 },
-        { longitude: 112.7204159, latitude: 35.675839, height: -222.0712 },
-        { longitude: 112.7208118, latitude: 35.6757327, height: -221.1373 },
-        { longitude: 112.7265633, latitude: 35.674259, height: -1.4658 }
+        { longitude:112.7033958	, latitude:35.6793603	, height:-332.9255},
+        { longitude:112.7034303	, latitude:35.6794614	, height:-333.4168	},
+        { longitude:112.7034459	, latitude:35.6794871	, height:-333.5302	},
+        { longitude:112.7034846	, latitude:35.6794879	, height:-333.6421	},
+        { longitude:112.7046437	, latitude:35.6792416	, height:-335.1188	},
+        { longitude:112.7047294	, latitude:35.6792233	, height:-335.2281	},
+        { longitude:112.7047633	, latitude:35.6792161	, height:-335.2708	},
+        { longitude:112.7048489	, latitude:35.6791980	, height:-335.3802	},
+        { longitude:112.7048699	, latitude:35.6791934	, height:-335.4066	},
+        { longitude:112.7049558	, latitude:35.6791752	, height:-335.4979	},
+        { longitude:112.7051949	, latitude:35.6791255	, height:-335.6311	},
+        { longitude:112.7052411	, latitude:35.6791153	, height:-335.4711	},
+        { longitude:112.7052817	, latitude:35.6791065	, height:-335.3307},
+        { longitude:112.7064820	, latitude:35.6788456	, height:-326.2990	},
+        { longitude:112.7073816	, latitude:35.6786502	, height:-319.5310	},
+        { longitude:112.7074276	, latitude:35.6786390	, height:-319.1666	},
+        { longitude:112.7074671	, latitude:35.6786313	, height:	-318.8629	},
+        { longitude:112.7095916 , latitude:35.6781638, height:-301.6736},
+        { longitude: 112.7096769 , latitude:35.6781450, height:-301.0927 },
+        { longitude: 112.7106618 , latitude:35.6779278, height: -295.5658 },
+        { longitude:112.7117536	, latitude:35.6776872	, height:-289.4400},
+        { longitude:112.7118385	, latitude:35.6776683	, height:-289.0717	},
+        { longitude:112.7126120	, latitude:35.6774968	, height:-286.7071	},
+        { longitude:112.7126975	, latitude:35.6774777	, height:-286.4191	},
+        { longitude:112.7137516	, latitude:35.6772483	, height:-282.5052	},
+        { longitude:112.7145665	, latitude:35.6770712	, height:-279.4852	},
+        { longitude:112.7146177	, latitude:35.6770602	, height:-279.1612	},
+        { longitude:112.7146554	, latitude:35.6770522	, height:-278.9187	},
+        { longitude:112.7151038	, latitude:35.6769586	, height:-274.7921	},
+        { longitude:112.7151563	, latitude:35.6769479	, height:-274.1451},
+        { longitude:112.7151897	, latitude:35.6769404	, height:-273.7306	},
+        { longitude:112.7157994	, latitude:35.6768116	, height:-264.2617	},
+        { longitude:112.7162441 , latitude:35.6767179 , height:-257.3574},
+        { longitude:112.7170406 , latitude:35.6765496 , height:-244.9898 },
+        { longitude:112.7170873 , latitude:35.6765387 , height:-244.4822 },
+        { longitude:112.7171248 , latitude:35.6765317 , height:-244.0868 },
+        { longitude:112.7194165 , latitude:35.6760437 , height:-230.3774 },
+        { longitude:112.7202306	, latitude:35.6758699, height:-225.5033},
+        { longitude:112.7203162	, latitude:35.6758516, height:-224.9440	},
+        { longitude:112.7204560	, latitude:35.6758208, height:-223.9540	},
+        { longitude:112.7205393	, latitude:	35.6758000, height:-223.6427	},
+        { longitude:112.7206337	, latitude:35.6757756, height:-223.6124	},
+        { longitude:112.7207211	, latitude:35.6757521, height:-222.0094	},
+        { longitude:112.7234768 , latitude:35.6750485 , height:-118.9405},
+        { longitude:112.7266045	, latitude:35.6742501, height:-1.9451	},
       ]
       _this.end = CTMap.JulianDate.fromDate(new Date())
       _this.start = CTMap.JulianDate.addSeconds(_this.end, -(2 + _this.polyline.length * 3), new CTMap.JulianDate())
@@ -166,18 +217,17 @@ export default {
       let LineList=[112.7130880,35.6746824,-289.57,
         112.7135756,35.6752652,-290.27,
         112.7139419,35.6757108,-289.69,
-        112.7140147,35.6757993,-289.57,
-        112.7141260,35.6759317,-289.55,
-        112.7143739,35.6762347,-293.08];
+        112.7140147,35.6757993,-289.57];
       let img = 'img/smoke2.png';
+       let speed = 1.0 / 3600 / 150;
       window.e_route.fireModel = new CTMap.wasiEffects(viewer);
-      window.e_route.fireModel.addWasi(LineList,img);
+      window.e_route.fireModel.addWasi(LineList,img,speed);
       
 
      //112.7130880,35.6746824,-289.57
       //定位飞行
       window.viewer.camera.flyTo({
-        destination: window.Cesium.Cartesian3.fromDegrees(112.7130880,35.6746824,-178.57), // 经度、纬度、高度
+        destination: window.Cesium.Cartesian3.fromDegrees(112.7130880,35.6746824,178.57), // 经度、纬度、高度
         orientation: {
           heading: window.Cesium.Math.toRadians(0), // 绕垂直于地心的轴旋转
           pitch: window.Cesium.Math.toRadians(-90), // 绕纬度线旋转
@@ -185,6 +235,16 @@ export default {
         },
         duration: 1 // 飞行到目的地花费时间3秒
       })
+      //添加时钟
+      this.setClock()
+    },
+     setClock() {
+      viewer.clock.startTime = this.start
+      viewer.clock.stopTime = this.end
+      viewer.clock.currentTime = this.start
+      viewer.clock.clockRange = CTMap.ClockRange.UNBOUNDED
+      viewer.clock.multiplier = 1 
+      viewer.clock.shouldAnimate = true
     },
 
     // 逃灾路线
