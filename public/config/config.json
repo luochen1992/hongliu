@@ -162,90 +162,91 @@
             }
         ],
         "operationallayers": [{
-            "id": "002",
-            "name": "地面模型",
-            "type": "group",
-            "layers": []
-        },
-        {
-            "id": "003",
-            "name": "地质体模型",
-            "type": "group",
-            "layers": [{
-                "id": "003001",
-                "type": "hangdao",
-                "name": "巷道",
-                "url": "./SampleData/hll_param-tileset/tileset.json",
-                "longitude": 110.3483829,
-                "latitude": 38.9336651,
-                "height": 0,
-                "center": {
-                    "y": 35.64256138177233,
-                    "x": 110.3483829,
-                    "z": 0,
-                    "heading": 335,
-                    "pitch": -32,
-                    "roll": 0
-                },
-                "skipLevelOfDetail": true,
-                "baseScreenSpaceError": 1024,
-                "skipLevels": 1,
-                "skipScreenSpaceErrorFactor": 16,
-                "immediatelyLoadDesiredLevelOfDetail": false,
-                "loadSiblings": false,
-                "cullWithChildrenBounds": true,
-                "prop": [
-                    "newname",
-                    {
-                        "batchIdnew": "ID",
-                        "newname": "名称"
-                    }
-                ],
-                "isZoomTo": false,
-                "setopacity": true,
-                "visible": true
-            }, 
+                "id": "002",
+                "name": "地面模型",
+                "type": "group",
+                "layers": []
+            },
             {
-                "id": "003002",
-                "type": "gobArea",
-                "name": "工作面",
-                "upAxis": 0,
-                "url": "./SampleData/models/工作面/采空区.json",
-                "distanceDisplayCondition": [
-                    0,
-                    40000
-                ],
-                "center": {
-                    "y": 38.9336651,
-                    "x": 110.3483829,
-                    "z": 0,
-                    "heading": 360.00,
-                    "pitch": -89.00,
-                    "roll": 0
-                },
-                "isZoomTo": false,
-                "height": 0,
-                "setopacity": true,
-                "visible": true
-            }]
+                "id": "003",
+                "name": "地质体模型",
+                "type": "group",
+                "layers": [{
+                        "id": "003001",
+                        "type": "hangdao",
+                        "name": "巷道",
+                        "url": "./SampleData/hll_param-tileset/tileset.json",
+                        "longitude": 110.3483829,
+                        "latitude": 38.9336651,
+                        "height": 0,
+                        "center": {
+                            "y": 35.64256138177233,
+                            "x": 110.3483829,
+                            "z": 0,
+                            "heading": 335,
+                            "pitch": -32,
+                            "roll": 0
+                        },
+                        "skipLevelOfDetail": true,
+                        "baseScreenSpaceError": 1024,
+                        "skipLevels": 1,
+                        "skipScreenSpaceErrorFactor": 16,
+                        "immediatelyLoadDesiredLevelOfDetail": false,
+                        "loadSiblings": false,
+                        "cullWithChildrenBounds": true,
+                        "prop": [
+                            "newname",
+                            {
+                                "batchIdnew": "ID",
+                                "newname": "名称"
+                            }
+                        ],
+                        "isZoomTo": false,
+                        "setopacity": true,
+                        "visible": true
+                    },
+                    {
+                        "id": "003002",
+                        "type": "gobArea",
+                        "name": "工作面",
+                        "upAxis": 0,
+                        "url": "./SampleData/models/工作面/采空区.json",
+                        "distanceDisplayCondition": [
+                            0,
+                            40000
+                        ],
+                        "center": {
+                            "y": 38.9336651,
+                            "x": 110.3483829,
+                            "z": 0,
+                            "heading": 360.00,
+                            "pitch": -89.00,
+                            "roll": 0
+                        },
+                        "isZoomTo": false,
+                        "height": 0,
+                        "setopacity": true,
+                        "visible": true
+                    }
+                ]
 
-        },
-        {
-            "id": "004",
-            "name": "系统专业模型",
-            "type": "group",
-            "layers": [{
-                "id": "004001",
+            },
+            {
+                "id": "004",
+                "name": "系统专业模型",
+                "type": "group",
+                "layers": [{
+                        "id": "004001",
                         "type": "showfacilitypoint",
                         "name": "安全监控系统",
                         "upAxis": 0,
                         "url": "./SampleData/models/systemEquipment/安全监控系统.json",
                         "distanceDisplayCondition": [
                             0,
-                            100
+                            1100
                         ],
-                        "minheight": -2000,
-                        "divideheight": 1050,
+                        "minheight": 0,
+                        "divideheight": 1100,
                         "maxheight": 18000,
                         "center": {
                             "y": 35.65963456726941,
@@ -260,19 +261,19 @@
                         "setopacity": true,
                         "visible": true,
                         "movez": 1000
-            }, 
-            {
-                "id": "004002",
+                    },
+                    {
+                        "id": "004002",
                         "type": "showfacilitypoint",
                         "name": "工业视频系统",
                         "upAxis": 0,
                         "url": "./SampleData/models/systemEquipment/工业视频系统.json",
                         "distanceDisplayCondition": [
                             0,
-                            100
+                            1100
                         ],
-                        "minheight": -2000,
-                        "divideheight": 1050,
+                        "minheight": 0,
+                        "divideheight": 1100,
                         "maxheight": 18000,
                         "center": {
                             "y": 35.65963456726941,
@@ -287,19 +288,19 @@
                         "setopacity": true,
                         "visible": true,
                         "movez": 1000
-            },
-            {
-                "id": "004003",
+                    },
+                    {
+                        "id": "004003",
                         "type": "showfacilitypoint",
                         "name": "应急广播系统",
                         "upAxis": 0,
                         "url": "./SampleData/models/systemEquipment/应急广播系统.json",
                         "distanceDisplayCondition": [
                             0,
-                            100
+                            1100
                         ],
-                        "minheight": -2000,
-                        "divideheight": 1050,
+                        "minheight": 0,
+                        "divideheight": 1100,
                         "maxheight": 18000,
                         "center": {
                             "y": 35.65963456726941,
@@ -314,8 +315,10 @@
                         "setopacity": true,
                         "visible": true,
                         "movez": 1000
-            }]
+                    }
+                ]
 
-        }]
+            }
+        ]
     }
 }

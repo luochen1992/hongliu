@@ -13,11 +13,11 @@
  */
 
 function fromLocal(x, y, z) {
-    var lon = 112.6910153
-    var lat = 35.6808275
+    var lon = 110.3220598954346
+    var lat = 38.93442728169313
     var alt = 0
-    x -= 381500
-    y -= 3950920
+    x -= 37441218.0
+    y -= 4311445.0
     var modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(Cesium.Cartesian3.fromDegrees(lon, lat, alt))
         // x=y=z=0;
     const mat4 = Cesium.Matrix4.fromArray([
@@ -39,11 +39,11 @@ function fromLocal(x, y, z) {
  * @return  {Cartesian3} Cartesian3对象里面存的经纬度
  */
 function LocalToDegree(x, y, z) {
-    var lon = 112.6910153
-    var lat = 35.6808275
+    var lon = 110.3220598954346
+    var lat = 38.93442728169313
     var alt = 0
-    x -= 381500
-    y -= 3950920
+    x -= 37441218.0
+    y -= 4311445.0
     var modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(Cesium.Cartesian3.fromDegrees(lon, lat, alt))
         // x=y=z=0;
     const mat4 = Cesium.Matrix4.fromArray([
@@ -84,11 +84,9 @@ function convert2000ToWGS84(x, y, z) {
     let projection4326 = '+proj=longlat +datum=WGS84 +no_defs'
     let posArr = [x, y, z];
     let transformPoint = proj4(projection4525, projection4326, posArr)
-        // tarobj.x = parseFloat(transformPoint[0]) - 0.000012
-        // tarobj.y = parseFloat(transformPoint[1]) - 0.00045
-    tarobj.x = parseFloat(transformPoint[0])
-    tarobj.y = parseFloat(transformPoint[1])
-    tarobj.z = parseFloat(transformPoint[2])
+    tarobj.x = parseFloat(transformPoint[0]);
+    tarobj.y = parseFloat(transformPoint[1]);
+    tarobj.z = parseFloat(transformPoint[2]);
     return tarobj;
 }
 /* 球面坐标WGS84至本地坐标2000坐标系
