@@ -25,8 +25,8 @@ export default class Flow {
                 var obj = json.Map[j]
                 if (obj.ModelType == 'MModel_Passage') {
                     if (obj[this.rescueType]) {
-                        var W = obj.W * 1.1
-                        var H = obj.H * 1.1
+                        var W = obj.W
+                        var H = obj.H * 1.2
                         var xyz = obj.XYZ
                         var coordList = []
                         var xyzArr = obj.XYZ.split(';')
@@ -38,7 +38,7 @@ export default class Flow {
                                 var y1 = parseFloat(xyzArr2[1])
                                 var z1 = parseFloat(xyzArr2[2])
 
-                                var pos = window.convert2000ToWGS84(x1, y1, z1)
+                                var pos = window.LocalToDegree(x1, y1, z1)
                                 coordList.push(pos.x)
                                 coordList.push(pos.y)
                                 coordList.push(pos.z)
@@ -51,7 +51,7 @@ export default class Flow {
                                 var y1 = parseFloat(xyzArr2[1])
                                 var z1 = parseFloat(xyzArr2[2])
 
-                                var pos = window.convert2000ToWGS84(x1, y1, z1)
+                                var pos = window.LocalToDegree(x1, y1, z1)
                                 coordList.push(pos.x)
                                 coordList.push(pos.y)
                                 coordList.push(pos.z)
@@ -87,50 +87,35 @@ export default class Flow {
         for (let i = 0; i < coordList.length - 3; i += 3) {
             x1 = coordList[i] //.x;
             y1 = coordList[i + 1] //.y;
-            z1 = coordList[i + 2] - 0.2 //.z;
+            z1 = coordList[i + 2] - 0.4 //.z;
 
             x2 = coordList[i + 3] //.x;
-            y2 = coordList[i + 4] // .y;
-            z2 = coordList[i + 5] - 0.2 // .z;
+            y2 = coordList[i + 4] //.y;
+            z2 = coordList[i + 5] - 0.4 //.z;
             W2 = this.MToDegree(y1, W)
-            var dis = Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-            if (dis < 20) {
-                coordListLB.push(x1 - W2, y1 + W2, z1);
-                coordListLB.push(x2 - W2, y2 + W2, z2);
-                coordListLT.push(x1 - W2, y1 - W2, z1);
-                coordListLT.push(x2 - W2, y2 - W2, z2)
+            azi2 = azi = this.GetAzimuth(x2, y2, x1, y1)
+            azi += 90
+            azi2 -= 90
+
+            azi = (azi / 180) * Math.PI
+            COS = Math.cos(azi) * W2
+            SIN = Math.sin(azi) * W2
+
+            azi2 = (azi2 / 180) * Math.PI
+            COS2 = Math.cos(azi2) * W2
+            SIN2 = Math.sin(azi2) * W2
 
 
+            coordListLB.push(x1 + COS2, y1 + SIN2, z1)
+            coordListLB.push(x2 + COS2, y2 + SIN2, z2)
+            coordListLT.push(x1 + COS2, y1 + SIN2, z1 + H)
+            coordListLT.push(x2 + COS2, y2 + SIN2, z2 + H)
 
-                coordListRB.push(x1 + W2, y1 + W2, z1);
-                coordListRB.push(x2 + W2, y2 + W2, z2);
+            coordListRB.push(x1 + COS, y1 + SIN, z1)
+            coordListRB.push(x2 + COS, y2 + SIN, z2)
 
-                coordListRT.push(x1 + W2, y1 - W2, z1);
-                coordListRT.push(x2 + W2, y2 - W2, z2);
-            } else {
-                azi2 = azi = this.GetAzimuth(x2, y2, x1, y1)
-                azi += 90
-                azi2 -= 90
-
-                azi = (azi / 180) * Math.PI
-                COS = Math.cos(azi) * W2
-                SIN = Math.sin(azi) * W2
-
-                azi2 = (azi2 / 180) * Math.PI
-                COS2 = Math.cos(azi2) * W2
-                SIN2 = Math.sin(azi2) * W2
-
-                coordListLB.push(x1 + COS2, y1 + SIN2, z1)
-                coordListLB.push(x2 + COS2, y2 + SIN2, z2)
-                coordListLT.push(x1 + COS2, y1 + SIN2, z1 + H + 0.4)
-                coordListLT.push(x2 + COS2, y2 + SIN2, z2 + H + 0.4)
-
-                coordListRB.push(x1 + COS, y1 + SIN, z1)
-                coordListRB.push(x2 + COS, y2 + SIN, z2)
-
-                coordListRT.push(x1 + COS, y1 + SIN, z1 + H + 0.4)
-                coordListRT.push(x2 + COS, y2 + SIN, z2 + H + 0.4)
-            }
+            coordListRT.push(x1 + COS, y1 + SIN, z1 + H)
+            coordListRT.push(x2 + COS, y2 + SIN, z2 + H)
         }
         var coordListLB2 = Cesium.Cartesian3.fromDegreesArrayHeights(coordListLB)
         var coordListLT2 = Cesium.Cartesian3.fromDegreesArrayHeights(coordListLT)
@@ -144,6 +129,7 @@ export default class Flow {
         var colorArr = []
         var curdataArr = []
         var stsTemp = []
+        var normals = []
 
         var totalLength = 0
         var addLen = 0
@@ -188,7 +174,7 @@ export default class Flow {
             var len = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1) + (z2 - z1) * (z2 - z1))
             var st1 = addLen / totalLength
             addLen += len
-            var st2 = addLen / totalLength; {
+            let st2 = addLen / totalLength; {
                 curdataArr.push(x1)
                 curdataArr.push(y1)
                 curdataArr.push(z1)
@@ -326,7 +312,7 @@ export default class Flow {
                 numVertex += 4
             }
         }
-        let sts = new Float32Array(stsTemp)
+        var sts = new Float32Array(stsTemp)
         var geometryMesh = new Cesium.Geometry({
             attributes: {
                 position: new Cesium.GeometryAttribute({
@@ -360,16 +346,16 @@ export default class Flow {
                         repeat: new Cesium.Cartesian2(totalLength / arrowDistance, 1)
                     },
                     source: 'czm_material czm_getMaterial(czm_materialInput materialInput) { \n\
-                        czm_material material = czm_getDefaultMaterial(materialInput);\n\
-                        vec2 st = repeat *materialInput.st;\n\
-                        float time = czm_frameNumber*animationSpeed;\n\
-                        vec4 colorImage = texture2D(image,vec2(fract(st.s - time), st.t));\n\
-                        material.alpha = colorImage.a;\n\
-                        material.diffuse = colorImage.rgb;\n\
-                        return material;\n\
-                        } \n'
+      czm_material material = czm_getDefaultMaterial(materialInput);\n\
+      vec2 st = repeat *materialInput.st;\n\
+      float time = czm_frameNumber*animationSpeed;\n\
+      vec4 colorImage = texture2D(image,vec2(fract(st.s - time), st.t));\n\
+      material.alpha = colorImage.a;\n\
+      material.diffuse = colorImage.rgb;\n\
+      return material;\n\
+      } \n'
                 },
-                translucent: function() {
+                translucent: function(material) {
                     return false
                 }
             })
