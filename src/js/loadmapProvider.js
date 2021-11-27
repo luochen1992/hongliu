@@ -660,8 +660,9 @@ function loadGobArea2(viewer, opts) {
 
                 // eslint-disable-next-line no-undef
                 // 说明：因在后台编辑器是沿着顶端进行绘制的，所以需要减去巷道高度
-                const tar = window.convert2000ToWGS84(x, y, z - 4)
-                pnts.push(tar.x, tar.y, tar.z)
+                pnts.push(window.fromLocal(x, y, z - 4))
+                    // const tar = window.convert2000ToWGS84(x, y, z - 4)
+                    // pnts.push(tar.x, tar.y, tar.z)
             }
             if (enableTexture) {
                 var baseMaterial = new Cesium.ImageMaterialProperty({
@@ -671,7 +672,8 @@ function loadGobArea2(viewer, opts) {
                 })
                 Source.entities.add({
                     polygon: {
-                        hierarchy: new Cesium.Cartesian3.fromDegreesArrayHeights(pnts),
+                        // hierarchy: new Cesium.Cartesian3.fromDegreesArrayHeights(pnts),
+                        hierarchy: pnts,
                         perPositionHeight: true,
                         outline: true,
                         material: baseMaterial,
@@ -681,7 +683,8 @@ function loadGobArea2(viewer, opts) {
             } else {
                 Source.entities.add({
                     polygon: {
-                        hierarchy: new Cesium.Cartesian3.fromDegreesArrayHeights(pnts),
+                        // hierarchy: new Cesium.Cartesian3.fromDegreesArrayHeights(pnts),
+                        hierarchy: pnts,
                         perPositionHeight: true,
                         outline: true,
                         material: color,
