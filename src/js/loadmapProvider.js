@@ -1143,7 +1143,7 @@ class showfacilitypoint {
                 model.config = this_.options
                 var namelist = Name.split('/')
                 var labelcont = namelist[1].split('.')[0] + j
-                debugger;
+                    // debugger;
                 switch (namelist[0]) {
                     case '安全监控系统':
                         break

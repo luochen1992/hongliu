@@ -394,7 +394,7 @@ export default {
   mounted() {
     this.currentTime()
     var _this = this
-    window.cesiumvariate = {}
+    window.cesiumvariate = [] // 避灾路线
     _this.fullscreenLoading = this.$loading({
       lock: true,
       text: '初始化地球',
@@ -404,6 +404,7 @@ export default {
     window.vertexShader1 = ''
     window.clustercallback = []
     window.g_HangDaoDataList = []
+    window.g_hangdao = [] // 巷道的json文件
     window.facilitypointList = {}
     window.createImageryProvider = createImageryProvider
     window.createTerrainProvider = createTerrainProvider
@@ -462,7 +463,8 @@ export default {
             // eslint-disable-next-line no-undef
             _this.add_HLL_GYGC()
             // 添加巷道
-           // _this.loadHangDao('data/巷道.json')
+            // _this.loadHangDao('data/巷道.json')
+             _this.loadHangDao2('data/巷道.json')
             var st = setTimeout(() => {
               _this.fullscreenLoading.close()
               window.clearTimeout(st)
@@ -547,6 +549,13 @@ export default {
         }
         return window.g_HangDaoDataList
       })
+    },
+    // 初始化时加载巷道数据到内存中
+    loadHangDao2(url) {
+       if (window.g_hangdao.length > 0) return
+        $.get(url, {}, function (res) {
+           window.g_hangdao = res
+        })
     },
     createMap(opt) {
       var _this = this
