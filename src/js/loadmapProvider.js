@@ -1205,7 +1205,7 @@ class showfacilitypoint {
                     // 模型对应图标
                     billboard: {
                         image: img,
-                        distanceDisplayCondition: new Cesium.DistanceDisplayCondition(this_.options.distanceDisplayCondition[1], 2500),
+                        distanceDisplayCondition: new Cesium.DistanceDisplayCondition(this_.options.distanceDisplayCondition[1], 15500),
                         horizontalOrigin: Cesium.HorizontalOrigin.CENTER,
                         verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
                         width: 32,
