@@ -3,6 +3,8 @@
     <water-route></water-route>
     <gas-route></gas-route>
     <fire-route></fire-route>
+    <coaldust-route></coaldust-route>
+    <roof-route></roof-route>
   </div>
 </template>
 
@@ -11,9 +13,11 @@ import { mapMutations } from 'vuex'
 import FireRoute from './fireroute/index.vue'
 import GasRoute from './gasroute/index.vue'
 import WaterRoute from './waterroute/index.vue'
+import CoaldustRoute from './coaldustroute/index.vue'
+import RoofRoute from './roofroute/index.vue'
 // 避灾路线
 export default {
-  components: { WaterRoute, GasRoute, FireRoute },
+  components: { WaterRoute, GasRoute, FireRoute, CoaldustRoute, RoofRoute },
   name: 'avoidingdisaster',
   data() {
     return {}
@@ -34,6 +38,12 @@ export default {
         }
         if (newval.indexOf('瓦斯避灾路线') > -1) {
           this.setNowMenuName('gasroute')
+        }
+        if (newval.indexOf('顶板避灾路线') > -1) {
+          this.setNowMenuName('roofroute')
+        }
+        if (newval.indexOf('煤尘避灾路线') > -1) {
+          this.setNowMenuName('coaldustroute')
         }
       },
       immediate: true

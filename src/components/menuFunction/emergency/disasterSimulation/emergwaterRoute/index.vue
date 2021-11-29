@@ -9,6 +9,11 @@
     <div class="water-cen">
       <div class="waterItem" :class="isshow1 ? 'waterItemsel' : ''" @click="watershow">水灾点</div>
       <div class="waterItem" :class="isshow2 ? 'waterItemsel' : ''" @click="waterRoute">逃灾路线</div>
+      <div class="waterItem" :class="isshow3 ? 'waterItemsel' : ''" @click="addspeed">加速</div>
+      <div class="waterItem" :class="isshow4 ? 'waterItemsel' : ''" @click="reducespeed">减速</div>
+      <div class="waterItem" :class="viewtype === '1' ? 'waterItemsel' : ''" @click="changeview(1)">第一人称</div>
+      <div class="waterItem" :class="viewtype === '3' ? '' : ''" @click="changeview(3)">镜头跟踪</div>
+      <div class="waterItem" :class="isshow5 ? 'waterItemsel' : ''" @click="exitRoute">退出演练</div>
     </div>
   </div>
 </template>
@@ -26,8 +31,12 @@ export default {
       showdialog: false,
       isshow1: false,
       isshow2: false,
+      isshow3: false,
+      isshow4: false,
+      isshow5: false,
       drawingflag: false,
-      listdialog: []
+      listdialog: [],
+      viewtype: '3'
     }
   },
   mounted() {},
@@ -71,6 +80,9 @@ export default {
       this.showdialog = false
       this.isshow1 = false
       this.isshow2 = false
+      this.isshow3 = false
+      this.isshow4 = false
+      this.isshow5 = false
       viewer.clock.shouldAnimate = false
       if (window.e_route !== undefined) {
         if (window.e_route.waterroute) {
@@ -90,89 +102,87 @@ export default {
     },
     succCallback() {
       var _this = this
-      _this.point = { longitude: 112.7014408, latitude: 35.6785451, height: -330.877 }
+      _this.point = { longitude: 110.3210387, latitude: 38.9125500, height: 1082.5227 }
       _this.polyline = [
-        { longitude:112.7111863 , latitude:35.6963880 , height:-291.7652},
-        { longitude:112.7108281 , latitude:35.6956799 , height:-299.6770 },
-        { longitude:112.7103646 , latitude:35.6947651 , height:-309.9016 },
-        { longitude:112.7098722 , latitude:35.6937931 , height:-320.7618 },
-        { longitude:112.7095677 , latitude:35.6931919 , height:-327.4779 },
-        { longitude:112.7092629 , latitude:35.6925900 , height:-334.2010},
-        { longitude:112.7088867 , latitude:35.6918473 , height:-342.4980 },
-        { longitude:112.7086052 , latitude:35.6912914 , height:-348.7061},
-        { longitude:112.7085704 , latitude:35.6912230 , height:-349.0337 },
-        { longitude:112.7079507 , latitude:35.6899973 , height:-347.1787 },
-        { longitude:112.7075718 , latitude:35.6892486 , height:-346.0412 },
-        { longitude:112.7071252 , latitude:35.6883651 , height:-344.7029 },
-        { longitude:112.7062283 , latitude:35.6865912 , height:-342.0079 },
-        { longitude:112.7056142 , latitude:35.6853765 , height:-340.1571 },
-        { longitude:112.7046857 , latitude: 35.6835403 , height: -337.3549 },
-        { longitude:112.7039852 , latitude:35.6821546 , height:-335.2307 },
-        { longitude:112.7039513 , latitude:35.6820879 , height:-335.2706 },
-        { longitude:112.7033904 , latitude:35.6809785 , height:-338.3687 },
-        { longitude:112.7030019	, latitude:35.6802120	, height:-340.5029},
-        { longitude:112.7029831	, latitude:35.6801775	, height:-340.4994	},
-        { longitude:112.7029687	, latitude:	35.6801442	, height:-340.4847	},
-        { longitude:112.7028348	, latitude:35.6798779	, height:-339.6003	},
-        { longitude:112.7028182	, latitude:35.6798446	, height:-339.5898	},
-        { longitude:112.7028021	, latitude:35.6798095	, height:-338.9415	},
-        { longitude:112.7027380	, latitude:	35.6796849	, height:-336.9230	},
-        { longitude:112.7027268	, latitude:35.6796617	, height:-336.7271	},
-        { longitude:112.7027448	, latitude:35.6796482	, height:-336.3254	},
-        { longitude:112.7027668	, latitude:35.6796427	, height:-336.2513	},
-        { longitude:112.7027991	, latitude:35.6796260	, height:-336.1760	},
-        { longitude:112.7028234	, latitude:35.6795995	, height:-336.1091	},
-        { longitude:112.7028867	, latitude:	35.6794665	, height:-336.0984	},
-        { longitude:112.7029048	, latitude:35.6794394	, height:	-336.0279	},
-        { longitude:112.7029372	, latitude:35.6794259	, height:-335.8691	},
-        { longitude:112.7033534	, latitude:35.6793333	, height:-332.9757	},
-        { longitude:112.7033816	, latitude:35.6793259	, height:	-332.8699	},
-
-        { longitude:112.7033958	, latitude:35.6793603	, height:-332.9255},
-        { longitude:112.7034303	, latitude:35.6794614	, height:-333.4168	},
-        { longitude:112.7034459	, latitude:35.6794871	, height:-333.5302	},
-        { longitude:112.7034846	, latitude:35.6794879	, height:-333.6421	},
-        { longitude:112.7046437	, latitude:35.6792416	, height:-335.1188	},
-        { longitude:112.7047294	, latitude:35.6792233	, height:-335.2281	},
-        { longitude:112.7047633	, latitude:35.6792161	, height:-335.2708	},
-        { longitude:112.7048489	, latitude:35.6791980	, height:-335.3802	},
-        { longitude:112.7048699	, latitude:35.6791934	, height:-335.4066	},
-        { longitude:112.7049558	, latitude:35.6791752	, height:-335.4979	},
-        { longitude:112.7051949	, latitude:35.6791255	, height:-335.6311	},
-        { longitude:112.7052411	, latitude:35.6791153	, height:-335.4711	},
-        { longitude:112.7052817	, latitude:35.6791065	, height:-335.3307},
-        { longitude:112.7064820	, latitude:35.6788456	, height:-326.2990	},
-        { longitude:112.7073816	, latitude:35.6786502	, height:-319.5310	},
-        { longitude:112.7074276	, latitude:35.6786390	, height:-319.1666	},
-        { longitude:112.7074671	, latitude:35.6786313	, height:	-318.8629	},
-        { longitude:112.7095916 , latitude:35.6781638, height:-301.6736},
-        { longitude: 112.7096769 , latitude:35.6781450, height:-301.0927 },
-        { longitude: 112.7106618 , latitude:35.6779278, height: -295.5658 },
-        { longitude:112.7117536	, latitude:35.6776872	, height:-289.4400},
-        { longitude:112.7118385	, latitude:35.6776683	, height:-289.0717	},
-        { longitude:112.7126120	, latitude:35.6774968	, height:-286.7071	},
-        { longitude:112.7126975	, latitude:35.6774777	, height:-286.4191	},
-        { longitude:112.7137516	, latitude:35.6772483	, height:-282.5052	},
-        { longitude:112.7145665	, latitude:35.6770712	, height:-279.4852	},
-        { longitude:112.7146177	, latitude:35.6770602	, height:-279.1612	},
-        { longitude:112.7146554	, latitude:35.6770522	, height:-278.9187	},
-        { longitude:112.7151038	, latitude:35.6769586	, height:-274.7921	},
-        { longitude:112.7151563	, latitude:35.6769479	, height:-274.1451},
-        { longitude:112.7151897	, latitude:35.6769404	, height:-273.7306	},
-        { longitude:112.7157994	, latitude:35.6768116	, height:-264.2617	},
-        { longitude:112.7162441 , latitude:35.6767179 , height:-257.3574},
-        { longitude:112.7170406 , latitude:35.6765496 , height:-244.9898 },
-        { longitude:112.7170873 , latitude:35.6765387 , height:-244.4822 },
-        { longitude:112.7171248 , latitude:35.6765317 , height:-244.0868 },
-        { longitude:112.7194165 , latitude:35.6760437 , height:-230.3774 },
-        { longitude:112.7202306	, latitude:35.6758699, height:-225.5033},
-        { longitude:112.7203162	, latitude:35.6758516, height:-224.9440	},
-        { longitude:112.7204560	, latitude:35.6758208, height:-223.9540	},
-        { longitude:112.7205393	, latitude:	35.6758000, height:-223.6427	},
-        { longitude:112.7206337	, latitude:35.6757756, height:-223.6124	},
-        { longitude:112.7207211	, latitude:35.6757521, height:-222.0094	},
-        { longitude:112.7234768 , latitude:35.6750485 , height:-118.9405},
-        { longitude:112.7266045	, latitude:35.6742501, height:-1.9451	},
+            { longitude:110.3210387	, latitude:38.9125500	, height:1082.5227},
+            { longitude:110.3210395	, latitude:38.9133721	, height:1081.1211},
+            { longitude:110.3210399	, latitude:38.9134059	, height:1081.0902},
+            { longitude:110.3210399	, latitude:38.9134299	, height:1080.8598},
+            { longitude:110.3210397	, latitude:38.9134454	, height:1081.0579},
+            { longitude:110.3210393	, latitude:38.9142956	, height:1081.0639},
+            { longitude:110.3210397	, latitude:38.9143289	, height:1081.0579},
+            { longitude:110.3210388	, latitude:38.9143486	, height:1080.8716},
+            { longitude:110.3210398	, latitude:38.9143678	, height:1081.0508},
+            { longitude:110.3210396	, latitude:38.9151776	, height:1080.7600},
+            { longitude:110.3210398	, latitude:38.9152119	, height:1080.7391},
+            { longitude:110.3210398	, latitude:38.9152501	, height:1080.7170},
+            { longitude:110.3210395	, latitude:38.9160900	, height:1080.1949},
+            { longitude:110.3210398	, latitude:38.9161275 , height:1080.1734},
+            { longitude:110.3210397	, latitude:38.9161624 , height:1080.1737},
+            { longitude:110.3210397	, latitude:38.9178379	, height:1080.2668},
+            { longitude:110.3210366	, latitude:38.9178761	, height:1080.1994},
+            { longitude:110.3210397	, latitude:38.9179101	, height:1080.2748},
+            { longitude:110.3210390	, latitude:38.9187909	, height:1080.4273},
+            { longitude:110.3210391	, latitude:38.9188273	, height:1080.4089},
+            { longitude:110.3210396	, latitude:38.9188632	, height:1080.4244},
+            { longitude:110.3210398	, latitude:38.9196890	, height:1080.1606},
+            { longitude:110.3210397	, latitude:38.9197183	, height:1080.1603},
+            { longitude:110.3210394	, latitude:38.9205818	, height:1079.0962},
+            { longitude:110.3210389	, latitude:38.9206193	, height:1079.0635},
+            { longitude:110.3210388	, latitude:38.9206543	, height:1079.0552},
+            { longitude:110.3210393	, latitude:38.9214827	, height:1078.9516},
+            { longitude:110.3210382	, latitude:38.9215166	, height:1078.9581},
+            { longitude:110.3210393	, latitude:38.9215549	, height:1078.9614},
+            { longitude:110.3210385	, latitude:38.9223740	, height:1079.1212},
+            { longitude:110.3210368	, latitude:38.9224103	, height:1079.0912},
+            { longitude:110.3210386	, latitude:38.9224462	, height:1079.1388},
+            { longitude:110.3210385	, latitude:38.9232815	, height:1079.3507},
+            { longitude:110.3210388	, latitude:38.9233154	, height:1079.3583},
+            { longitude:110.3210387	, latitude:38.9233538	, height:1079.3687},
+            { longitude:110.3210386	, latitude:38.9233933	, height:1079.3787},
+            { longitude:110.3210386	, latitude:38.9234293	, height:1079.3779},
+            { longitude:110.3210387	, latitude:38.9234653	, height:1079.3664},
+            { longitude:110.3210386	, latitude:38.9251072	, height:1078.3985},
+            { longitude:110.3210387	, latitude:38.9260127	, height:1077.8655},
+            { longitude:110.3210389	, latitude:38.9269008	, height:1077.3451},
+            { longitude:110.3210377	, latitude:38.9269334	, height:1077.3398},
+            { longitude:110.3210385	, latitude:38.9269731	, height:1077.3341},
+            { longitude:110.3210385	, latitude:38.9270022	, height:1077.3436},
+            { longitude:110.3210383	, latitude:38.9270381	, height:1077.3431},
+            { longitude:110.3210385	, latitude:38.9270740	, height:1077.3233},
+            { longitude:110.3210395	, latitude:38.9278042	, height:1076.6340},
+            { longitude:110.3210357	, latitude:38.9278323	, height:1076.6011},
+            { longitude:110.3210395	, latitude:38.9278765	, height:1076.5512},
+            { longitude:110.3210404	, latitude:38.9286740	, height:1075.6223},
+            { longitude:110.3210393	, latitude:38.9287121	, height:1075.5884},
+            { longitude:110.3210406	, latitude:38.9287462	, height:1075.5306},
+            { longitude:110.3210407	, latitude:38.9295915	, height:1074.3324},
+            { longitude:110.3210404	, latitude:38.9296313	, height:1074.2412},
+            { longitude:110.3210409	, latitude:38.9296637	, height:1074.2313},
+            { longitude:110.3210404	, latitude:38.9303961	, height:1073.2458},
+            { longitude:110.3210405	, latitude:38.9304322	, height:1073.2056},
+            { longitude:110.3210399	, latitude:38.9304856	, height:1073.1555},
+            { longitude:110.3210412	, latitude:38.9305242	, height:1073.1362},
+            { longitude:110.3210403	, latitude:38.9305578	, height:1073.1155},
+            { longitude:110.3210398	, latitude:38.9314778	, height:1072.8555},
+            { longitude:110.3210391	, latitude:38.9323032	, height:1072.6253},
+            { longitude:110.3210411	, latitude:38.9323423	, height:1072.6276},
+            { longitude:110.3210392	, latitude:38.9323756	, height:1072.6246},
+            { longitude:110.3210385	, latitude:38.9332136	, height:1072.9802},	
+            { longitude:110.3210381	, latitude:38.9332471	, height:1072.9705},
+            { longitude:110.3209919	, latitude:38.9332499	, height:1073.0916},	
+            { longitude:110.3207870	, latitude:38.9332519	, height:1073.4822},	
+            { longitude:110.3207396	, latitude:38.9332505	, height:1073.5634},
+            { longitude:110.3206949	, latitude:38.9332529	, height:1073.6024},
+            { longitude:110.3201879	, latitude:38.9332583	, height:1073.9822},
+            { longitude:110.3201417	, latitude:38.9332599	, height:1073.9893},
+            { longitude:110.3200955	, latitude:38.9332586	, height:1074.0535},
+            { longitude:110.3195073	, latitude:38.9332595	, height:1074.4949},
+            { longitude:110.3194558	, latitude:38.9332605	, height:1074.5045},
+            { longitude:110.3194147	, latitude:38.9332591	, height:1074.5649},
+            { longitude:110.3187133	, latitude:38.9332595	, height:1075.0881},
+            { longitude:110.3186825	, latitude:38.9332590	, height:1075.0874},
+            { longitude:110.3186206	, latitude:38.9332593	, height:1075.1488}
 
       ]
       _this.end = CTMap.JulianDate.fromDate(new Date())
@@ -181,7 +191,38 @@ export default {
       
     },
     // 绘制灾害点
-
+    addspeed(){
+      this.isshow3 = true
+      viewer.clock.multiplier = viewer.clock.multiplier * 1.2;
+    },
+    reducespeed(){
+      this.isshow4 = true
+      viewer.clock.multiplier = viewer.clock.multiplier * 0.8;
+    },
+    exitRoute(){
+      this.isshow5 = true
+      if (window.e_route.waterroute) {
+          viewer.entities.remove(window.e_route.waterroute)
+          window.e_route.waterroute = null
+        }
+        if (window.e_route.watermodelEntity) {
+          viewer.entities.remove(window.e_route.watermodelEntity)
+          window.e_route.watermodelEntity = null
+        }
+        
+        this.isshow1 = false
+        this.isshow2 = false
+        this.isshow3 = false
+        this.isshow4 = false
+        this.isshow5 = false
+    },
+    changeview(type) {
+      if (type === 3) {
+        this.viewtype = '3'
+      } else {
+        this.viewtype = '1'
+      }
+    },
     // 绘制
     draw(type) {
       if (this.drawingflag) {
@@ -565,13 +606,22 @@ export default {
       var _this = this
       if (window.e_route.watermodelEntity && window.e_route.watermodelEntity.orientation) {
         if (window.e_route.watermodelEntity.position.getValue(clock.currentTime) && clock._currentTime <= clock.stopTime) {
-          var p1 = window.e_route.watermodelEntity.position.getValue(clock.currentTime)
-          var o1 = window.e_route.watermodelEntity.orientation.getValue(clock.currentTime)
-          let transform = Cesium.Transforms.eastNorthUpToFixedFrame(p1)
-          if (o1 != null) {
-            transform = Cesium.Matrix4.fromRotationTranslation(Cesium.Matrix3.fromQuaternion(o1), p1)
-            viewer.camera.lookAtTransform(transform, new Cesium.Cartesian3(-25, -1, 3))
+          let center = window.e_route.watermodelEntity.position.getValue(clock.currentTime)
+          let orientation = window.e_route.watermodelEntity.orientation.getValue(clock.currentTime)
+          let transform = Cesium.Transforms.eastNorthUpToFixedFrame(center)
+          if (orientation != null) {
+            transform = Cesium.Matrix4.fromRotationTranslation(Cesium.Matrix3.fromQuaternion(orientation), center)
+            if (this.viewtype === '3') {
+              viewer.camera.lookAtTransform(transform, new Cesium.Cartesian3(-25, -1, 3))
+              window.e_route.watermodelEntity.show = true;
+            } else {
+              //viewer.trackedEntity =window.e_route.watermodelEntity;
+					
+              viewer.camera.lookAtTransform(transform, new Cesium.Cartesian3(-40, 0, 2.5))
+              window.e_route.watermodelEntity.show =false;
+            }
           }
+          
         }
         if (clock._currentTime >= clock.stopTime) {
           viewer.clock.onTick.removeEventListener(_this.clockonTick)
@@ -585,8 +635,8 @@ export default {
 
 <style  lang="scss">
 .waterRoute {
-  width: 300px;
-  height: 100px;
+  width: 345px;
+  height: 156px;
   background-color: #031521;
   border-radius: 2px;
   box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.3);
