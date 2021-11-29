@@ -541,8 +541,9 @@ function loadGobArea2(viewer, opts) {
 
                 // eslint-disable-next-line no-undef
                 // 说明：因在后台编辑器是沿着顶端进行绘制的，所以需要减去巷道高度
-                const tar = window.convert2000ToWGS84(x, y, z - 4)
-                pnts.push(tar.x, tar.y, tar.z)
+                pnts.push(window.fromLocal(x, y, z - 4))
+                    // const tar = window.convert2000ToWGS84(x, y, z - 4)
+                    // pnts.push(tar.x, tar.y, tar.z)
             }
             if (enableTexture) {
                 var baseMaterial = new Cesium.ImageMaterialProperty({
@@ -552,7 +553,8 @@ function loadGobArea2(viewer, opts) {
                 })
                 Source.entities.add({
                     polygon: {
-                        hierarchy: new Cesium.Cartesian3.fromDegreesArrayHeights(pnts),
+                        // hierarchy: new Cesium.Cartesian3.fromDegreesArrayHeights(pnts),
+                        hierarchy: pnts,
                         perPositionHeight: true,
                         outline: true,
                         material: baseMaterial,
@@ -562,7 +564,8 @@ function loadGobArea2(viewer, opts) {
             } else {
                 Source.entities.add({
                     polygon: {
-                        hierarchy: new Cesium.Cartesian3.fromDegreesArrayHeights(pnts),
+                        // hierarchy: new Cesium.Cartesian3.fromDegreesArrayHeights(pnts),
+                        hierarchy: pnts,
                         perPositionHeight: true,
                         outline: true,
                         material: color,
@@ -1001,20 +1004,20 @@ class showfacilitypoint {
             for (var j = 0; j < jsonData.Map.length; j++) {
                 var obj = jsonData.Map[j]
                 var Name = obj.URL
-                // var Position = (obj.Position).split(',')
+                    // var Position = (obj.Position).split(',')
 
                 if (obj.Matrix == undefined) { obj.Matrix = '1,0,0,0,1,0,0,0,1' }
                 var matrix = (obj.Matrix).split(',')
                 var x = parseFloat(obj.X)
                 var y = parseFloat(obj.Y)
                 var z = parseFloat(obj.Z) // - 925.5
-                // var x = parseFloat(Position[0])
-                // var y = parseFloat(Position[1])
-                // var z = parseFloat(Position[2]) //- 925.5
+                    // var x = parseFloat(Position[0])
+                    // var y = parseFloat(Position[1])
+                    // var z = parseFloat(Position[2]) //- 925.5
 
                 // addModel33("models/mo/jw2.gltf",Matrix,(x),(y),(z));
 
-                var pos2 = window.convert2000ToWGS84(x, y, z)
+                var pos2 = window.fromLocal(x, y, z)
 
                 var model = this_.options.model || {}
                 model.uri = './SampleData/models/systemEquipment/' + Name
@@ -1024,32 +1027,15 @@ class showfacilitypoint {
                 model.config = this_.options
                 var namelist = Name.split('/')
                 var labelcont = namelist[1].split('.')[0] + j
+                    // debugger;
                 switch (namelist[0]) {
                     case '安全监控系统':
                         break
-                        // case '人员定位系统':
-                        //     break
-                        // case '调度通讯系统':
-                        //     break
-                        // case '矿压监测系统':
-                        //     break
-                        // case '抽放系统':
-                        //     break
-                        // case '网络通讯监控系统':
-                        //     break
-                        // case '避难硐室':
-                        //     break
+
                     case '人员定位系统':
                         break
-                        // case '调度通信系统':
-                        //     break
-                        // case '排水系统':
-                        //     break
-                        // eslint-disable-next-line no-duplicate-case
                     case '工业视频系统':
                         break
-                        // case '工业环网设备布置':
-                        //     break
                     default:
                         break
                 }
@@ -1080,114 +1066,26 @@ class showfacilitypoint {
                     case '氧气.gltf':
                         icourl = 'AQJKXT.png'
                         break
-                        //     // 避难硐室
-                        // case '临时避难硐室.gltf':
-                        //     icourl = 'QTJKXT.png'
-                        //     break
-                        // case '永久避难硐室.gltf':
-                        //     icourl = 'QTJKXT.png'
-                        //     break
-                        //     // 抽放系统
-                        // case '抽采瓦斯泵站.gltf':
-                        //     icourl = 'TFSJKX.png'
-                        //     break
-                        // case '流量计.gltf':
-                        //     icourl = 'TFSJKX.png'
-                        //     break
-                        // case '排渣装置.gltf':
-                        //     icourl = 'TFSJKX.png'
-                        //     break
-                        // case '人工放水器.gltf':
-                        //     icourl = 'TFSJKX.png'
-                        //     break
-                        // case '自动放水器.gltf':
-                        //     icourl = 'TFSJKX.png'
-                        //     break
-                        //     // 工业环网设备布置
-                        // case '井下隔爆交换机.gltf':
-                        //     icourl = 'WLTXXT.png'
-                        //     break
-                        // 应急广播系统
+
                     case '矿用本安型音响8.gltf':
                         icourl = 'WLKBXT.png'
                         break
 
-                        //     // 排水系统
-                        // case '离心水泵.gltf':
-                        //     icourl = 'ZNPSXT.png'
-                        //     break
-                        // case '气动隔膜泵.gltf':
-                        //     icourl = 'ZNPSXT.png'
-                        //     break
-                        // case '潜水泵.gltf':
-                        //     icourl = 'ZNPSXT.png'
-                        //     break
-                        // case '强排泵.gltf':
-                        //     icourl = 'ZNPSXT.png'
-                        //     break
-                        // case '主排水泵.gltf':
-                        //     icourl = 'ZNPSXT.png'
-                        //     break
-                        //     // 调度通信系统
-                        // case '程控数字电话交换机.gltf':
-                        //     icourl = 'DDTTXT.png'
-                        //     break
-                        // case '矿用电话机.gltf':
-                        //     icourl = 'DDTTXT.png'
-                        //     break
-                        // case '直通电话机.gltf':
-                        //     icourl = 'DDTTXT.png'
-                        //     break
-
-                        // 视频监控系统
                     case '摄像头.gltf':
                         icourl = 'SPJKXT.png'
                         break
-                        //     // 人员定位系统
-                        // case '_传输分站.gltf':
-                        //     icourl = 'RYDWXT.png'
-                        //     labelcont += '\r \n名称：李子旭\r \n状态：工作中'
-                        //     break
-                        // case '_读卡分站.gltf':
-                        //     icourl = 'RYDWXT.png'
-                        //     break
-                        //     // 矿压监测系统
-                        // case '矿压监测分站.gltf':
-                        //     icourl = 'KYJCXT.png'
-                        //     break
-                        // case '矿压监测转换器.gltf':
-                        //     icourl = 'KYJCXT.png'
-                        //     break
-                        // case '锚杆测力计.gltf':
-                        //     icourl = 'KYJCXT.png'
-                        //     break
-                        // case '锚索测力计.gltf':
-                        //     icourl = 'KYJCXT.png'
-                        //     break
-                        // case '围岩移动传感器.gltf':
-                        //     icourl = 'KYJCXT.png'
-                        //     break
-                        //     // 一体化融合通信系统
-                        // case '5G基站.gltf':
-                        //     icourl = 'WLTXXT.png'
-                        //     break
-                        // case '千兆交换机.gltf':
-                        //     icourl = 'WLTXXT.png'
-                        //     break
-                        // case '融合通信分站.gltf':
-                        //     icourl = 'WLTXXT.png'
-                        //     break
+
                     default:
                         break
                 }
 
                 var img = './img/marker/' + icourl
                 var eb = this_.dataSources.entities.add({
-                    position: Cesium.Cartesian3.fromDegrees(pos2.x, pos2.y, pos2.z),
+                    position: pos2,
                     // 模型对应图标
                     billboard: {
                         image: img,
-                        distanceDisplayCondition: new Cesium.DistanceDisplayCondition(this_.options.distanceDisplayCondition[1], 2500),
+                        distanceDisplayCondition: new Cesium.DistanceDisplayCondition(this_.options.distanceDisplayCondition[1], 15500),
                         horizontalOrigin: Cesium.HorizontalOrigin.CENTER,
                         verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
                         width: 32,
@@ -1199,7 +1097,7 @@ class showfacilitypoint {
                 eb.layertype = 'cgqpoint'
 
                 var em = this_.dataSources2.entities.add({
-                    position: Cesium.Cartesian3.fromDegrees(pos2.x, pos2.y, pos2.z),
+                    position: pos2,
                     model: model,
                     label: {
                         text: labelcont,
