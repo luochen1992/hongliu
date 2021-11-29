@@ -42,8 +42,8 @@ export default {
       const width = 6 // 巷道宽度
       const height = 4 // 巷道高度
       const speed = 0.1 // 移动速度
-      const imageFile = 'img/avoidingDisaster/18.png' // 箭头图片
-      const arrowDis = 100.0 // 每多少米一个箭头
+      const imageFile = 'img/avoidingDisaster/15.png' // 箭头图片
+      const arrowDis = 200.0 // 每多少米一个箭头
       waterflow.getNeededRoute(window.g_hangdao, width, height, speed, imageFile, arrowDis)
     },
     // 隐藏
