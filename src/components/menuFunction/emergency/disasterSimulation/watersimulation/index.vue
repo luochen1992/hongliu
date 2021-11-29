@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    // 广播联动对话框
+    <!-- 广播联动对话框 -->
     <div class="radio-dialog" v-show="radiodialogshow">
       <div class="radio-title">
         <div class="tit-label">广播联动</div>

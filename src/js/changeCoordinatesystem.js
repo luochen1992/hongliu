@@ -74,20 +74,20 @@ function LocalToDegree(x, y, z) {
  */
 
 function convert2000ToWGS84(x, y, z) {
-    let tarobj = {
+    const tarobj = {
         x: 0,
         y: 0,
         z: 0
     }
-    let projection4525 =
+    const projection4525 =
         '+proj=tmerc +lat_0=0 +lon_0=111 +k=1 +x_0=37500000 +y_0=0 +ellps=GRS80 +units=m +no_defs'
-    let projection4326 = '+proj=longlat +datum=WGS84 +no_defs'
-    let posArr = [x, y, z];
-    let transformPoint = proj4(projection4525, projection4326, posArr)
-    tarobj.x = parseFloat(transformPoint[0]);
-    tarobj.y = parseFloat(transformPoint[1]);
-    tarobj.z = parseFloat(transformPoint[2]);
-    return tarobj;
+    const projection4326 = '+proj=longlat +datum=WGS84 +no_defs'
+    const posArr = [x, y, z]
+    const transformPoint = proj4(projection4525, projection4326, posArr)
+    tarobj.x = transformPoint[0]
+    tarobj.y = transformPoint[1]
+    tarobj.z = transformPoint[2]
+    return tarobj
 }
 /* 球面坐标WGS84至本地坐标2000坐标系
  * @param {Number} lon 经度
@@ -97,20 +97,20 @@ function convert2000ToWGS84(x, y, z) {
  */
 
 function convertWGS84To2000(lon, lat, height) {
-    let tarobj = {
+    const tarobj = {
         x: 0,
         y: 0,
         z: 0
     }
-    let projection4525 =
+    const projection4525 =
         '+proj=tmerc +lat_0=0 +lon_0=111 +k=1 +x_0=37500000 +y_0=0 +ellps=GRS80 +units=m +no_defs'
-    let projection4326 = '+proj=longlat +datum=WGS84 +no_defs'
-    let posArr = [lon, lat, height]
-    let transformPoint = proj4(projection4326, projection4525, posArr)
-    tarobj.x = transformPoint[0];
-    tarobj.y = transformPoint[1];
-    tarobj.z = transformPoint[2];
-    return tarobj;
+    const projection4326 = '+proj=longlat +datum=WGS84 +no_defs'
+    const posArr = [lon, lat, height]
+    const transformPoint = proj4(projection4326, projection4525, posArr)
+    tarobj.x = transformPoint[0]
+    tarobj.y = transformPoint[1]
+    tarobj.z = transformPoint[2]
+    return tarobj
 }
 /**
  * WGS84坐标系转笛卡尔坐标系
@@ -118,8 +118,8 @@ function convertWGS84To2000(lon, lat, height) {
  * @return {{x: *, y: *, z: *}}
  * @constructor
  */
-var WGS84_to_Cartesian3 = function(point) {
-    var car33 = Cesium.Cartesian3.fromDegrees(point.lng, point.lat, point.alt);
+var WGS84_to_Cartesian3 = function (point) {
+    var car33 = Cesium.Cartesian3.fromDegrees(point.lng, point.lat, point.alt)
     // var x = car33.x;
     // var y = car33.y;
     // var z = car33.z;
@@ -134,3 +134,4 @@ export {
     convertWGS84To2000,
     WGS84_to_Cartesian3
 }
+
