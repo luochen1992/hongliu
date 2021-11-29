@@ -1,26 +1,26 @@
 <template>
-  <div class="waterroute"></div>
+  <div class="chamberroute"></div>
 </template>
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
 import Flow from '../../../../js/Flow'
 export default {
-  name: 'waterroute',
+  name: 'chamberroute',
   computed: {
     ...mapGetters(['getNowMenuName'])
   },
   data() {
     return {
       isshow: false,
-      rescueType: 'WaterRescue',
-      rescueDirect: 'WaterRescueDirect'
+      rescueType: 'ChamberRescue',
+      rescueDirect: 'ChamberRescueDirect'
     }
   },
   mounted() {},
   watch: {
     getNowMenuName(newV, oldV) {
-      if (newV === 'waterroute') {
+      if (newV === 'chamberroute') {
         this.show()
         this.isshow = true
       } else {
@@ -42,7 +42,7 @@ export default {
       const width = 6 // 巷道宽度
       const height = 4 // 巷道高度
       const speed = 0.1 // 移动速度
-      const imageFile = 'img/avoidingDisaster/15.png' // 箭头图片
+      const imageFile = 'img/avoidingDisaster/6.png' // 箭头图片
       const arrowDis = 200.0 // 每多少米一个箭头
       waterflow.getNeededRoute(window.g_hangdao, width, height, speed, imageFile, arrowDis)
     },

@@ -455,10 +455,10 @@ export default {
             var GrowLineMoudle = new CTMap.workPolygonEffects(viewer)
             _this.addGrowLine(GrowLineMoudle)
             // 添加采空区
-            var caikongMoudle = new CTMap.workPolygonEffects(viewer)
-            var url1 = 'data/采空区.json'
-            var url2 = 'data/新巷道图层.json'
-            caikongMoudle.addCaiKong(url1, url2)
+             var caikongMoudle = new CTMap.workPolygonEffects(viewer)
+            // var url1 = 'data/采空区.json'
+            // var url2 = 'data/新巷道图层.json'
+            // caikongMoudle.addCaiKong(url1, url2)
             // 添加工业广场
             // eslint-disable-next-line no-undef
             _this.add_HLL_GYGC()
@@ -468,7 +468,7 @@ export default {
             var st = setTimeout(() => {
               _this.fullscreenLoading.close()
               window.clearTimeout(st)
-              _this.addEventFun(GrowLineMoudle, caikongMoudle)
+               _this.addEventFun(GrowLineMoudle, caikongMoudle)
             }, 200)
             _this.setLayerListData(true)
             helper.removeAll()

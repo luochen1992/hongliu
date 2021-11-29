@@ -13,8 +13,8 @@ export default {
   data() {
     return {
       isshow: false,
-      rescueType: 'FireRescue', // 巷道文件无煤尘字段，暂时先用火灾路线替代（在图纸中是相同的路线）
-      rescueDirect: 'FireRescueDirect' // 巷道文件无煤尘字段，暂时先用火灾路线替代（在图纸中是相同的路线）
+      rescueType: 'GrimeRescue', // 巷道文件无煤尘字段，暂时先用火灾路线替代（在图纸中是相同的路线）
+      rescueDirect: 'GrimeRescueDirect' // 巷道文件无煤尘字段，暂时先用火灾路线替代（在图纸中是相同的路线）
     }
   },
   mounted() {},

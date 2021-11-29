@@ -1,10 +1,14 @@
 <template>
   <div class="bottomrightBar">
-    <li @click="guanbiTool" title="关闭功能">
+    <!-- <li @click="guanbiTool" title="关闭功能">
       <i class="icon iconfont icon-huanyuan"></i>
     </li>
     <li @click="yingyanTool" title="鹰眼图">
       <i class="icon iconfont icon-yingyantu"></i>
+    </li> -->
+    <li id="_compassN" @click="navagateTool" title="指北针">
+      <i class="icon iconfont icon-zhibeizhen"></i>
+      <navagate-tool></navagate-tool>
     </li>
     <li @click="searchTool" title="搜索">
       <i class="icon iconfont icon-tubiao_wangdianchaxun"></i>
@@ -15,10 +19,6 @@
     <li @click="informationTool" title="消息">
       <i class="icon iconfont icon-xiaoxi"></i>
     </li>-->
-    <li id="_compassN" @click="navagateTool" title="指北针">
-      <i class="icon iconfont icon-zhibeizhen"></i>
-      <navagate-tool></navagate-tool>
-    </li>
     <li @click="legendTool" title="图例">
       <i class="icon iconfont icon-tuli"></i>
     </li>

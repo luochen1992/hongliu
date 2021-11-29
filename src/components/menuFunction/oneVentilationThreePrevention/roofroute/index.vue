@@ -13,8 +13,8 @@ export default {
   data() {
     return {
       isshow: false,
-      rescueType: 'WaterRescue', // 巷道文件无顶板字段，暂时先用水灾路线替代（在图纸中是相同的路线）
-      rescueDirect: 'WaterRescueDirect' // 巷道文件无顶板字段，暂时先用水灾路线替代（在图纸中是相同的路线）
+      rescueType: 'CoverboardRescue', // 巷道文件无顶板字段，暂时先用水灾路线替代（在图纸中是相同的路线）
+      rescueDirect: 'CoverboardRescueDirect' // 巷道文件无顶板字段，暂时先用水灾路线替代（在图纸中是相同的路线）
     }
   },
   mounted() {},
@@ -42,7 +42,7 @@ export default {
       const width = 6 // 巷道宽度
       const height = 4 // 巷道高度
       const speed = 0.1 // 移动速度
-      const imageFile = 'img/avoidingDisaster/6.png' // 箭头图片
+      const imageFile = 'img/avoidingDisaster/24.png' // 箭头图片
       const arrowDis = 200.0 // 每多少米一个箭头
       waterflow.getNeededRoute(window.g_hangdao, width, height, speed, imageFile, arrowDis)
     },
