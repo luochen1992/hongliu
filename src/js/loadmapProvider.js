@@ -120,149 +120,30 @@ function hangdao(viewer, opts) {
 // 加载模型
 function loadgltf(viewer, opts) {
     // debugger;
+    var url1 = './SampleData/models/systemEquipment/矿工模型_data/矿工.gltf'// obj.URL;
 
-    // var cameraUrl = opts.url;
-    // var p1 = Cesium.Cartesian3.fromDegrees(112.7299102746027, 35.673595355881675, 716.2);
-    // var p2 = Cesium.Cartesian3.fromDegrees(112.7297, 35.6739, 715.52);
-    // var p3 = Cesium.Cartesian3.fromDegrees(112.7293, 35.6747, 716.69);
-    // var p4 = Cesium.Cartesian3.fromDegrees(112.7294, 35.6745, 716.95);
-    // var p5 = Cesium.Cartesian3.fromDegrees(112.7292, 35.6748, 716.45);
-    // var p6 = Cesium.Cartesian3.fromDegrees(112.7273, 35.6781, 712.88);
-    // var = modlePositions[p1, p2, p3, p4, p5, p6];
-    //     var instances = [];
-    // for (var i = 0; i < modlePositions.length; i += 1) {
-    //     var position = modlePositions[i];
-    //     //批量加载
-    //     var hpRoll = new Cesium.HeadingPitchRoll(Cesium.Math.toRadians(-120), 0, 0);
-    //     // 生成一个函数，该函数从以提供的原点为中心的参考帧到提供的椭圆体的固定参考帧计算4x4变换矩阵。
-    //     var fixedFrame = Cesium.Transforms.localFrameToFixedFrameGenerator('north', 'west');
-    //     var modelMatrix = Cesium.Transforms.headingPitchRollToFixedFrame(position, hpRoll, Cesium.Ellipsoid.WGS84, fixedFrame, position);
-    //     instances.push({
-    //         modelMatrix: modelMatrix
-    //     });
-    // }
-    // let primitive = new Cesium.ModelInstanceCollection({
-    //     url: cameraUrl,
-    //     instances: instances
-    // });
-    // var g_gltfTileset = viewer.scene.primitives.add(primitive);
+    $.get(opts.url, function(res) {
+    var json = (res)
+        for (var j = 0; j < json.Map.length; j++) {
+            var obj = json.Map[j]
 
-    var gtlfModle = [{
-            carte: Cesium.Cartesian3.fromDegrees(112.7299102746027, 35.673595355881675, 716.2),
-            hpRoll: new Cesium.HeadingPitchRoll(Cesium.Math.toRadians(-120), 0, 0)
-        },
-        {
-            carte: Cesium.Cartesian3.fromDegrees(112.7298, 35.6738, 716.98),
-            hpRoll: new Cesium.HeadingPitchRoll(Cesium.Math.toRadians(-120), 0, 0)
-        },
-        {
-            carte: Cesium.Cartesian3.fromDegrees(112.7294, 35.6745, 717.99),
-            hpRoll: new Cesium.HeadingPitchRoll(Cesium.Math.toRadians(-120), 0, 0)
-        },
-        {
-            carte: Cesium.Cartesian3.fromDegrees(112.7282, 35.6766, 713.57),
-            hpRoll: new Cesium.HeadingPitchRoll(Cesium.Math.toRadians(-120), 0, 0)
-        },
-        {
-            carte: Cesium.Cartesian3.fromDegrees(112.7269, 35.6789, 714.39),
-            hpRoll: new Cesium.HeadingPitchRoll(Cesium.Math.toRadians(-120), 0, 0)
-        },
-        {
-            carte: Cesium.Cartesian3.fromDegrees(112.7233, 35.6852, 713.93),
-            hpRoll: new Cesium.HeadingPitchRoll(Cesium.Math.toRadians(-120), 0, 0)
-        },
-        {
-            carte: Cesium.Cartesian3.fromDegrees(112.7248, 35.6771, 710.09),
-            hpRoll: new Cesium.HeadingPitchRoll(Cesium.Math.toRadians(-120), 0, 0)
-        },
-        {
-            carte: Cesium.Cartesian3.fromDegrees(112.7264, 35.6743, 714.15),
-            hpRoll: new Cesium.HeadingPitchRoll(Cesium.Math.toRadians(-120), 0, 0)
-        },
-        {
-            carte: Cesium.Cartesian3.fromDegrees(112.7331, 35.6651, 705.85),
-            hpRoll: new Cesium.HeadingPitchRoll(Cesium.Math.toRadians(-120), 0, 0)
-        },
-        {
-            carte: Cesium.Cartesian3.fromDegrees(112.7367, 35.66382, 710.79),
-            hpRoll: new Cesium.HeadingPitchRoll(Cesium.Math.toRadians(-120), 0, 0)
-        },
-        {
-            carte: Cesium.Cartesian3.fromDegrees(112.7336, 35.6607, 706.96),
-            hpRoll: new Cesium.HeadingPitchRoll(Cesium.Math.toRadians(-120), 0, 0)
-        },
-        {
-            carte: Cesium.Cartesian3.fromDegrees(112.7233, 35.6741, 710.45),
-            hpRoll: new Cesium.HeadingPitchRoll(Cesium.Math.toRadians(-120), 0, 0)
-        },
-        {
-            carte: Cesium.Cartesian3.fromDegrees(112.7163, 35.6864, 707.49),
-            hpRoll: new Cesium.HeadingPitchRoll(Cesium.Math.toRadians(-120), 0, 0)
-        },
-        {
-            carte: Cesium.Cartesian3.fromDegrees(112.7221, 35.6703, 703.23),
-            hpRoll: new Cesium.HeadingPitchRoll(Cesium.Math.toRadians(-120), 0, 0)
+            var x = obj.X
+            var y = obj.Y
+            var z = obj.Z
+            var pos = window.LocalToDegree(x, y, z)
+
+            var modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(
+                Cesium.Cartesian3.fromDegrees(pos.x, pos.y, pos.z))
+
+            var model = viewer.scene.primitives.add(Cesium.Model.fromGltf({
+                url: url1,
+                modelMatrix: modelMatrix,
+                scale: 1
+            }))
         }
-    ]
-
-    var scene = viewer.scene
-    for (var i = 0; i < gtlfModle.length; i++) {
-        var position = gtlfModle[i].carte
-            // 设置模型方向
-        var hpRoll = gtlfModle[i].hpRoll
-
-        // 生成一个函数，该函数从以提供的原点为中心的参考帧到提供的椭圆体的固定参考帧计算4x4变换矩阵。
-        var fixedFrame = Cesium.Transforms.localFrameToFixedFrameGenerator('north', 'west')
-        var g_gltfTileset = scene.primitives.add(Cesium.Model.fromGltf({
-            // 资源路径
-            url: opts.url,
-            //   distanceDisplayCondition: new Cesium.DistanceDisplayCondition(opts.DistanceDisplayCondition[0], opts.DistanceDisplayCondition[1]),
-            // 模型矩阵
-            modelMatrix: Cesium.Transforms.headingPitchRollToFixedFrame(position, hpRoll, Cesium.Ellipsoid.WGS84, fixedFrame, position),
-            // 模型最小刻度
-            minimumPixelSize: 180,
-            // 模型标尺
-            scale: 1.0,
-            // 模型最大刻度
-            maximumScale: 10,
-            // 仅用于调试。显示模型绘制时的边界球。
-            debugShowBoundingVolume: false,
-            // 仅用于调试，显示魔仙绘制时的线框
-            debugWireframe: false
-        }))
-    }
-
-    // var position = Cesium.Cartesian3.fromDegrees(opts.longitude, opts.latitude, opts.height);
-    // // 设置模型方向
-    // var hpRoll = new Cesium.HeadingPitchRoll(Cesium.Math.toRadians(-120), 0, 0);
-    // // 生成一个函数，该函数从以提供的原点为中心的参考帧到提供的椭圆体的固定参考帧计算4x4变换矩阵。
-    // var fixedFrame = Cesium.Transforms.localFrameToFixedFrameGenerator('north', 'west');
-    // var scene = viewer.scene;
-    // var g_gltfTileset = scene.primitives.add(Cesium.Model.fromGltf({
-    //     // 资源路径
-    //     url: opts.url,
-    //     // 模型矩阵
-    //     modelMatrix: Cesium.Transforms.headingPitchRollToFixedFrame(position, hpRoll, Cesium.Ellipsoid.WGS84, fixedFrame, position),
-    //     // 模型最小刻度
-    //     minimumPixelSize: 180,
-    //     // 模型标尺
-    //     scale: 1.0,
-    //     // 模型最大刻度
-    //     maximumScale: 1,
-    //     // 仅用于调试。显示模型绘制时的边界球。
-    //     debugShowBoundingVolume: false,
-    //     // 仅用于调试，显示魔仙绘制时的线框
-    //     debugWireframe: false
-    // }));
-    if (opts.isZoomTo) {
-        if (opts.center) {
-            window.centerAt2(opts.center)
-        } else {
-            viewer.zoomTo(hangdaotarget)
-        }
-    }
-    return g_gltfTileset
+    })
 }
+
 // 加载模型图层
 function gltflayer2(viewer, opts) {
     var Source = new Cesium.CustomDataSource(Cesium.createGuid())
