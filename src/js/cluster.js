@@ -1713,8 +1713,16 @@ var pointstatis = {
                     } else if (fea.id.layertype && fea.id.layertype === 'cgqmodel') {
                         // 模型
                         var property = fea.id.property
-                        var propertyName = property.Name.split('/')[2].split('.')[0]
-                        var titleName = property.Name.split('/')[1]
+                        let propertyName = ''
+                        let titleName = ''
+                        if (property.Name.indexOf('/' > 0)) {
+                            propertyName = property.Name.split('/')[1].split('.')[0];
+                            titleName = property.Name.split('/')[1]
+                        } else {
+                            propertyName = property.Name
+                            titleName = propertyName
+                        }
+
                         tp1.add({
                             geometry: fea.id.position.getValue(),
                             content: {
