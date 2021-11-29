@@ -36,7 +36,7 @@ export default {
     }),
     // 显示
     show() {
-      window.waterflow = new Flow(window.viewer, this.rescueType, this.rescueDirect)
+      window.waterflow = new CTMap.Flow(window.viewer, this.rescueType, this.rescueDirect)
        // 生成避灾路线
       const width = 6 // 巷道宽度
       const height = 4 // 巷道高度

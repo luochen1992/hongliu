@@ -394,7 +394,7 @@ export default {
   mounted() {
     this.currentTime()
     var _this = this
-    window.cesiumvariate = [] // 避灾路线
+    window.cesiumvariate = {} 
     _this.fullscreenLoading = this.$loading({
       lock: true,
       text: '初始化地球',
