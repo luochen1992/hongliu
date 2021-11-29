@@ -314,6 +314,33 @@
                         "setopacity": true,
                         "visible": true,
                         "movez": 1000
+            },
+            {
+                "id": "004004",
+                        "type": "loadgltf",
+                        "name": "矿工模型",
+                        "upAxis": 0,
+                        "url": "./SampleData/models/systemEquipment/矿工模型.json",
+                        "distanceDisplayCondition": [
+                            0,
+                            100
+                        ],
+                        "minheight": -2000,
+                        "divideheight": 1050,
+                        "maxheight": 18000,
+                        "center": {
+                            "y": 35.65963456726941,
+                            "x": 112.71085928561125,
+                            "z": 800,
+                            "heading": 325.51,
+                            "pitch": -22.36,
+                            "roll": 0
+                        },
+                        "isZoomTo": false,
+                        "height": 0,
+                        "setopacity": true,
+                        "visible": true,
+                        "movez": 1000
             }]
 
         }]
