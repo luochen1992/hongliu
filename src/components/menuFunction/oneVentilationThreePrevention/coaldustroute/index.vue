@@ -43,7 +43,8 @@ export default {
       const speed = 0.1 // 移动速度
       const imageFile = 'img/avoidingDisaster/20.png' // 箭头图片
       const arrowDis = 200.0 // 每多少米一个箭头
-      window.waterflow.getNeededRoute(window.g_hangdao, width, height, speed, imageFile, arrowDis)
+            if (window.g_hangdao.length>0){
+      window.waterflow.getNeededRoute(window.g_hangdao, width, height, speed, imageFile, arrowDis,2)}
     },
     // 隐藏
     hide() {

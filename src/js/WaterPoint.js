@@ -20,7 +20,7 @@ export default class WaterPoint {
          */
     waterEmeryPoint() {
         window.cesiumvariate._wwdataSource = []
-        this.point = { longitude: 112.7014408, latitude: 35.6785451, height: -330.877 }
+        this.point = { longitude: 110.3207504, latitude: 38.9228622, height: 1577.877 }
         this.addWaterPolygon();
         window.viewer.camera.flyTo({
                 destination: window.Cesium.Cartesian3.fromDegrees(this.point.longitude, this.point.latitude, this.point.height + 30), // 经度、纬度、高度
@@ -54,8 +54,9 @@ export default class WaterPoint {
          */
     addWaterPolygon() {
             var tt = this;
-            $.get("data/新巷道图层.json", {}, function(res) {
+            $.get("data/水灾点.json", {}, function(res) {
                 var json = res;
+                debugger
                 for (var j = 0; j < json.Map.length; j++) {
 
                     var obj = json.Map[j];
@@ -63,7 +64,7 @@ export default class WaterPoint {
                         if (obj.Name.indexOf("主排水泵房") != -1) {
                             var W = obj.W;
                             var H = obj.H;
-                            var xyz = obj.XYZ;
+                            // var xyz = obj.XYZ;
 
                             var xyzArr = obj.XYZ.split(';');
                             for (var k = 0; k < xyzArr.length - 1; k++) {
@@ -106,7 +107,7 @@ export default class WaterPoint {
                                         var pos = LocalToDegree(upPoint.x, upPoint.y, upPoint.z);
                                         coordList.push(pos.x);
                                         coordList.push(pos.y);
-                                        coordList.push(pos.z - 926.255 - H / 2);
+                                        coordList.push(pos.z - H / 2);
 
 
                                     } { //right
@@ -117,7 +118,7 @@ export default class WaterPoint {
                                         var pos = LocalToDegree(upPoint.x, upPoint.y, upPoint.z);
                                         coordList.push(pos.x);
                                         coordList.push(pos.y);
-                                        coordList.push(pos.z - 926.255 - H / 2);
+                                        coordList.push(pos.z - H / 2);
 
 
                                     } { //right
@@ -128,7 +129,7 @@ export default class WaterPoint {
                                         var pos = LocalToDegree(upPoint.x, upPoint.y, upPoint.z);
                                         coordList.push(pos.x);
                                         coordList.push(pos.y);
-                                        coordList.push(pos.z - 926.255 - H / 2);
+                                        coordList.push(pos.z - H / 2);
 
 
                                     }
@@ -140,7 +141,7 @@ export default class WaterPoint {
                                         var pos = LocalToDegree(upPoint.x, upPoint.y, upPoint.z);
                                         coordList.push(pos.x);
                                         coordList.push(pos.y);
-                                        coordList.push(pos.z - 926.255 - H / 2);
+                                        coordList.push(pos.z - H / 2);
                                     }
                                 }
                                 let commFunc = new CTMap.commonFunction();
