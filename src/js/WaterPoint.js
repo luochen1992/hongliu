@@ -32,7 +32,7 @@ export default class WaterPoint {
                 duration: 1 // 飞行到目的地花费时间3秒
             })
             //添加时钟
-        this.setClock()
+            // this.setClock()
 
     }
     setClock() {
@@ -162,24 +162,26 @@ export default class WaterPoint {
         //----------水体-----------------
 
     addSurfaceWater22(waterFace, repeateX = 1, repeateY = 1, angle = 0.0) {
-        var instanceMesh = new Cesium.GeometryInstance({
-            geometry: new Cesium.PolygonGeometry({
-                polygonHierarchy: new Cesium.PolygonHierarchy(Cesium.Cartesian3.fromDegreesArrayHeights(waterFace)),
-                perPositionHeight: true, //注释掉此属性水面就贴地了
-                stRotation: 25
+        if (!isNaN(waterFace[0])) {
+            var instanceMesh = new Cesium.GeometryInstance({
+                geometry: new Cesium.PolygonGeometry({
+                    polygonHierarchy: new Cesium.PolygonHierarchy(Cesium.Cartesian3.fromDegreesArrayHeights(waterFace)),
+                    perPositionHeight: true, //注释掉此属性水面就贴地了
+                    stRotation: 25
+                })
             })
-        })
-        var appcMoudle = new CTMap.waterEffects(viewer);
-        var appc = appcMoudle.app(repeateX, repeateY, angle);
-        window.cesiumvariate._wwdataSource.push(new Cesium.CustomDataSource(Cesium.createGuid()))
-        viewer.dataSources.add(window.cesiumvariate._wwdataSource[window.cesiumvariate._wwdataSource.length - 1])
-        var custom_flowMesh = window.cesiumvariate._wwdataSource[window.cesiumvariate._wwdataSource.length - 1]._primitives.add(
-            new Cesium.Primitive({
-                geometryInstances: instanceMesh,
-                appearance: appc,
-                asynchronous: false,
-                show: true, // 默认隐藏
-            })
-        )
+            var appcMoudle = new CTMap.waterEffects(viewer);
+            var appc = appcMoudle.app(repeateX, repeateY, angle);
+            window.cesiumvariate._wwdataSource.push(new Cesium.CustomDataSource(Cesium.createGuid()))
+            viewer.dataSources.add(window.cesiumvariate._wwdataSource[window.cesiumvariate._wwdataSource.length - 1])
+            var custom_flowMesh = window.cesiumvariate._wwdataSource[window.cesiumvariate._wwdataSource.length - 1]._primitives.add(
+                new Cesium.Primitive({
+                    geometryInstances: instanceMesh,
+                    appearance: appc,
+                    asynchronous: false,
+                    show: true, // 默认隐藏
+                })
+            )
+        }
     }
 }
