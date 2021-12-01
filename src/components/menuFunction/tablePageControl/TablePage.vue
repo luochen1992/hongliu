@@ -3,10 +3,7 @@
     <div v-show="ishander" class="hander"></div>
     <div class="center">
       <el-table :data="tableData" border size="mini" :row-class-name="tableRowClassName" cell-class-name="table-cell" class="dialogtable" style="width: 100%">
-       <el-table-column type="index" label="序号" width="50" align="center"> </el-table-column>
-        <!-- <el-table-column prop="name" label="姓名" width="170" align="center"> </el-table-column>
-        <el-table-column prop="number" label="卡号" width="" align="center"> </el-table-column>
-        <el-table-column prop="area" label="区域" align="center"> </el-table-column> -->
+        <el-table-column type="index" label="序号" width="50" align="center"> </el-table-column>
         <el-table-column v-for="(columnitem, cindex) in tablecolumn" :key="cindex" :prop="columnitem.prop" :label="columnitem.label" :width="columnitem.width" :align="columnitem.align">
         </el-table-column>
         <el-table-column label="操作" align="center" width="80">
@@ -76,9 +73,9 @@ export default {
       type: Array,
       default: function () {
         return [
-          { label: '姓名', prop: 'name', width: '170', align: 'center' },
-          { label: '卡号', prop: 'number', width: '', align: 'center' },
-          { label: '区域', prop: 'area', width: '', align: 'center' }
+          // { label: '姓名', prop: 'name', width: '170', align: 'center' },
+          // { label: '卡号', prop: 'number', width: '', align: 'center' },
+          // { label: '区域', prop: 'area', width: '', align: 'center' }
         ]
       }
     }
@@ -129,16 +126,14 @@ export default {
       }
       // debugger;
       var ellipsoid = viewer.scene.globe.ellipsoid
-      // var cartographic = ellipsoid.cartesianToCartographic(item.possion)
-
-      // var lat = Cesium.Math.toDegrees(cartographic.latitude)
-
-      // var lng = Cesium.Math.toDegrees(cartographic.longitude)
-      var lng = item.possion.x
-      var lat = item.possion.y
-
-      var alt = item.possion.z + 700
-
+      var cartographic = ellipsoid.cartesianToCartographic(item.possion)
+      var lng = Cesium.Math.toDegrees(cartographic.longitude)
+      var lat = Cesium.Math.toDegrees(cartographic.latitude)
+      var alt = cartographic.height
+      // var lng = item.possion.x
+      // var lat = item.possion.y
+      // var alt = item.possion.z + 700
+      
       window.viewer.camera.flyTo({
         destination: window.Cesium.Cartesian3.fromDegrees(lng, lat, alt), // 经度、纬度、高度
         orientation: {
@@ -148,19 +143,19 @@ export default {
         },
         duration: 1 // 飞行到目的地花费时间3秒
       })
-      if (item.position) {
-        debugger
-        var pnts = []
-        var polygonXYZ = []
-        for (let k = 0; k < item.position.length - 3; k += 3) {
-          var x = parseFloat(item.position[k])
-          var y = parseFloat(item.position[k + 1])
-          var z = parseFloat(item.position[k + 2])
+      // if (item.position) {
+      //   debugger
+      //   var pnts = []
+      //   var polygonXYZ = []
+      //   for (let k = 0; k < item.position.length - 3; k += 3) {
+      //     var x = parseFloat(item.position[k])
+      //     var y = parseFloat(item.position[k + 1])
+      //     var z = parseFloat(item.position[k + 2])
 
-          polygonXYZ.push(x)
-          polygonXYZ.push(y)
-          polygonXYZ.push(z)
-        }
+      //     polygonXYZ.push(x)
+      //     polygonXYZ.push(y)
+      //     polygonXYZ.push(z)
+      //   }
 
         // for (let k = 0; k < polygonXYZ.length - 3; k += 3) {
         //   var x = polygonXYZ[k]
@@ -180,7 +175,7 @@ export default {
         //     zIndex: 10
         //   }
         // })
-      }
+      // }
     },
     // 翻页
     handleCurrentChange(index) {

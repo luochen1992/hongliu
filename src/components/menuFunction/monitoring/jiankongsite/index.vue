@@ -1,6 +1,6 @@
 <template>
   <div class="jiankongsite">
-    <table-page :pData="ppdata" v-if="showPopPoint"></table-page>
+    <table-page :pData="ppdata" :tablecolumn="tablecolumn" v-if="showPopPoint"></table-page>
   </div>
 </template>
 
@@ -18,7 +18,12 @@ export default {
       isshow: false,
       showPopPoint: false,
       eflag2: false,
-      ppdata: []
+      ppdata: [],
+      tablecolumn: [
+          { label: '名称', prop: 'name', width: '', align: 'center' },
+          { label: '状态', prop: 'state', width: '', align: 'center' },
+          { label: '位置', prop: 'area', width: '', align: 'center' }
+      ]
     }
   },
   mounted() {},
@@ -62,27 +67,27 @@ export default {
       var dataSources2 = new Cesium.CustomDataSource(Cesium.createGuid())
       viewer.dataSources.add(dataSources2)
 
-      Cesium.Resource.fetchJson('SampleData/models/systemEquipment/systemJsonData/安全监控系统.json').then(function (jsonData) {
+      Cesium.Resource.fetchJson('SampleData/models/systemEquipment/安全监控系统.json').then(function (jsonData) {
         var arr = []
         for (var i = 0; i < jsonData.Map.length; i++) {
           var obj = jsonData.Map[i]
           var Name = obj.Name
-          var Position = obj.Position.split(',')
+
           if (obj.Matrix == undefined) {
             obj.Matrix = '1,0,0,0,1,0,0,0,1'
           }
           var matrix = obj.Matrix.split(',')
-          var x = parseFloat(Position[0])
-          var y = parseFloat(Position[1])
-          var z = parseFloat(Position[2]) - 925.5
+          var x = obj.X
+          var y = obj.Y
+          var z = obj.Z + 50
 
           var pos = window.fromLocal(x, y, z)
           var info = obj
           info.possion = pos
-          var namelist = Name.split('/')
+          // var namelist = Name.split('/')
 
-          info.name = namelist[2].split('.')[0] + i
-          info.number = 'P_UI0004' + i * 7
+          info.name = Name + i
+          info.state = '在线' + i * 7
           info.area = 'A区域'
           arr.push(info)
         }

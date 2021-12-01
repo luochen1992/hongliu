@@ -91,13 +91,14 @@ export default {
           if (Position.length){
             var x = aveX / (Position.length / 3)
             var y = aveY / (Position.length / 3)
-            var z = (aveZ / (Position.length/3)) //- 450.5
+            var z = (aveZ / (Position.length/3)) + 600
           } else {
             continue
           }        
 
           var xx = '37' + x
-          var pos = window.convert2000ToWGS84(parseFloat(xx), y, z)
+          // var pos = window.fromLocal(x, y, z)
+          var pos = window.fromLocal(parseFloat(xx), y, z)
           var info = obj
           info.possion = pos
           info.position = Position

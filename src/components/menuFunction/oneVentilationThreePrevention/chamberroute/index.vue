@@ -44,8 +44,7 @@ export default {
       const imageFile = 'img/avoidingDisaster/6.png' // 箭头图片
       const arrowDis = 200.0 // 每多少米一个箭头
       debugger
-      if (window.g_hangdao.length>0)
-      { window.waterflow.getNeededRoute(window.g_hangdao, width, height, speed, imageFile, arrowDis,2)}
+      window.waterflow.getNeededRoute(window.g_hangdao, width, height, speed, imageFile, arrowDis,2)
     },
     // 隐藏
     hide() {
