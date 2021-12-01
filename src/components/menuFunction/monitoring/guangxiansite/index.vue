@@ -1,5 +1,5 @@
 <template>
-  <div class="personsite">
+  <div class="guangxiansite">
     <table-page :pData="ppdata" :tablecolumn="tablecolumn" v-if="showPopPoint"></table-page>
   </div>
 </template>
@@ -9,7 +9,7 @@ import { mapGetters, mapMutations } from 'vuex'
 import TablePage from '../../tablePageControl/TablePage.vue'
 export default {
   components: { TablePage },
-  name: 'personsite',
+  name: 'guangxiansite',
   computed: {
     ...mapGetters(['getNowMenuName'])
   },
@@ -20,7 +20,7 @@ export default {
       eflag2: false,
       ppdata: [],
       tablecolumn: [
-          { label: '名称', prop: 'name', width: '', align: 'center' },
+          { label: '名称', prop: 'name', width: '150', align: 'center' },
           { label: '状态', prop: 'state', width: '', align: 'center' },
           { label: '位置', prop: 'area', width: '', align: 'center' }
       ]
@@ -29,7 +29,7 @@ export default {
   mounted() {},
   watch: {
     getNowMenuName(newV, oldV) {
-      if (newV === 'personsite') {
+      if (newV === 'guangxiansite') {
         this.show()
         this.isshow = true
       } else {
@@ -48,7 +48,7 @@ export default {
     show() {
       var _this = this
       if (!_this.eflag2) {
-        _this.addPPEntities()
+        _this.addJKEntities()
         _this.eflag2 = true
       }
       _this.showPopPoint = true
@@ -59,7 +59,7 @@ export default {
       _this.showPopPoint = false
     },
     // 加载模型
-    addPPEntities() {
+    addJKEntities() {
       var self = this
 
       var dataSources = new Cesium.CustomDataSource(Cesium.createGuid())
@@ -67,7 +67,7 @@ export default {
       var dataSources2 = new Cesium.CustomDataSource(Cesium.createGuid())
       viewer.dataSources.add(dataSources2)
 
-      Cesium.Resource.fetchJson('SampleData/models/systemEquipment/工业视频系统.json').then(function (jsonData) {
+      Cesium.Resource.fetchJson('SampleData/models/systemEquipment/应急广播系统.json').then(function (jsonData) {
         var arr = []
         for (var i = 0; i < jsonData.Map.length; i++) {
           var obj = jsonData.Map[i]
@@ -100,7 +100,7 @@ export default {
 </script>
 
 <style  lang="scss">
-.personsite {
+.guangxiansite {
   width: 100%;
   height: 100%;
   color: #fff;

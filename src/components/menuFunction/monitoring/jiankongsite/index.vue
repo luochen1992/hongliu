@@ -87,7 +87,7 @@ export default {
           // var namelist = Name.split('/')
 
           info.name = Name + i
-          info.state = '在线' + i * 7
+          info.state = '在线' 
           info.area = 'A区域'
           arr.push(info)
         }

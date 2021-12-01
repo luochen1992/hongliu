@@ -45,6 +45,16 @@
     <fusionlinkage></fusionlinkage>
     <personsite></personsite>
     <jiankongsite></jiankongsite>
+    <shipinsite></shipinsite>
+    <yingjisite></yingjisite>
+    <shuiwensite></shuiwensite>
+    <wasisite></wasisite>
+    <tongfengsite></tongfengsite>
+    <shuguansite></shuguansite>
+    <guangxiansite></guangxiansite>
+    <dingbansite></dingbansite>
+    <fenchensite></fenchensite>
+    <diaodusite></diaodusite>
     <zongcaiAnimation></zongcaiAnimation>
   </div>
 </template>
@@ -80,6 +90,16 @@ import Materialsflow from '../components/menuFunction/materialsflow.vue'
 import Headmenu from './headmenu/index.vue'
 import personsite from '../components/menuFunction/monitoring/personsite/index.vue'
 import jiankongsite from '../components/menuFunction/monitoring/jiankongsite/index.vue'
+import shipinsite from '../components/menuFunction/monitoring/shipinsite/index.vue'
+import yingjisite from '../components/menuFunction/monitoring/yingjisite/index.vue'
+import shuiwensite from '../components/menuFunction/monitoring/shuiwensite/index.vue'
+import wasisite from '../components/menuFunction/monitoring/wasisite/index.vue'
+import tongfengsite from '../components/menuFunction/monitoring/tongfengsite/index.vue'
+import shuguansite from '../components/menuFunction/monitoring/shuguansite/index.vue'
+import guangxiansite from '../components/menuFunction/monitoring/guangxiansite/index.vue'
+import dingbansite from '../components/menuFunction/monitoring/dingbansite/index.vue'
+import fenchensite from '../components/menuFunction/monitoring/fenchensite/index.vue'
+import diaodusite from '../components/menuFunction/monitoring/diaodusite/index.vue'
 import zongcaiAnimation from '../components/menuFunction/mining/zongcaiAnimation/index.vue'
 export default {
   name: 'CesiumContainer',
@@ -108,6 +128,16 @@ export default {
     Materialsflow,
     personsite,
     jiankongsite,
+    shipinsite,
+    yingjisite,
+    shuiwensite,
+    wasisite,
+    tongfengsite,
+    shuguansite,
+    guangxiansite,
+    dingbansite,
+    fenchensite,
+    diaodusite,
     zongcaiAnimation
   },
   data() {

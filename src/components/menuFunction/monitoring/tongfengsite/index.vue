@@ -1,5 +1,5 @@
 <template>
-  <div class="personsite">
+  <div class="tongfengsite">
     <table-page :pData="ppdata" :tablecolumn="tablecolumn" v-if="showPopPoint"></table-page>
   </div>
 </template>
@@ -9,7 +9,7 @@ import { mapGetters, mapMutations } from 'vuex'
 import TablePage from '../../tablePageControl/TablePage.vue'
 export default {
   components: { TablePage },
-  name: 'personsite',
+  name: 'tongfengsite',
   computed: {
     ...mapGetters(['getNowMenuName'])
   },
@@ -29,7 +29,7 @@ export default {
   mounted() {},
   watch: {
     getNowMenuName(newV, oldV) {
-      if (newV === 'personsite') {
+      if (newV === 'tongfengsite') {
         this.show()
         this.isshow = true
       } else {
@@ -48,7 +48,7 @@ export default {
     show() {
       var _this = this
       if (!_this.eflag2) {
-        _this.addPPEntities()
+        _this.addJKEntities()
         _this.eflag2 = true
       }
       _this.showPopPoint = true
@@ -59,7 +59,7 @@ export default {
       _this.showPopPoint = false
     },
     // 加载模型
-    addPPEntities() {
+    addJKEntities() {
       var self = this
 
       var dataSources = new Cesium.CustomDataSource(Cesium.createGuid())
@@ -100,7 +100,7 @@ export default {
 </script>
 
 <style  lang="scss">
-.personsite {
+.tongfengsite {
   width: 100%;
   height: 100%;
   color: #fff;

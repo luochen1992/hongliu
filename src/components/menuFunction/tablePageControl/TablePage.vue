@@ -190,7 +190,7 @@ export default {
   position: absolute;
   top: 60px;
   left: 50px;
-  width: 350px;
+  width: auto;
   max-height: 500px;
   min-height: 50px;
   font-family: PingFangSC-Medium;
