@@ -336,10 +336,10 @@ export default {
                       var upPoint = new Cesium.Cartesian3(0,0,0);
                       upPoint = Cesium.Cartesian3.add(v , Cesium.Cartesian3.multiplyByScalar(vLeft1,W/2-0.05,vLeft1),upPoint) ;
                       
-                      var pos = LocalToDegree(upPoint.x,upPoint.y,upPoint.z);
+                      var pos = window.LocalToDegree(upPoint.x,upPoint.y,upPoint.z);
                       coordList.push(pos.x);
                       coordList.push(pos.y);           
-                      coordList.push(pos.z-926.255-H/2);
+                      coordList.push(pos.z - H/2);
                       
                     
                   }
@@ -351,7 +351,7 @@ export default {
                       var pos = LocalToDegree(upPoint.x,upPoint.y,upPoint.z);
                       coordList.push(pos.x);
                       coordList.push(pos.y);
-                      coordList.push(pos.z-926.255-H/2);
+                      coordList.push(pos.z - H/2);
                       
                     
                   }
@@ -363,7 +363,7 @@ export default {
                       var pos = LocalToDegree(upPoint.x,upPoint.y,upPoint.z);
                       coordList.push(pos.x);
                       coordList.push(pos.y);
-                      coordList.push(pos.z-926.255-H/2);
+                      coordList.push(pos.z - H/2);
                       
                     
                   }
@@ -375,7 +375,7 @@ export default {
                     var pos = LocalToDegree(upPoint.x,upPoint.y,upPoint.z);
                     coordList.push(pos.x);
                     coordList.push(pos.y);
-                    coordList.push(pos.z-926.255-H/2);
+                    coordList.push(pos.z - H/2);
                     }
                 }
                 var a = tt.GetAzimuth(x1,-y1,x2,-y2);

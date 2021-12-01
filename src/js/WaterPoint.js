@@ -5,19 +5,11 @@
 
 export default class WaterPoint {
     constructor(viewer, start, end) {
-            this.viewer = viewer;
-            this.start = start;
-            this.end = end;
-        }
-        /**
-         * @param {JSON} json 巷道json文件
-         * @returns {Array} coordList  获取所属避灾路线的巷道
-         * @param {Number} W  巷道宽度
-         * @param {Number} H  巷道高度
-         * @param {Number} speed  流速/移动速度
-         * @param {String} arrowImageFile 箭头图片
-         * @param {Number} arrowDistance 箭头间隔（多少米一个箭头）
-         */
+        this.viewer = viewer;
+        this.start = start;
+        this.end = end;
+    }
+
     waterEmeryPoint() {
         window.cesiumvariate._wwdataSource = []
         this.point = { longitude: 110.3207504, latitude: 38.9228622, height: 1577.877 }
@@ -36,22 +28,14 @@ export default class WaterPoint {
 
     }
     setClock() {
-            viewer.clock.startTime = this.start
-            viewer.clock.stopTime = this.end
-            viewer.clock.currentTime = this.start
-            viewer.clock.clockRange = CTMap.ClockRange.UNBOUNDED // CLAMPED
-            viewer.clock.multiplier = 0.5 // viewer.clock.multiplier / 2
-            viewer.clock.shouldAnimate = true
-        }
-        /**
-         * @param {Array} coordList 符合要求的数组
-         * @param {Number} W  巷道包围盒宽度
-         * @param {Number} H  巷道包围盒高度
-         * @param {Number} speed  流速/移动速度
-         * @param {String} arrowImageFile 箭头图片
-         * @param {Number} arrowDistance 箭头间隔（多少米一个箭头）
-         * @returns 
-         */
+        viewer.clock.startTime = this.start
+        viewer.clock.stopTime = this.end
+        viewer.clock.currentTime = this.start
+        viewer.clock.clockRange = CTMap.ClockRange.UNBOUNDED // CLAMPED
+        viewer.clock.multiplier = 0.5 // viewer.clock.multiplier / 2
+        viewer.clock.shouldAnimate = true
+    }
+
     addWaterPolygon() {
             var tt = this;
             $.get("data/水灾点.json", {}, function(res) {
@@ -104,7 +88,7 @@ export default class WaterPoint {
                                         var upPoint = new Cesium.Cartesian3(0, 0, 0);
                                         upPoint = Cesium.Cartesian3.add(v, Cesium.Cartesian3.multiplyByScalar(vLeft1, W / 2 - 0.05, vLeft1), upPoint);
 
-                                        var pos = LocalToDegree(upPoint.x, upPoint.y, upPoint.z);
+                                        var pos = window.LocalToDegree(upPoint.x, upPoint.y, upPoint.z);
                                         coordList.push(pos.x);
                                         coordList.push(pos.y);
                                         coordList.push(pos.z - H / 2);
@@ -115,7 +99,7 @@ export default class WaterPoint {
                                         var upPoint = new Cesium.Cartesian3(0, 0, 0);
                                         upPoint = Cesium.Cartesian3.add(v, Cesium.Cartesian3.multiplyByScalar(vRight1, W / 2 - 0.05, vRight1), upPoint);
 
-                                        var pos = LocalToDegree(upPoint.x, upPoint.y, upPoint.z);
+                                        var pos = window.LocalToDegree(upPoint.x, upPoint.y, upPoint.z);
                                         coordList.push(pos.x);
                                         coordList.push(pos.y);
                                         coordList.push(pos.z - H / 2);
@@ -126,7 +110,7 @@ export default class WaterPoint {
                                         var upPoint = new Cesium.Cartesian3(0, 0, 0);
                                         upPoint = Cesium.Cartesian3.add(v, Cesium.Cartesian3.multiplyByScalar(vRight2, W / 2 - 0.05, vRight2), upPoint);
 
-                                        var pos = LocalToDegree(upPoint.x, upPoint.y, upPoint.z);
+                                        var pos = window.LocalToDegree(upPoint.x, upPoint.y, upPoint.z);
                                         coordList.push(pos.x);
                                         coordList.push(pos.y);
                                         coordList.push(pos.z - H / 2);
@@ -138,14 +122,15 @@ export default class WaterPoint {
                                         var v = new Cesium.Cartesian3(x2, y2, z2);
                                         var upPoint = new Cesium.Cartesian3(0, 0, 0);
                                         var upPoint = Cesium.Cartesian3.add(v, Cesium.Cartesian3.multiplyByScalar(vLeft2, W / 2 - 0.05, vLeft2), upPoint);
-                                        var pos = LocalToDegree(upPoint.x, upPoint.y, upPoint.z);
+                                        var pos = window.LocalToDegree(upPoint.x, upPoint.y, upPoint.z);
                                         coordList.push(pos.x);
                                         coordList.push(pos.y);
                                         coordList.push(pos.z - H / 2);
                                     }
                                 }
-                                let commFunc = new CTMap.commonFunction();
-                                var a = commFunc.GetAzimuth(x1, -y1, x2, -y2);
+                                // let commFunc = new CTMap.commonFunction();
+                                // var a = commFunc.GetAzimuth(x1, -y1, x2, -y2);
+                                var a = tt.GetAzimuth(x1, -y1, x2, -y2);
                                 var length = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1) + (z2 - z1) * (z2 - z1));
                                 var WW = Math.abs(x2 - x1);
                                 var HH = Math.abs(y2 - y1);
@@ -160,7 +145,6 @@ export default class WaterPoint {
 
         }
         //----------水体-----------------
-
     addSurfaceWater22(waterFace, repeateX = 1, repeateY = 1, angle = 0.0) {
         if (!isNaN(waterFace[0])) {
             var instanceMesh = new Cesium.GeometryInstance({
@@ -182,6 +166,48 @@ export default class WaterPoint {
                     show: true, // 默认隐藏
                 })
             )
+        }
+    }
+    GetAzimuth(X1, Y1, X2, Y2) {
+        var tmpValue = 0
+
+        if (X1 == X2 || Y1 == Y2) {
+            if (X1 == X2) {
+                /// 经度相同
+                if (Y2 >= Y1) {
+                    return 90
+                } else {
+                    return 270
+                }
+            } else {
+                /// 纬度相同
+                if (X2 >= X1) {
+                    return 0
+                } else {
+                    return 180
+                }
+            }
+        }
+
+        tmpValue = Math.atan((Y2 - Y1) / (X2 - X1))
+        var resultAngle = Math.abs((tmpValue * 180) / Math.PI)
+
+        if (X2 > X1) {
+            if (Y2 >= Y1) {
+                /// 第一象限
+                return resultAngle
+            } else {
+                /// 第四象限
+                return 360 - resultAngle
+            }
+        } else {
+            /// 第二象限
+            if (Y2 >= Y1) {
+                return 180 - resultAngle
+            } else {
+                /// 第三象限
+                return 180 + resultAngle
+            }
         }
     }
 }

@@ -491,7 +491,7 @@ export default {
             // caikongMoudle.addCaiKong(url1, url2)
             // 添加工业广场
             // eslint-disable-next-line no-undef
-            _this.add_HLL_GYGC()
+             // _this.add_HLL_GYGC()
             // 添加巷道
             // _this.loadHangDao('data/巷道.json')
              _this.loadHangDao2('data/巷道.json')
