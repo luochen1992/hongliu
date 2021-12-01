@@ -1059,11 +1059,11 @@ export default {
             _this.addGrowLine(GrowLineMoudle)
           }
           // 添加采空区
-          if (caikongMoudle.dataSources.entities._entities._array.length == 0) {
-            var url1 = 'data/采空区.json'
-            var url2 = 'data/新巷道图层.json'
-            caikongMoudle.addCaiKong(url1, url2)
-          }
+          // if (caikongMoudle.dataSources.entities._entities._array.length == 0) {
+          //   var url1 = 'data/采空区.json'
+          //   var url2 = 'data/新巷道图层.json'
+          //   caikongMoudle.addCaiKong(url1, url2)
+          // }
           _this.cancelUndergroundMode()
           // _this.doulbClickHD(false)
         }
