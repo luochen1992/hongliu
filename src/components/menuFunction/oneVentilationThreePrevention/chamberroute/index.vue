@@ -1,26 +1,25 @@
 <template>
-  <div class="waterroute"></div>
+  <div class="chamberroute"></div>
 </template>
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
-import Flow from '../../../../js/Flow'
 export default {
-  name: 'waterroute',
+  name: 'chamberroute',
   computed: {
     ...mapGetters(['getNowMenuName'])
   },
   data() {
     return {
       isshow: false,
-      rescueType: 'WaterRescue',
-      rescueDirect: 'WaterRescueDirect'
+      rescueType: 'ChamberRescue',
+      rescueDirect: 'ChamberRescueDirect'
     }
   },
   mounted() {},
   watch: {
     getNowMenuName(newV, oldV) {
-      if (newV === 'waterroute') {
+      if (newV === 'chamberroute') {
         this.show()
         this.isshow = true
       } else {
@@ -37,23 +36,21 @@ export default {
     }),
     // 显示
     show() {
-      const waterflow = new Flow(window.viewer, this.rescueType, this.rescueDirect)
+      window.waterflow = new CTMap.Flow(window.viewer, this.rescueType, this.rescueDirect)
        // 生成避灾路线
       const width = 6 // 巷道宽度
       const height = 4 // 巷道高度
       const speed = 0.1 // 移动速度
-      const imageFile = 'img/avoidingDisaster/15.png' // 箭头图片
+      const imageFile = 'img/avoidingDisaster/6.png' // 箭头图片
       const arrowDis = 200.0 // 每多少米一个箭头
-      waterflow.getNeededRoute(window.g_hangdao, width, height, speed, imageFile, arrowDis)
+      debugger
+      if (window.g_hangdao.length>0)
+      { window.waterflow.getNeededRoute(window.g_hangdao, width, height, speed, imageFile, arrowDis,2)}
     },
     // 隐藏
     hide() {
-       if (window.cesiumvariate[this.rescueType]) {
-        for (let i = 0; i < window.cesiumvariate[this.rescueType].length; i++) {
-          viewer.dataSources.remove(window.cesiumvariate[this.rescueType][i])
-        }
-        window.cesiumvariate[this.rescueType] = []
-      }
+       window.waterflow.remove();
+       window.waterflow = null
     }
 
   }

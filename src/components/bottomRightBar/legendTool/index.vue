@@ -12,6 +12,10 @@
       <div><img src="img/marker/DYGLXT.png"><span>锂离子蓄电池电源系统</span></div>
       <div><img src="img/marker/SPJKXT.png"><span>视频监控系统</span></div>
       <div><img src="img/marker/ZNTFXT.png"><span>智能通风系统</span></div>
+      <div class="route"><img src="img/avoidingDisaster/21.png"><span>通风路线-自然风</span></div>
+      <div class="route"><img src="img/avoidingDisaster/27.png"><span>火灾避灾路线</span></div>
+      <div class="route"><img src="img/avoidingDisaster/22.png"><span>瓦斯避灾路线</span></div>
+      <div class="route"><img src="img/avoidingDisaster/20.png"><span>煤尘避灾路线</span></div>
     </div>
     <div style="float:right">
       <div><img src="img/marker/ZNPSXT.png"><span>智能排水系统</span></div>
@@ -24,6 +28,11 @@
       <div><img src="img/marker/WLTXXT.png"><span>网络通讯监控系统</span></div>
       <div><img src="img/marker/KYJCXT.png"><span>矿压监测系统</span></div>
       <div><img src="img/marker/QTJKXT.png"><span>其它系统</span></div>
+      <div class="route"><span></span></div>
+      <div class="route"><img src="img/avoidingDisaster/15.png"><span>通风路线-浊风</span></div>
+      <div class="route"><img src="img/avoidingDisaster/18.png"><span>水灾避灾路线</span></div>
+      <div class="route"><img src="img/avoidingDisaster/24.png"><span>顶板避灾路线</span></div>
+      <div class="route"><img src="img/avoidingDisaster/6.png"><span>硐室避灾路线</span></div>
     </div>
   </div>
 </template>
@@ -67,8 +76,8 @@ export default {
           title: '图例',
           shade: 0,
           skin: 'cv_dialog',
-          area: ['360px', '460px'],
-          offset: ['360px', 'calc(100% - 410px)'],
+          area: ['360px', '540px'],
+          offset: ['360px', 'calc(100% - 520px)'],
           zIndex: 2001,
           content: $('.legendTool'),
           success: function (layero, index) {
@@ -97,7 +106,6 @@ export default {
 <style  lang="scss">
 .legendTool {
     padding: 10px;
-    padding-top: 30px;
     width: 94%;
     height: 90%;
     color:#fff;
@@ -105,5 +113,12 @@ export default {
 .legendTool img{
   width:32px;
   height: 32px;
+}
+.legendTool .route{
+  height: 32px;
+}
+.legendTool .route img{
+  width:32px;
+  height: 10px;
 }
 </style>

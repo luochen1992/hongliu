@@ -5,6 +5,7 @@
     <fire-route></fire-route>
     <coaldust-route></coaldust-route>
     <roof-route></roof-route>
+    <chamber-route></chamber-route>
   </div>
 </template>
 
@@ -15,9 +16,10 @@ import GasRoute from './gasroute/index.vue'
 import WaterRoute from './waterroute/index.vue'
 import CoaldustRoute from './coaldustroute/index.vue'
 import RoofRoute from './roofroute/index.vue'
+import ChamberRoute from './chamberroute/index.vue'
 // 避灾路线
 export default {
-  components: { WaterRoute, GasRoute, FireRoute, CoaldustRoute, RoofRoute },
+  components: { WaterRoute, GasRoute, FireRoute, CoaldustRoute, RoofRoute, ChamberRoute },
   name: 'avoidingdisaster',
   data() {
     return {}
@@ -44,6 +46,9 @@ export default {
         }
         if (newval.indexOf('煤尘避灾路线') > -1) {
           this.setNowMenuName('coaldustroute')
+        }
+         if (newval.indexOf('硐室避灾路线') > -1) {
+          this.setNowMenuName('chamberroute')
         }
       },
       immediate: true
