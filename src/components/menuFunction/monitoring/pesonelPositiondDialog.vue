@@ -3,15 +3,15 @@
     <div v-show="ishander" class="hander"></div>
     <div class="center">
       <el-table :data="tableData" border size="mini" :row-class-name="tableRowClassName" cell-class-name="table-cell" class="dialogtable" style="width: 100%">
-       <el-table-column type="index" label="序号" width="50" align="center"> </el-table-column>
+        <el-table-column type="index" label="序号" width="50" align="center"> </el-table-column>
         <!-- <el-table-column prop="name" label="姓名" width="170" align="center"> </el-table-column>
         <el-table-column prop="number" label="卡号" width="" align="center"> </el-table-column>
         <el-table-column prop="area" label="区域" align="center"> </el-table-column> -->
         <el-table-column v-for="(columnitem, cindex) in tablecolumn" :key="cindex" :prop="columnitem.prop" :label="columnitem.label" :width="columnitem.width" :align="columnitem.align">
         </el-table-column>
-        <el-table-column label="操作" align="center" width="80">
+        <el-table-column label="操作" align="center">
           <template slot-scope="scope">
-            <el-button size="mini" type="success" @click="location(scope.$index, scope.row)">定位</el-button>
+            <slot :item="scope.row"><el-button size="mini" type="success" @click="location(scope.$index, scope.row)">定位</el-button></slot>
           </template>
         </el-table-column>
       </el-table>
@@ -129,15 +129,13 @@ export default {
       }
       // debugger;
       var ellipsoid = viewer.scene.globe.ellipsoid
-      // var cartographic = ellipsoid.cartesianToCartographic(item.possion)
+      var cartographic = ellipsoid.cartesianToCartographic(item.possion)
 
-      // var lat = Cesium.Math.toDegrees(cartographic.latitude)
+      var lat = Cesium.Math.toDegrees(cartographic.latitude)
 
-      // var lng = Cesium.Math.toDegrees(cartographic.longitude)
-      var lng = item.possion.x
-      var lat = item.possion.y
+      var lng = Cesium.Math.toDegrees(cartographic.longitude)
 
-      var alt = item.possion.z + 700
+      var alt = cartographic.height + 700
 
       window.viewer.camera.flyTo({
         destination: window.Cesium.Cartesian3.fromDegrees(lng, lat, alt), // 经度、纬度、高度
@@ -162,24 +160,23 @@ export default {
           polygonXYZ.push(z)
         }
 
-        // for (let k = 0; k < polygonXYZ.length - 3; k += 3) {
-        //   var x = polygonXYZ[k]
-        //   var y = polygonXYZ[k + 1]
-        //   var z = polygonXYZ[k + 2]
-        //   var xyzCoord = window.convert2000ToWGS84(x, y, z)
-        //   var xyzArr = WGS84_to_Cartesian3(xyzCoord)
-        //   pnts.push(xyzArr)
-        // }
-        // var color = new Cesium.Color(1, 128 / 255, 0)
-        // window.cesiumvariate._preObj = viewer.entities.add({
-        //   polyline: {
-        //     positions: pnts,
-        //     width: 4.0,
-        //     material: CTMap.Color.fromCssColorString('#FF0000').withAlpha(0.8),
-        //     // clampToGround:true,
-        //     zIndex: 10
-        //   }
-        // })
+        for (let k = 0; k < polygonXYZ.length - 3; k += 3) {
+          var x = polygonXYZ[k]
+          var y = polygonXYZ[k + 1]
+          var z = polygonXYZ[k + 2]
+
+          pnts.push(window.fromLocal(x, y, z - 938))
+        }
+        var color = new Cesium.Color(1, 128 / 255, 0)
+        window.cesiumvariate._preObj = viewer.entities.add({
+          polyline: {
+            positions: pnts,
+            width: 4.0,
+            material: CTMap.Color.fromCssColorString('#FF0000').withAlpha(0.8),
+            // clampToGround:true,
+            zIndex: 10
+          }
+        })
       }
     },
     // 翻页
