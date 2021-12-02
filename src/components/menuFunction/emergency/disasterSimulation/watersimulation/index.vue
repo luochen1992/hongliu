@@ -143,7 +143,7 @@ export default {
       var _this = this
       
       _this.polyline = [
-        { longitude:110.3210387	, latitude:38.9125500	, height:1082.5227	},
+        { longitude:110.3210387, latitude:38.9125500	, height:1082.5227	},
         { longitude:110.3210395	, latitude:38.9133721	, height:1081.1211	},
         { longitude:110.3210399	, latitude:38.9134059	, height:1081.0902	},
         { longitude:110.3210399	, latitude:38.9134299	, height:1080.8598	},

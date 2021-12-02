@@ -6,6 +6,7 @@
     <coaldust-route></coaldust-route>
     <roof-route></roof-route>
     <chamber-route></chamber-route>
+    <wind-route></wind-route>
   </div>
 </template>
 
@@ -17,9 +18,11 @@ import WaterRoute from './waterroute/index.vue'
 import CoaldustRoute from './coaldustroute/index.vue'
 import RoofRoute from './roofroute/index.vue'
 import ChamberRoute from './chamberroute/index.vue'
+import WindRoute from './windroute/index.vue'
+
 // 避灾路线
 export default {
-  components: { WaterRoute, GasRoute, FireRoute, CoaldustRoute, RoofRoute, ChamberRoute },
+  components: { WaterRoute, GasRoute, FireRoute, CoaldustRoute, RoofRoute, ChamberRoute, WindRoute },
   name: 'avoidingdisaster',
   data() {
     return {}
@@ -32,6 +35,9 @@ export default {
   watch: {
     avoidingdisasterdata: {
       handler(newval, oldval) {
+        if (newval.indexOf('井下通风路线') > -1) {
+          this.setNowMenuName('waterroute')
+        }
         if (newval.indexOf('水灾避灾路线') > -1) {
           this.setNowMenuName('waterroute')
         }

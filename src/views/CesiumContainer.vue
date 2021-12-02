@@ -24,7 +24,7 @@
          @click="toolBarshow"><img src="../assets/images/sheng.png"
            class="shimg" /></div>
     <databig></databig>
-    <windflow></windflow>
+    <!-- <windflow></windflow> -->
     <carflow></carflow>
     <layertree></layertree>
     <flyroute></flyroute>
@@ -79,7 +79,7 @@ import sunlight from '../components/toolBar/sunlight/index.vue'
 import Overlay from '../components/toolBar/overlay/index.vue'
 import flyroute from '../components/toolBar/flyroute/index.vue'
 import databig from '../components/menuFunction/databig/index.vue'
-import windflow from '../components/menuFunction/oneVentilationThreePrevention/windflow/index.vue'
+// import windflow from '../components/menuFunction/oneVentilationThreePrevention/windflow/index.vue'
 import carflow from '../components/menuFunction/carflow.vue'
 import locus from '../components/menuFunction/locus.vue'
 import fusionlinkage from '../components/menuFunction/fusionlinkage/index.vue'
@@ -107,7 +107,7 @@ export default {
     toolBar,
     bottomrightBar,
     databig,
-    windflow,
+    // windflow,
     carflow,
     Measure,
     Layertree,
@@ -126,6 +126,7 @@ export default {
     Coalflow,
     Electricityflow,
     Materialsflow,
+    // 监测监控
     personsite,
     jiankongsite,
     shipinsite,
@@ -138,6 +139,7 @@ export default {
     dingbansite,
     fenchensite,
     diaodusite,
+    // 采掘工程
     zongcaiAnimation
   },
   data() {
@@ -203,7 +205,7 @@ export default {
           children: [
             {
               name: '井下通风路线',
-              id: 'windflow',
+              id: 'windroute',
               img: 'img/cicular/通风.png'
             },
             {
