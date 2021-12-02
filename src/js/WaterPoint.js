@@ -12,7 +12,7 @@ export default class WaterPoint {
 
     waterEmeryPoint() {
         window.cesiumvariate._wwdataSource = []
-        this.point = { longitude: 110.3207504, latitude: 38.9228622, height: 1577.877 }
+        this.point = { longitude: 110.3209802, latitude: 38.9125713, height: 1577.877 }
         this.addWaterPolygon();
         window.viewer.camera.flyTo({
                 destination: window.Cesium.Cartesian3.fromDegrees(this.point.longitude, this.point.latitude, this.point.height + 30), // 经度、纬度、高度
@@ -128,9 +128,9 @@ export default class WaterPoint {
                                         coordList.push(pos.z - H / 2);
                                     }
                                 }
-                                // let commFunc = new CTMap.commonFunction();
-                                // var a = commFunc.GetAzimuth(x1, -y1, x2, -y2);
-                                var a = tt.GetAzimuth(x1, -y1, x2, -y2);
+                                let commFunc = new CTMap.commonFunction();
+                                var a = commFunc.GetAzimuth(x1, -y1, x2, -y2);
+                                // var a = tt.GetAzimuth(x1, -y1, x2, -y2);
                                 var length = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1) + (z2 - z1) * (z2 - z1));
                                 var WW = Math.abs(x2 - x1);
                                 var HH = Math.abs(y2 - y1);
