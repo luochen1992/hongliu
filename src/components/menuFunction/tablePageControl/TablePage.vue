@@ -124,58 +124,54 @@ export default {
       if (window.cesiumvariate._preObj) {
         viewer.entities.remove(window.cesiumvariate._preObj)
       }
-      // debugger;
-      var ellipsoid = viewer.scene.globe.ellipsoid
-      var cartographic = ellipsoid.cartesianToCartographic(item.possion)
-      var lng = Cesium.Math.toDegrees(cartographic.longitude)
-      var lat = Cesium.Math.toDegrees(cartographic.latitude)
-      var alt = cartographic.height
-      // var lng = item.possion.x
-      // var lat = item.possion.y
-      // var alt = item.possion.z + 700
+      let lng = 0 ,lat = 0,alt = 0,flag = 0
+      if(item.flag){ flag = item.flag}
+      // 用于判断json文件中的坐标是否为WGS经纬度；flag=1为经纬度坐标；flag = 0 为其他坐标系（例如2000坐标系等）
+      if(flag){
+         lng = item.possion.x
+        lat = item.possion.y
+        alt = item.possion.z
+      }else{
+        var ellipsoid = viewer.scene.globe.ellipsoid
+         var cartographic = ellipsoid.cartesianToCartographic(item.possion)
+         lng = Cesium.Math.toDegrees(cartographic.longitude)
+         lat = Cesium.Math.toDegrees(cartographic.latitude)
+         alt = cartographic.height
+      }
+      if(lng==0 || lat==0){return;}  // 如果经纬度为0，证明json文件中无此数据，则返回
       
-      window.viewer.camera.flyTo({
-        destination: window.Cesium.Cartesian3.fromDegrees(lng, lat, alt), // 经度、纬度、高度
-        orientation: {
-          heading: window.Cesium.Math.toRadians(285.03), // 绕垂直于地心的轴旋转
-          pitch: window.Cesium.Math.toRadians(-95.74), // 绕纬度线旋转
-          roll: 0 // 绕经度线旋转
-        },
-        duration: 1 // 飞行到目的地花费时间3秒
-      })
-      // if (item.position) {
-      //   debugger
-      //   var pnts = []
-      //   var polygonXYZ = []
-      //   for (let k = 0; k < item.position.length - 3; k += 3) {
-      //     var x = parseFloat(item.position[k])
-      //     var y = parseFloat(item.position[k + 1])
-      //     var z = parseFloat(item.position[k + 2])
-
-      //     polygonXYZ.push(x)
-      //     polygonXYZ.push(y)
-      //     polygonXYZ.push(z)
-      //   }
-
-        // for (let k = 0; k < polygonXYZ.length - 3; k += 3) {
-        //   var x = polygonXYZ[k]
-        //   var y = polygonXYZ[k + 1]
-        //   var z = polygonXYZ[k + 2]
-        //   var xyzCoord = window.convert2000ToWGS84(x, y, z)
-        //   var xyzArr = WGS84_to_Cartesian3(xyzCoord)
-        //   pnts.push(xyzArr)
-        // }
-        // var color = new Cesium.Color(1, 128 / 255, 0)
-        // window.cesiumvariate._preObj = viewer.entities.add({
-        //   polyline: {
-        //     positions: pnts,
-        //     width: 4.0,
-        //     material: CTMap.Color.fromCssColorString('#FF0000').withAlpha(0.8),
-        //     // clampToGround:true,
-        //     zIndex: 10
-        //   }
-        // })
-      // }
+      let heading = 285.03,pitch = -95.74,roll = 0
+      if(item.orientation){
+          heading = item.orientation.heading?item.orientation.heading:285.03
+          pitch = item.orientation.pitch?item.orientation.pitch:-95.74
+          roll = item.orientation.roll?item.orientation.roll:0
+      }
+       
+      
+      // 确认飞过去的方式
+      let flymode = 0
+      if(item.flymode){flymode = item.flymode}
+      if(flymode){
+           window.centerAt2({
+              x: lng,
+              y: lat,
+              z: alt,
+              heading: heading,
+              pitch: pitch,
+              roll: roll
+        })
+      }else{
+         window.viewer.camera.flyTo({
+          destination: window.Cesium.Cartesian3.fromDegrees(lng, lat, alt), // 经度、纬度、高度
+          orientation: {
+            heading: window.Cesium.Math.toRadians(heading), // 绕垂直于地心的轴旋转
+            pitch: window.Cesium.Math.toRadians(pitch), // 绕纬度线旋转
+            roll: window.Cesium.Math.toRadians(roll) // 绕经度线旋转
+          },
+          duration: 1 // 飞行到目的地花费时间3秒
+        })
+      }
+     
     },
     // 翻页
     handleCurrentChange(index) {

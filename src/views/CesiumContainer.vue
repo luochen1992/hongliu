@@ -56,6 +56,7 @@
     <fenchensite></fenchensite>
     <diaodusite></diaodusite>
     <zongcaiAnimation></zongcaiAnimation>
+    <juejinAnimation></juejinAnimation>
   </div>
 </template>
 
@@ -101,6 +102,7 @@ import dingbansite from '../components/menuFunction/monitoring/dingbansite/index
 import fenchensite from '../components/menuFunction/monitoring/fenchensite/index.vue'
 import diaodusite from '../components/menuFunction/monitoring/diaodusite/index.vue'
 import zongcaiAnimation from '../components/menuFunction/mining/zongcaiAnimation/index.vue'
+import juejinAnimation from '../components/menuFunction/mining/juejinAnimation/index.vue'
 export default {
   name: 'CesiumContainer',
   components: {
@@ -140,7 +142,8 @@ export default {
     fenchensite,
     diaodusite,
     // 采掘工程
-    zongcaiAnimation
+    zongcaiAnimation,
+    juejinAnimation
   },
   data() {
     this.showslider = false
