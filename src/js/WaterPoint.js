@@ -1,13 +1,14 @@
 /**
- * 创建一通三防路线的基本函数
+ * 创建基本函数
  * Date:2021.11.27
  */
 
 export default class WaterPoint {
-    constructor(viewer, start, end) {
+    constructor(viewer, start, end, polyline) {
         this.viewer = viewer;
         this.start = start;
         this.end = end;
+        this.polyline = polyline;
     }
 
     waterEmeryPoint() {
@@ -24,7 +25,7 @@ export default class WaterPoint {
                 duration: 1 // 飞行到目的地花费时间3秒
             })
             //添加时钟
-            // this.setClock()
+        this.setClock()
 
     }
     setClock() {
@@ -128,9 +129,7 @@ export default class WaterPoint {
                                         coordList.push(pos.z - H / 2);
                                     }
                                 }
-                                let commFunc = new CTMap.commonFunction();
-                                var a = commFunc.GetAzimuth(x1, -y1, x2, -y2);
-                                // var a = tt.GetAzimuth(x1, -y1, x2, -y2);
+                                var a = tt.GetAzimuth(x1, -y1, x2, -y2);
                                 var length = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1) + (z2 - z1) * (z2 - z1));
                                 var WW = Math.abs(x2 - x1);
                                 var HH = Math.abs(y2 - y1);
@@ -145,29 +144,6 @@ export default class WaterPoint {
 
         }
         //----------水体-----------------
-    addSurfaceWater22(waterFace, repeateX = 1, repeateY = 1, angle = 0.0) {
-        if (!isNaN(waterFace[0])) {
-            var instanceMesh = new Cesium.GeometryInstance({
-                geometry: new Cesium.PolygonGeometry({
-                    polygonHierarchy: new Cesium.PolygonHierarchy(Cesium.Cartesian3.fromDegreesArrayHeights(waterFace)),
-                    perPositionHeight: true, //注释掉此属性水面就贴地了
-                    stRotation: 25
-                })
-            })
-            var appcMoudle = new CTMap.waterEffects(viewer);
-            var appc = appcMoudle.app(repeateX, repeateY, angle);
-            window.cesiumvariate._wwdataSource.push(new Cesium.CustomDataSource(Cesium.createGuid()))
-            viewer.dataSources.add(window.cesiumvariate._wwdataSource[window.cesiumvariate._wwdataSource.length - 1])
-            var custom_flowMesh = window.cesiumvariate._wwdataSource[window.cesiumvariate._wwdataSource.length - 1]._primitives.add(
-                new Cesium.Primitive({
-                    geometryInstances: instanceMesh,
-                    appearance: appc,
-                    asynchronous: false,
-                    show: true, // 默认隐藏
-                })
-            )
-        }
-    }
     GetAzimuth(X1, Y1, X2, Y2) {
         var tmpValue = 0
 
@@ -207,6 +183,182 @@ export default class WaterPoint {
             } else {
                 /// 第三象限
                 return 180 + resultAngle
+            }
+        }
+    }
+    addSurfaceWater22(waterFace, repeateX = 1, repeateY = 1, angle = 0.0) {
+            if (!isNaN(waterFace[0])) {
+                var instanceMesh = new Cesium.GeometryInstance({
+                    geometry: new Cesium.PolygonGeometry({
+                        polygonHierarchy: new Cesium.PolygonHierarchy(Cesium.Cartesian3.fromDegreesArrayHeights(waterFace)),
+                        perPositionHeight: true, //注释掉此属性水面就贴地了
+                        stRotation: 25
+                    })
+                })
+                var appcMoudle = new CTMap.waterEffects(viewer);
+                var appc = appcMoudle.app(repeateX, repeateY, angle);
+                window.cesiumvariate._wwdataSource.push(new Cesium.CustomDataSource(Cesium.createGuid()))
+                viewer.dataSources.add(window.cesiumvariate._wwdataSource[window.cesiumvariate._wwdataSource.length - 1])
+                var custom_flowMesh = window.cesiumvariate._wwdataSource[window.cesiumvariate._wwdataSource.length - 1]._primitives.add(
+                    new Cesium.Primitive({
+                        geometryInstances: instanceMesh,
+                        appearance: appc,
+                        asynchronous: false,
+                        show: true, // 默认隐藏
+                    })
+                )
+            }
+        }
+        // 逃灾路线
+    waterRoute() {
+            if (this.isshow2) {
+                if (window.e_route.waterroute) {
+                    viewer.entities.remove(window.e_route.waterroute)
+                    window.e_route.waterroute = null
+                }
+                if (window.e_route.watermodelEntity) {
+                    viewer.entities.remove(window.e_route.watermodelEntity)
+                    window.e_route.watermodelEntity = null
+                }
+                if (window.e_route.watermodelEntity2) {
+                    viewer.entities.remove(window.e_route.watermodelEntity2)
+                    window.e_route.watermodelEntity2 = null
+                }
+                this.isshow2 = false
+                return
+            }
+            this.isshow2 = true
+            var _this = this
+            var polyline = this.polyline
+            const ptList = []
+
+            var keyPos = new CTMap.SampledPositionProperty()
+            keyPos.backwardExtrapolationDuration = 2
+            keyPos.backwardExtrapolationType = CTMap.ExtrapolationType.HOLD
+            keyPos.forwardExtrapolationType = CTMap.ExtrapolationType.HOLD
+            const orientation = new CTMap.VelocityOrientationProperty(keyPos)
+
+
+            var keyPos2 = new CTMap.SampledPositionProperty()
+            keyPos2.backwardExtrapolationDuration = 2
+            keyPos2.backwardExtrapolationType = CTMap.ExtrapolationType.HOLD
+            keyPos2.forwardExtrapolationType = CTMap.ExtrapolationType.HOLD
+            const orientation2 = new CTMap.VelocityOrientationProperty(keyPos)
+
+            for (var j = 0; j < polyline.length; j++) {
+                var position = Cesium.Cartesian3.fromDegrees(polyline[j].longitude, polyline[j].latitude, polyline[j].height)
+                const ctime = CTMap.JulianDate.addSeconds(_this.start, 1 + j * 3, new CTMap.JulianDate())
+                keyPos.addSample(ctime, position)
+                ptList.push(position)
+
+
+                var cartesian1 = position
+                var cartesian2 = position
+                var coffset = 0
+                if (j + 1 == polyline.length) {
+                    cartesian1 = Cesium.Cartesian3.fromDegrees(polyline[j - 1].longitude, polyline[j - 1].latitude, polyline[j - 1].height)
+                    let lineDistance = Cesium.Cartesian3.distance(cartesian1, cartesian2)
+                    coffset = (lineDistance + 2) / lineDistance
+                } else {
+                    cartesian2 = Cesium.Cartesian3.fromDegrees(polyline[j + 1].longitude, polyline[j + 1].latitude, polyline[j + 1].height)
+                    let lineDistance = Cesium.Cartesian3.distance(cartesian1, cartesian2)
+                    coffset = 2 / lineDistance
+                }
+
+                var c = Cesium.Cartesian3.lerp(cartesian1, cartesian2, coffset, new Cesium.Cartesian3())
+                keyPos2.addSample(ctime, c)
+            }
+            let offset = 0
+            window.e_route.waterroute = viewer.entities.add({
+                availability: new Cesium.TimeIntervalCollection([
+                    new Cesium.TimeInterval({
+                        start: _this.start,
+                        stop: _this.end,
+                        isStartIncluded: true,
+                        isStopIncluded: false
+                    })
+                ]),
+                position: keyPos,
+                // show: false,
+                orientation: orientation,
+                path: {
+                    // positions: ptList,
+                    show: true,
+                    // positions: points,
+                    leadTime: 2 + polyline.length * 3,
+                    trailTime: 2 + polyline.length * 3,
+                    width: 6.0,
+                    material: new CTMap.StripeMaterialProperty({
+                        evenColor: CTMap.Color.fromCssColorString('#FF0000').withAlpha(0.8),
+                        oddColor: CTMap.Color.fromCssColorString('#9FEE00').withAlpha(0.8),
+                        repeat: 40,
+                        orientation: CTMap.StripeOrientation.VERTICAL,
+                        offset: new CTMap.CallbackProperty((time) => {
+                            return (offset += 0.0008)
+                        }, false)
+                    })
+                }
+            })
+            _this.peopleAnimation(keyPos, orientation, keyPos2, orientation2)
+                // _this.Popup()
+        }
+        // 避险动画
+    peopleAnimation(keyPos, orientation, keyPos2, orientation2) {
+        window.e_route.watermodelEntity = viewer.entities.add({
+            position: keyPos,
+            // show: false,
+            orientation: orientation,
+            model: {
+                uri: 'data/矿工2/duizhang01.gltf',
+                minimumPixelSize: 64
+            }
+        })
+        window.e_route.watermodelEntity2 = viewer.entities.add({
+            position: keyPos2,
+            // show: false,
+            orientation: orientation2,
+            model: {
+                uri: 'data/矿工2/duizhang01.gltf',
+                minimumPixelSize: 64
+            }
+        })
+        viewer.clock.onTick.addEventListener(this.clockonTick)
+        viewer.clock.currentTime = this.start
+    }
+    clockonTick(clock) {
+        var _this = this
+        if (window.e_route.watermodelEntity && window.e_route.watermodelEntity.orientation) {
+            if (window.e_route.watermodelEntity.position.getValue(clock.currentTime) && clock._currentTime <= clock.stopTime) {
+                let center = window.e_route.watermodelEntity.position.getValue(clock.currentTime)
+                let orientation = window.e_route.watermodelEntity.orientation.getValue(clock.currentTime)
+                let transform = Cesium.Transforms.eastNorthUpToFixedFrame(center)
+                if (orientation != null) {
+                    transform = Cesium.Matrix4.fromRotationTranslation(Cesium.Matrix3.fromQuaternion(orientation), center)
+                        //if (this.viewtype === '3') {
+                    viewer.camera.lookAtTransform(transform, new Cesium.Cartesian3(-25, -1, 3))
+                    window.e_route.watermodelEntity.show = true;
+                    window.e_route.watermodelEntity2.show = true;
+                    // } else {
+                    //viewer.trackedEntity =window.e_route.watermodelEntity;
+
+                    //  viewer.camera.lookAtTransform(transform, new Cesium.Cartesian3(-40, 0, 2.5))
+                    //  window.e_route.watermodelEntity.show = false;
+                    //  window.e_route.watermodelEntity2.show = false;
+                    //}
+                }
+
+            }
+
+            if (clock._currentTime >= clock.stopTime) {
+                viewer.clock.onTick.removeEventListener(_this.clockonTick)
+                viewer.camera.lookAtTransform(Cesium.Matrix4.IDENTITY)
+                viewer.camera.setView({
+                    destination: Cesium.Cartesian3.fromDegrees(
+                        this.polyline[this.polyline.length - 1].longitude,
+                        this.polyline[this.polyline.length - 1].latitude,
+                        this.polyline[this.polyline.length - 1].height + 10
+                    )
+                })
             }
         }
     }

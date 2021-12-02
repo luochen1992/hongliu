@@ -240,6 +240,9 @@ export default {
         case '仿真模拟':
           this.waterPointFun()
           break
+        case '逃生演练':
+          this.escape()
+          break
         case '广播联动':
           this.radioLinkage()
           break
@@ -251,6 +254,11 @@ export default {
     waterPointFun(){
       const waterPointCompont = new WaterPoint(window.viewer,this.start,this.end);
       waterPointCompont.waterEmeryPoint();
+    },
+    escape(){
+      const waterPointCompont = new WaterPoint(window.viewer,this.start,this.end,this.polyline);
+      waterPointCompont.waterRoute();
+    
     },
     videoLinkage() {
       this.videoShow = !this.videoShow
