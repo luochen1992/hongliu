@@ -42,7 +42,7 @@
     </div>
 
     <div class="radio-control" v-show="radioControl">
-      <audio controls>
+      <audio controls loop id="music1" >
         <source src="video/音频.mp3" type="audio/mpeg" autoplay="autoplay">
       您的浏览器不支持 audio 元素。
       </audio>
@@ -268,14 +268,25 @@ export default {
       console.log('广播联动')
     },
     confirm() {
-      // 播放声音文件
+      // 1.播放声音文件
       debugger
-        this.radioControl = true
-      // 仅广播图标可见
+      this.radioControl = true
+      var p = document.getElementById('music1'); 
+      // if (p !== null) {             
+          //检测播放是否已暂停.audio.paused 在播放器播放时返回false.
+          p.play()
+      //  }
 
-      // 图标呈现报警状态
+      // 2.仅广播图标可见
+      if (viewer.layerList) {
+            debugger
+            // viewer.layerList[2]._layers[0].setVisible(false)
+            viewer.layerList[2]._layers[0].config.visible = false
+            viewer.layerList[2]._layers[1].config.visible = false
+      }
+      // 3.图标呈现报警状态
 
-      //
+      // 4.定位至全局
       window.centerAt2({
             y: 38.79582208834937,
             x: 110.29611873903323,
@@ -284,19 +295,20 @@ export default {
             pitch: -39.08015686798619,
             roll: 359.9894913368578
       })
-      console.log('确认')
     },
     cancel() {
+      //关闭警报
+      debugger
+      var p = document.getElementById('music1'); 
+      if (p !== null) {             
+          //检测播放是否已暂停.audio.paused 在播放器播放时返回false.
+          p.pause()
+       }
       this.radiodialogshow = false
-      console.log('取消')
-    },
-    playSound(src){
-        var _s = document.getElementById('snd');
-          if(src!='' && typeof src!=undefined){
-          _s.src = src;
-        }
-    } 
-  }
+      this.radioControl = false
+    }
+  } 
+  
 }
 </script>
 
@@ -346,7 +358,7 @@ export default {
 .radio-dialog {
   width: 300px;
   height: 135px;
-  background-color: #031521;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAGJJREFUWAnt0rENwCAQBEFMQgluxf03ZiRamIRgyVd6Dfes9/vHxW9efNs5rQP1hxJMUAW0b4MJqoD2bTBBFdC+DSaoAtq3wQRVQPs2mKAKaN8GE1QB7dtggiqgfRtMUAW034cCAaVgY0h9AAAAAElFTkSuQmCC);
   border-radius: 2px;
   box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.3);
   border: 1px solid rgb(30 175 251);

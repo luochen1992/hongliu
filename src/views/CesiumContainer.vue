@@ -1016,7 +1016,7 @@ export default {
             mineBoundaryJsonDataSource = res
           })
           viewer.dataSources.remove(mineBoundaryJsonDataSource)
-          // 飞行至王坡煤矿
+          // 飞行至红柳林煤矿
           camera.flyTo(wangpoLocation)
           clearTimeout(animate3) // 停止动画
           _this.loadend = true
