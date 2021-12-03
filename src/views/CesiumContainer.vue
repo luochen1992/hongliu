@@ -57,6 +57,12 @@
     <diaodusite></diaodusite>
     <zongcaiAnimation></zongcaiAnimation>
     <juejinAnimation></juejinAnimation>
+
+    <electricalSystem></electricalSystem>
+    <drainageSystem></drainageSystem>
+    <!-- <transportationSystem></transportationSystem> -->
+    <ventilationSystem></ventilationSystem>
+
   </div>
 </template>
 
@@ -103,6 +109,11 @@ import fenchensite from '../components/menuFunction/monitoring/fenchensite/index
 import diaodusite from '../components/menuFunction/monitoring/diaodusite/index.vue'
 import zongcaiAnimation from '../components/menuFunction/mining/zongcaiAnimation/index.vue'
 import juejinAnimation from '../components/menuFunction/mining/juejinAnimation/index.vue'
+
+import electricalSystem from '../components/menuFunction/electricalTransportation/electricalSystem/index.vue'
+import drainageSystem from '../components/menuFunction/electricalTransportation/drainageSystem/index.vue'
+// import transportationSystem from '../components/menuFunction/electricalTransportation/transportationSystem/index.vue'
+import ventilationSystem from '../components/menuFunction/electricalTransportation/ventilationSystem/index.vue'
 export default {
   name: 'CesiumContainer',
   components: {
@@ -143,7 +154,12 @@ export default {
     diaodusite,
     // 采掘工程
     zongcaiAnimation,
-    juejinAnimation
+    juejinAnimation,
+    //机电运输
+    electricalSystem,
+    drainageSystem,
+    // transportationSystem,
+    ventilationSystem
   },
   data() {
     this.showslider = false
